@@ -82,7 +82,7 @@
 	  		
 	    	<br><br><br>
 	    	<div class="input-group">
-		    	<p> Insira o novo valor unitario  para os produtos ---	<strong style="color:#BCF20CFF">Sem pontos ou virgulas :   certo =  Ex 100  errado = 100,00  </strong>	 </p>   	
+		    	<p> Insira o novo valor unitario  para os produtos ---	<strong style="color:#BCF20CFF; font-size: 24px;">Sem pontos ou virgulas :   certo :    Ex 100  errado : 100,00  </strong>	 </p>   	
 		      </div>
 		    </div>
               <br><br>
