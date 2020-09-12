@@ -29,18 +29,18 @@
 
 
               
-        $usuario = $_POST["Nome"];
-        $email = $_POST['inputEmail4'];
+        $usuario = $_POST["nome"];
+        $email = $_POST['email'];
         $confirma = $_POST['confirmar'];
         $cpf = $_POST['cpf'];
-        $cp = $_POST['CEP'];
-        $bairro = $_POST['inputAddress'];
-        $logradouro = $_POST['inputAddress'];
+        $cp = $_POST['cep'];
+        $bairro = $_POST['bairro'];
+        $logradouro = $_POST['logradouro'];
         $numero = $_POST['numero'];
-        $complemento = $_POST['Compelemento'];
+        $complemento = $_POST['compelemento'];
         $referencia = $_POST['referencia'];
-        $uf = $_POST['inputEstado'];
-        $cidade = $_POST['inputCity'];
+        $uf = $_POST['estado'];
+        $cidade = $_POST['cidade'];
         $quantidade = $_POST['valorPg-b'];
         $preco = $_SESSION["preco"];
 
@@ -62,7 +62,7 @@ if( $email !=  $confirma)
          print_r('<br>');
          print_r('Cpf : ' . $cpf);
          print_r('<br>');
-         print_r('Cp : ' . $cp);
+         print_r('Cep : ' . $cp);
          print_r('<br>');
          print_r('Bairro : ' . $bairro);
          print_r('<br>');
@@ -196,6 +196,7 @@ if( $email !=  $confirma)
   <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
   <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
   <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
+  
 
   <script src="../jQuery/jquery.js"></script>
   <script src="../javascript/valida.js"></script>

@@ -209,7 +209,7 @@
 
 			 	<div class="form-group ">
 			    <label for="Nome">Nome Completo</label>
-			    <input type="text" class="form-control" id="Nome" name="Nome" placeholder="Digite seu nome" required>
+			    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
 			  </div>
 
 			  <div class="form-group">
@@ -219,7 +219,7 @@
 			  <div class="form-row">
 			    <div class="form-group col-md-6 ">
 			      <label for="inputEmail4">Email</label>
-			      <input type="email" class="form-control" id="inputEmail4" name="inputEmail4" placeholder="Email" required>
+			      <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
 			    </div>
 			    <div class="form-group col-md-6">
 			      <label for="confirmar">Confirme Email</label>
@@ -229,48 +229,47 @@
 			 
 			 <legend>Endereço:</legend>
 			   <div class="form-group col-md-3">
-			      <label for="inputCEP">CEP</label>
-			      <input type="text" class="form-control" id="CEP" name="CEP" required>
+			      <label for="cep">CEP</label>
+			      <input type="text" class="form-control" id="cep" name="cep" required>
 			    </div>
 			     <div class="form-group">
 			    <label for="inputAddress">Bairro</label>
 
-			    <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder=" Bairro" required>
+			    <input type="text" class="form-control" id="bairro" name="bairro" placeholder=" Bairro" required>
 			  </div>
 			  <div class="form-group">
 			  
-			    <label for="inputAddress">Rua</label>
+			    <label for="inputLogradouro">Rua</label>
 
-			    <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="Rua" required>
+			    <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Rua" required>
 			  </div>
 			   <div class="form-group col-md-3">
 			      <label for="inputNum">Número</label>
 			      <input type="number" class="form-control" id="numero" name="numero" required>
 			    </div>
 
-
-			 
+             
 
 			  
 			  <div class="form-group">
 			    <label for="">Compelemento</label>
 
-			    <input type="text" class="form-control" id="Compelemento" name="Compelemento" placeholder=" Apartameto,Bloco,etc..."  >
+			    <input type="text" class="form-control" id="compelemento" name="compelemento" placeholder=" Apartameto,Bloco,etc..."  >
 			  </div>
 			  <div class="form-group">
-			    <label for="">Referência</label>
+			    <label for="inputReferncia">Referência</label>
 
 			    <input type="text" class="form-control" id="referencia" name="referencia" placeholder=" Proximidade,estação de trem, ect...." required  >
 			  </div>
 			  
 			  <div class="form-row">
 			    <div class="form-group col-md-6">
-			      <label for="inputCity">Cidade</label>
-			      <input type="text" class="form-control" id="inputCity" name="inputCity" required>
+			      <label for="cidade">Cidade</label>
+			      <input type="text" class="form-control" id="cidade" name="cidade" required>
 			    </div>
 			    <div class="form-group col-md-6">
-			      <label for="inputEstado">Estado</label>
-			      <select id="inputEstado" name="inputEstado" class="form-control" required>
+			      <label for="estado">Estado</label>
+			      <select id="estado" name="estado" class="form-control" required>
 			        <option selected></option>
 			        <option>SP</option>
 					<option>AC</option>	
@@ -349,63 +348,131 @@
 	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
 	<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
+
+
 	<script src="../jQuery/jquery.js"></script>
 	<script src="../jQuery/bootstrap.bundle.min.js"></script>
-	<script  src="../javascript/validaEnd.js"></script>
+	
 	
 	
 	
 	<script >
-		//selecionando quantidade 
-	$(function(){
-	
-	 $('#selecionadoItem').click(function(event){
-	 	event.preventDefault();
-	 
-	  quantidade = $('#selecionadoItem option:selected').text();
-	
-	 if(quantidade > 8){
+		
+	   $(function(){
+          
+          // preencher campos de endereço
 
-	  alert('Acima de 9 unidades digite a quantidade !')
+		  function limpa_formulário_cep() {
+                // Limpa valores do formulário de cep.
+                $("#logradouro").val("");
+                $("#bairro").val("");
+                $("#cidade").val("");
+                $("#estado").val("");
+                //$("#ibge").val("");
+            }
+            
+         //Quando o campo cep perde o foco.
+            $("#cep").blur(function() {
+
+                //Nova variável "cep" somente com dígitos.
+                var cep = $(this).val().replace(/\D/g, '');
+
+                //Verifica se campo cep possui valor informado.
+                if (cep != "") {
+
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
+
+                    //Valida o formato do CEP.
+                    if(validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        $("#logradouro").val("...");
+                        $("#bairro").val("...");
+                        $("#cidade").val("...");
+                        $("#estado").val("...");
+                        //$("#ibge").val("...");
+
+                        //Consulta o webservice viacep.com.br/
+                        $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                            if (!("erro" in dados)) {
+                                //Atualiza os campos com os valores da consulta.
+                                $("#logradouro").val(dados.logradouro);
+                                $("#bairro").val(dados.bairro);
+                                $("#cidade").val(dados.localidade);
+                                $("#estado").val(dados.uf);
+                              //  $("#ibge").val(dados.ibge);
+                            } //end if.
+                            else {
+                                //CEP pesquisado não foi encontrado.
+                                limpa_formulário_cep();
+                                alert("CEP não encontrado.");
+                            }
+                        });
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulário_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulário_cep();
+                }
+            });
+
+
+            //selecionando quantidade 
 	
-	 }
-	else  if(quantidade <= 8 ){
-      document.getElementById("valorPg").innerHTML = ' R$ :  '  + quantidade * <?php echo $preco; ?> + '.00';
-      document.getElementById('valorPg-b').innerHTML = ' R$ :  '  + quantidade * <?php echo $preco; ?> + '.00';
-      }
-      else{
-       document.getElementById("valorPg").innerHTML =  '';
-      }
-      
-   });
- });
+			 $('#selecionadoItem').click(function(event){
+			 	event.preventDefault();
+			 
+			  quantidade = $('#selecionadoItem option:selected').text();
+			
+			 if(quantidade > 8){
+
+			  alert('Acima de 9 unidades digite a quantidade !')
+			
+			 }
+			else  if(quantidade <= 8 ){
+		      document.getElementById("valorPg").innerHTML = ' R$ :  '  + quantidade * <?php echo $preco; ?> + '.00';
+		      document.getElementById('valorPg-b').innerHTML = ' R$ :  '  + quantidade * <?php echo $preco; ?> + '.00';
+		      }
+		      else{
+		       document.getElementById("valorPg").innerHTML =  '';
+		      }
+		      
+		   });
+		 });
    
 
-    //quantidade maior que 9
-	var valDigitado  =  document.getElementById('quantidade>9');
-    var conf = document.getElementById('conf');
-    conf.addEventListener('click' , function(){
-    a = valDigitado.value;
-    
-    if( a  >  <?php echo $quantidade; ?> ){
-    	alert('Não temos essa quantidade em estoque');
-    	valDigitado.style.border = '1px solid red';
-    	valDigitado.value = ' ';
+	    //quantidade maior que 9
+		var valDigitado  =  document.getElementById('quantidade>9');
+	    var conf = document.getElementById('conf');
+	    conf.addEventListener('click' , function(){
+	    a = valDigitado.value;
+	    
+	    if( a  >  <?php echo $quantidade; ?> ){
+	    	alert('Não temos essa quantidade em estoque');
+	    	valDigitado.style.border = '1px solid red';
+	    	valDigitado.value = ' ';
 
-    }
-    else if(a <= 0){
-    	alert('Digite uma quantidade válida !');
-    	valDigitado.style.border = '1px solid red';
-    	valDigitado.value = ' ';
+	    }
+	    else if(a <= 0){
+	    	alert('Digite uma quantidade válida !');
+	    	valDigitado.style.border = '1px solid red';
+	    	valDigitado.value = ' ';
 
-  }
-    else{
-	  document.getElementById('valorPg').innerHTML = a * <?php echo $preco; ?> + '.00'; 
-	
-	
-   }
+	  }
+	    else{
+		  document.getElementById('valorPg').innerHTML = a * <?php echo $preco; ?> + '.00'; 
+		
+		
+	   }
 
-});
+	  });
 
 
           </script>
