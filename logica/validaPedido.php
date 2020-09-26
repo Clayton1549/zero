@@ -12,7 +12,7 @@
     
      <body>
  <?php    
-  session_start();
+       session_start();
        require('../bd/conexao.php');
 			if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
 
@@ -45,15 +45,25 @@
         $preco = $_SESSION["preco"];
 
     
+      //validar email 
+      if( $email !=  $confirma)
+         {
+          echo "<script language='javascript' type='text/javascript'>alert('E-mails não conferem  - digite email e confirme !');window.location.href='../templates/vendas.php';</script>";
+         
+         }
+ 
+              // Inclui o arquivo com a função valida_cpf
+          include('../logica/valida-cpf.php');
 
-if( $email !=  $confirma)
-   {
-    echo"<script language='javascript' type='text/javascript'>alert('E-mails não conferem - digite email e confirme !');window.location.href='../templates/pedidos.php';</script>";
-   
-   }
-
-   
-      echo "<div style='font-size: 22px;' class='container-fluid text-info'>";
+             // Verifica o CPF
+           if (valida_cpf( $cpf ) ) {
+             echo "CPF oK";
+            } else {
+               echo "<script language='javascript' type='text/javascript'>alert('CPF inválido !');window.location.href='../templates/vendas.php';</script>";
+             }
+                 
+                  
+         echo "<div style='font-size: 22px;' class='container-fluid text-info'>";
          print_r('Nome : ' . $usuario);
          print_r('<br>');
          print_r('Número do pedido : ' . $_SESSION['numeroPedido']  . ' - ' . $cpf); 

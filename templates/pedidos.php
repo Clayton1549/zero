@@ -205,7 +205,7 @@
 
             <div class="container border border-primary bg-light">
 			 	<h1>Formulario pedido</h1>
-			 	<form class="was-validated" method="post" action="../logica/validaPedido.php">
+			 	<form class="was-validated" method="post" action="../logica/validaPedido.php"   >
 
 			 	<div class="form-group ">
 			    <label for="Nome">Nome Completo</label>
@@ -321,7 +321,7 @@
 			      </label>
 			    </div>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Proximo</button>
+			  <button id="btconfirma" name="btconfirma" type="submit" class="btn btn-primary">Proximo</button>
 			   <br><br><br>
 			  </form>
 			 </div>
@@ -337,6 +337,10 @@
 			  
 			
 			  </div>
+
+
+
+			  
 		 </footer>
 			
 
