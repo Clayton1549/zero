@@ -142,7 +142,7 @@ if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true))
 
 
        <td align="center">
-			Excluir imagem
+			Quantidade
 		</td>
 	</tr>
 <?php
@@ -178,8 +178,7 @@ while($arquivos = mysqli_fetch_array($resultado)){?>
 		</td>
 	  
 	  <td align="center">
-		<?php   echo '<a href="../logica/excluir_imagem.php?id='.$arquivos['codigo'].
-		'">Imagem '.$arquivos['codigo'].'</a>'; "<br/>"   ?>
+		
 
          </td>
 

@@ -21,7 +21,7 @@
 			
 	<br><br><br>
 	<ul style="list-style: none">
-		<li><a href="admin-login/adminLogin.php">Login</a></li>
+		<li><a href="templates/adminLogin.php">Login</a></li>
     </ul>
  </div>
 	   

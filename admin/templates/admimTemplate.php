@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <title>Pagina de inicio</title>
 
-<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 <link href="../../bootstrap/bootstrap.min.css"  rel="stylesheet">
 
       <link rel="stylesheet" href="../css/img.css">
@@ -28,11 +27,11 @@
 				</li>
 				
 				<li class="nav-item">
-					<a class="nav-link" href="../atualizacoes/atualizaPreco.php">Preços</a>
+					<a class="nav-link" href="../templates/atualizaPreco.php">Preços</a>
 				</li>
 			
 			<li class="nav-item">
-				<a class="nav-link" href="#">Estoque</a>
+				<a class="nav-link" href="../templates/estoque.php">Estoque</a>
 			</li>
 
 			<li class="nav-item">
@@ -42,7 +41,7 @@
 			
 			<ul class="navbar-nav ml-md-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="../ResqAdmin/logout.php">Sair</a>
+					<a class="nav-link" href="../login-logout/logout.php">Sair</a>
 				</li>
 			</ul>
 		
@@ -71,7 +70,7 @@
         <p class="text-center text-info">Escolha uma tarefa ...  </p>
 
 
-      <a href="../atualizacoes/atualizaPreco.php">Atualizar preco</a>
+      <a href="../templates/atualizaPreco.php">Atualizar preco</a>
 
    </div>
  
@@ -81,10 +80,7 @@
 
 
   <br><br><br><br>
-  <!-- boostrap javascript -->
-	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
-	<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
+ 
 	<script src="../../jQuery/jquery.js"></script>
 	<script src="../../jQuery/bootstrap.bundle.min.js"></script>
 
