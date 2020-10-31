@@ -152,7 +152,8 @@
 
 
 
-$sql = "SELECT count(codigo) ,codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens ";
+$sql = "SELECT  codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens  ";
+
 
 
 $resultado = mysqli_query($conexao,$sql);
@@ -185,19 +186,28 @@ while($arquivos = mysqli_fetch_array($resultado)){?>
 
          <td align="center">
 		
-          <?php
-		       if($resultado->num_rows > 0) {
-					    
-					   
-							$quantidade =   $arquivos[0] ;
-							echo $quantidade;
-							
+          <?php    
 
-						 
-					   
-					   } else {
-					    echo "0 results";
-					}  ?>
+                                      
+                    
+                   	
+
+                   	   //$arquivos['nome_imagem']  =  1;
+                         
+
+                                       	 	                             
+                     
+                     //	$quan = $arquivos['nome_imagem'] ;
+
+                     	  
+                         // echo $quan  .  ' este mais: ' . ( $quan - $quan ) ; 
+
+                       echo array()[];
+                         
+                        
+                           
+                    
+					?>
 
          </td>
 

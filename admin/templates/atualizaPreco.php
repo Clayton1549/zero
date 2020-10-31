@@ -74,7 +74,7 @@
 	  <p>Seja bem vindo</p>
 	  <div class="container">
 	  	<h1>Atualizar preços</h1>
-	  	<form action="actionPreco.php" method="post">
+	  	<form action="../precos/actionPreco.php" method="post">
 	  		
 	    	<br><br><br>
 	    	<div class="input-group">

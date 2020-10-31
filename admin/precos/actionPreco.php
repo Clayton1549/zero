@@ -17,14 +17,15 @@
 	    echo  "<script>
 		           alert('Operação  realizado  com  sucesso !!!');
 				   
-				   window.location.href='../atualizacoes/atualizaPreco.php';
+				   window.location.href='../templates/atualizaPreco.php'
+';
 				   </script>";
 	} else {
 	    echo "Error updating record: " . $conexao->error;
 	     echo "
 	     <script> 
 		      alert('ops , deu erro ! ');
-		      window.location.href='../atualizacoes/atualizaPreco.php'
+		      window.location.href='../templates/atualizaPreco.php'
 	      </script> ";
 	}
 			
