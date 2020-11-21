@@ -116,7 +116,7 @@
 <br/>
  <h1 style='color:red;text-align: center;'>Produtos cadastradas na  base  de dados</h1> 
 
-<table class="table" border="1">
+<table class="table container" border="1">
 	
 	<tr>
 		<td align="center">
@@ -138,10 +138,10 @@
 
 		
 	 
-      <td align="center">
+     <!-- <td align="center">
       	Quantidade
 		
-		</td>
+		</td>-->
 
          <td align="center">
             Excluir imagem
@@ -152,70 +152,57 @@
 
 
 
-$sql = "SELECT  codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens  ";
+	$sql = "SELECT  codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens  ";
 
 
 
-$resultado = mysqli_query($conexao,$sql);
+	$resultado = mysqli_query($conexao,$sql);
 
-   
+	   
+			
+
+
+	while($arquivos = mysqli_fetch_array($resultado)){?>
+	        <tr  style=>
+			<td align="center">
+			<?php echo $arquivos['codigo']; ?>
+			</td>
+
+			<td align="center">
+			<?php echo $arquivos['evento']; ?>
+			</td>
+
+			<td align="center">
+			<?php echo $arquivos['descricao']; ?>
+			</td>
+
+			<td align="center">
+			<?php echo $arquivos['nome_imagem']; ?>
+			</td>
+			<td align="center">
+			<?php echo $arquivos['tamanho_imagem']; ?>
+			</td>
 		
 
+	        <!-- <td align="center">
+			
+          <?php      
+              
+            
+	        
 
-while($arquivos = mysqli_fetch_array($resultado)){?>
-        <tr  style=>
-		<td align="center">
-		<?php echo $arquivos['codigo']; ?>
-		</td>
-
-		<td align="center">
-		<?php echo $arquivos['evento']; ?>
-		</td>
-
-		<td align="center">
-		<?php echo $arquivos['descricao']; ?>
-		</td>
-
-		<td align="center">
-		<?php echo $arquivos['nome_imagem']; ?>
-		</td>
-		<td align="center">
-		<?php echo $arquivos['tamanho_imagem']; ?>
-		</td>
-	
-
-         <td align="center">
-		
-          <?php    
-
-                                      
-                    
-                   	
-
-                   	   //$arquivos['nome_imagem']  =  1;
-                         
-
-                                       	 	                             
-                     
-                     //	$quan = $arquivos['nome_imagem'] ;
-
-                     	  
-                         // echo $quan  .  ' este mais: ' . ( $quan - $quan ) ; 
-
-                       echo array()[];
+                       
                          
                         
-                           
-                    
-					?>
+            	?>
 
-         </td>
+         </td>-->
 
 
 
 	  <td align="center">
 		<?php   echo '<a href="../estoque/excluir_imagem.php?id='.$arquivos['codigo'].
-		'">Imagem '.$arquivos['codigo'].'</a>'; "<br/>"   ?>
+		'">Excluir   </a>'; "<br/>"   ?>
 
          </td>
 
@@ -225,6 +212,118 @@ while($arquivos = mysqli_fetch_array($resultado)){?>
 <?php } ?>
 
 </table>
+
+
+
+
+<table class="table container" border="1">
+	
+	<tr>
+		<td align="center">
+			codigo/id
+			
+		</td>
+		<td align="center">
+			Produto
+			
+		</td>
+		<td align="center">
+			Quantidade/estoque
+			
+		  </td>
+		</tr>
+
+   	   <div class="container text-center">
+	   <h1 class="text-info">Quantidade em estoque...</h1>
+
+	   <?php
+
+	  // $sql = "SELECT codigo, nome_imagem FROM  imagens WHERE codigo  ";
+	  $sql = " SELECT codigo, nome_imagem, COUNT(*) as NUM FROM imagens 
+      GROUP BY codigo , nome_imagem  "   ;
+
+     
+      /* ORDER BY nome_imagem  */ 
+
+	  
+       $resultado = mysqli_query($conexao,$sql);
+
+	   
+			
+
+
+	while($arquivo = mysqli_fetch_array($resultado)){?>
+	        <tr  style=>
+			<td align="center">
+
+
+		    	<?php echo $arquivo['codigo'] ?>
+
+
+        </td>
+
+
+			<td align="center">
+		    	
+                  <?php echo $arquivo['nome_imagem']; ?>
+            </td>
+
+           <td align="center">
+
+
+           	<?php 
+           	
+                
+                 echo $arquivo['NUM'];
+
+           
+               ?>
+           	
+             	
+          
+          <?php
+           
+           /*	if($arquivo['nome_imagem']  =  1){
+
+                $quan +=  $arquivo['nome_imagem'];
+
+           		echo $quan;
+           	}
+
+           	else{
+
+           		echo 'n';
+           	}*/
+           	
+           	  
+
+           	    
+           	   
+
+           	 
+
+           	  
+
+               
+           	   ?>
+
+
+			
+	     	</td>
+			
+			
+
+	       
+
+	      </tr>	
+ 
+        <?php } ?>
+
+      </table>
+
+
+	</div>
+
 <br><br><br>
 
 

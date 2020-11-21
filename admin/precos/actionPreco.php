@@ -17,8 +17,7 @@
 	    echo  "<script>
 		           alert('Operação  realizado  com  sucesso !!!');
 				   
-				   window.location.href='../templates/atualizaPreco.php'
-';
+				   window.location.href='../templates/atualizaPreco.php';
 				   </script>";
 	} else {
 	    echo "Error updating record: " . $conexao->error;
@@ -30,7 +29,7 @@
 	}
 			
 	     
-    mysqli_close($conexao);
+       mysqli_close($conexao);
 	
      
 ?>
