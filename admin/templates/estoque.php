@@ -149,17 +149,21 @@
 		</td>
 	</tr>
 <?php
+    
+  
+	
 
 
 
 	$sql = "SELECT  codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens  ";
 
 
+    $resultado = mysqli_query($conexao,$sql);
 
-	$resultado = mysqli_query($conexao,$sql);
+
 
 	   
-			
+			  
 
 
 	while($arquivos = mysqli_fetch_array($resultado)){?>
@@ -184,20 +188,7 @@
 			</td>
 		
 
-	        <!-- <td align="center">
-			
-          <?php      
-              
-            
-	        
-
-                       
-                         
-                        
-            	?>
-
-         </td>-->
-
+	       
 
 
 	  <td align="center">
@@ -239,8 +230,9 @@
 	   <?php
 
 	  // $sql = "SELECT codigo, nome_imagem FROM  imagens WHERE codigo  ";
-	  $sql = " SELECT codigo, nome_imagem, COUNT(*) as NUM FROM imagens 
-      GROUP BY codigo , nome_imagem  "   ;
+	  $sql = " SELECT codigo, nome_imagem, COUNT('codigo') as NUM FROM imagens 
+
+        GROUP BY codigo , nome_imagem  "   ;
 
      
       /* ORDER BY nome_imagem  */ 
@@ -253,14 +245,13 @@
 
 
 	while($arquivo = mysqli_fetch_array($resultado)){?>
+	      
 	        <tr  style=>
 			<td align="center">
 
-
-		    	<?php echo $arquivo['codigo'] ?>
-
-
-        </td>
+               <?php echo $arquivo['codigo'] ?>
+            
+            </td>
 
 
 			<td align="center">
@@ -273,8 +264,42 @@
 
            	<?php 
            	
+                // echo $arquivo['NUM'];
+           	    $sql = "SELECT  nome_imagem as quan   FROM  imagens   "  ;
+
+                $result = $conexao->query($sql);
+
+	            if ($result->num_rows > 0) {
+	                // output data of each row
+	             while($row = $result->fetch_assoc()) {
+	         
+	             
+	               if ($row["quan"] == $arquivo['nome_imagem'] ){
+	                
+                        
+                        echo   ' / ' . $arquivo[1][0]   . count($row);
+                       
+
+                      	
+	                } else {
+
+	                  	echo ' ';
+	             }
+       }
+
+}
+           	  
+                /* if($arquivo['nome_imagem'] === "metro.jpg"){
+                   
+                      echo "1";
                 
-                 echo $arquivo['NUM'];
+                  }else{
+                  
+                  	echo 'j';
+                 
+                  }
+
+                  */
 
            
                ?>
@@ -283,29 +308,19 @@
           
           <?php
            
-           /*	if($arquivo['nome_imagem']  =  1){
+	           /*	if($arquivo['nome_imagem']  =  1){
 
-                $quan +=  $arquivo['nome_imagem'];
+	                $quan +=  $arquivo['nome_imagem'];
 
-           		echo $quan;
-           	}
+	           		echo $quan;
+	           	}
 
-           	else{
+	           	else{
 
-           		echo 'n';
-           	}*/
+	           		echo 'n';
+	           	}*/
            	
-           	  
-
-           	    
-           	   
-
-           	 
-
-           	  
-
-               
-           	   ?>
+            ?>
 
 
 			

@@ -113,9 +113,8 @@ session_start();
 
 
 <?php
-
-
-	include("../bd/conexao.php");
+   
+   include("../bd/conexao.php");
 	$sql = 'SELECT preco FROM adminpreco';
 	$result = $conexao->query($sql);
 	if ($result->num_rows > 0) {

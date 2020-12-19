@@ -115,7 +115,9 @@ if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true))
 
    
 <br/>
- <h1 style='color:red;text-align: center;'>Produtos cadastradas na  base  de dados</h1> 
+
+<div class="container diplay-5 text-secondary">
+ <h1  style='color:red;text-align: center;'>Produtos cadastradas na  base  de dados</h1> 
 
 <table class="table" border="1">
 	
@@ -145,6 +147,8 @@ if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true))
 			Quantidade
 		</td>
 	</tr>
+
+
 <?php
 
 $sql = "SELECT codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens ";
@@ -188,6 +192,9 @@ while($arquivos = mysqli_fetch_array($resultado)){?>
 
 </table>
 <br><br><br>
+
+
+</div>
 
 <?php
 
