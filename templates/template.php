@@ -13,6 +13,8 @@
 
    <body>
 
+   	
+
  
 <nav  class="navbar  bg-dark navbar-dark  navbar-expand-lg ">
 <a class="navbar-brand"   href="../templates/index.php"><img src="../images/logo_b.jpg" alt="clayton"></a>

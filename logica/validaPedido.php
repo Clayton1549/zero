@@ -155,20 +155,26 @@
 
   <div id="boleto" style="display: none;" class="container-fluid border border-info col-lg-6 col-xl-9">
      <div class="mb-5 mt-5 mr-4 ml-4 pt-4">
-        <form class="was-validated">
+     
+        <form  method="post"  action="../templates/boleto_unibanco.php" class="was-validated">
+        
           <div class="form-group">
             <legend class="text-center text-info">Boleto</legend>
-            <input class="form-control" type="text" id="carNome-b" name="carNome-b" placeholder="Nome" required>
+            <input class="form-control" type="text" id="carNome-b" name="carNome-b" placeholder="Digite seu nome..." required>
              <div class="valid-feedback">Ok.</div>
              <div class="invalid-feedback">Este campo não pode ficar vazio.</div>
           </div>
 
-           <div class="form-group">
-              <input class="form-control" type="text" id="boleto" name="boleto" placeholder="" required>
-               <div class="valid-feedback">Ok.</div>
-               <div class="invalid-feedback">Preenha esse campo.</div>
-              
-            </div>
+               <?php  $valor_boleto = $quantidade * $preco ;
+
+
+                // echo  $valor_boleto;
+                 print_r( " <input  class='form-control' type='text' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
+
+
+                  ?>
+
+              </div>
 
                <button id="boleto-b" class="btn btn-outline-success">Enviar</button>
        

@@ -37,7 +37,7 @@
 			</li>
 
 			<li class="nav-item">
-				<a class="nav-link" href="#">Pedidos</a>
+				<a class="nav-link" href="pedidos.php">Pedidos</a>
 			</li>
 		</ul>
 			
