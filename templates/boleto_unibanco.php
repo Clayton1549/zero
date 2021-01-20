@@ -1,8 +1,12 @@
 <?php
 
-
  $valor_b = $_POST['boletoVal'];
+ $nome_boleto = $_POST['nomebol'];
+ $endereco = $_POST['enderecobol'];
+ $cidade_estado_cep  = $_POST['c_e_cp'];
 
+ 
+ print_r($cidade_estado_cep );
 
 
 
@@ -22,8 +26,8 @@
 // +----------------------------------------------------------------------+
 // | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
 // | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa				        |
-// | 														                                   			  |
+// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa				        
+// | 														                                   			  
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
 // | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
 // +----------------------------------------------------------------------+
@@ -54,9 +58,9 @@ $dadosboleto["data_processamento"] = date("d/m/Y"); // Data de processamento do 
 $dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com vírgula e sempre com duas casas depois da virgula
 
 // DADOS DO SEU CLIENTE
-$dadosboleto["sacado"] = "Nome do seu Cliente";
-$dadosboleto["endereco1"] = "Endereço do seu Cliente";
-$dadosboleto["endereco2"] = "Cidade - Estado -  CEP: 00000-000";
+$dadosboleto["sacado"] =  $nome_boleto;
+$dadosboleto["endereco1"] =   $endereco;
+$dadosboleto["endereco2"] =  "$cidade_estado_cep";
 
 // INFORMACOES PARA O CLIENTE
 $dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja Nonononono";

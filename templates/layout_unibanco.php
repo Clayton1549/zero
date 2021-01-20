@@ -1,5 +1,10 @@
 <?php
  header('Content-type: text/html; charset="iso-8859-1"',true); 
+
+
+
+
+
 // +----------------------------------------------------------------------+
 // | BoletoPhp - Versão Beta                                              |
 // +----------------------------------------------------------------------+
@@ -35,6 +40,9 @@
 <TITLE><?php echo $dadosboleto["identificacao"]; ?></TITLE>
  <link rel="shortcut icon" href="../images/favicon/favicon.png" />
 <META http-equiv=Content-Type content=text/html charset=ISO-8859-1>
+ 
+
+
 
 <?php header('content-type text/html charset=utf-8');?>
 <meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />

@@ -2,7 +2,8 @@
 
 <html>
   <head>
-    <meta charset="utf-8">
+   <meta charset="utf-8">
+   
     <title>Pagamento</title>
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
      <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
@@ -165,14 +166,16 @@
              <div class="invalid-feedback">Este campo não pode ficar vazio.</div>
           </div>
 
-               <?php  $valor_boleto = $quantidade * $preco ;
+               <?php 
 
-
-                // echo  $valor_boleto;
-                 print_r( " <input  class='form-control' type='text' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
-
-
+                $valor_boleto = $quantidade * $preco ;
+                    print_r( " <input  class='form-control' type='text' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
+                    print_r("<input class='form-control' type='text' name='nomebol' id='nomebol' value='$usuario' >   ");
+                    print_r("<input class='form-control' type='text' name='enderecobol' id='enderecobol' value=' $logradouro'  >  ");
+                   print_r("<input class='form-control' type='text' name='c_e_cp' id='c_e_cp' value=' $cidade  $uf   $cp'  >  ");
                   ?>
+
+
 
               </div>
 
