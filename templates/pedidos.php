@@ -31,11 +31,7 @@
                    }
 
              
-					
-					
-					
-                 
-                    //echo mt_rand() . "\n";
+				    //echo mt_rand() . "\n";
                     $rand = mt_rand() . "\n";
                     //echo mt_rand(5, 14);
                     $NumeroPedido = mt_rand(5, 14);

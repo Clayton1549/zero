@@ -1,10 +1,6 @@
 <?php
  header('Content-type: text/html; charset="iso-8859-1"',true); 
 
-
-
-
-
 // +----------------------------------------------------------------------+
 // | BoletoPhp - Versão Beta                                              |
 // +----------------------------------------------------------------------+
@@ -43,7 +39,6 @@
  
 
 
-
 <?php header('content-type text/html charset=utf-8');?>
 <meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
 <style type=text/css>
@@ -62,11 +57,12 @@
     <table width=666 cellspacing=0 cellpadding=0 border=0><tr><td valign=top class=cp><DIV ALIGN="CENTER">Instruções 
     de Impressão</DIV></TD></TR><TR><TD valign=top class=cp><DIV ALIGN="left">
     <p>
-    <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).<br>
-    <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.<br>
+   <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).<br>
+   <!--   <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.<br>
     <li>Corte na linha indicada. Não rasure, risque, fure ou dobre a região onde se encontra o código de barras.<br>
     <li>Caso não apareça o código de barras no final, clique em F5 para atualizar esta tela.
-    <li>Caso tenha problemas ao imprimir, copie a seqüencia numérica abaixo e pague no caixa eletrônico ou no internet banking:<br><br>
+    <li>Caso tenha problemas ao imprimir, copie a seqüencia numérica abaixo e pague no caixa eletrônico ou no internet banking: <br><br>-->
+
     <span class="ld2">
     &nbsp;&nbsp;&nbsp;&nbsp;Linha digitável: &nbsp;<?php echo $dadosboleto["linha_digitavel"]?><br>
     &nbsp;&nbsp;&nbsp;&nbsp;Valor: &nbsp;&nbsp;R$ <?php echo $dadosboleto["valor_boleto"]?><br>

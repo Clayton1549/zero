@@ -169,10 +169,11 @@
                <?php 
 
                 $valor_boleto = $quantidade * $preco ;
-                    print_r( " <input  class='form-control' type='text' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
-                    print_r("<input class='form-control' type='text' name='nomebol' id='nomebol' value='$usuario' >   ");
-                    print_r("<input class='form-control' type='text' name='enderecobol' id='enderecobol' value=' $logradouro'  >  ");
-                   print_r("<input class='form-control' type='text' name='c_e_cp' id='c_e_cp' value=' $cidade  $uf   $cp'  >  ");
+                     print_r( " <input  class='form-control' type='text' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
+                     print_r("<input class='form-control' type='text' name='nomebol' id='nomebol' value='$usuario' >   ");
+                     print_r("<input class='form-control' type='text' name='enderecobol' id='enderecobol' value=' $logradouro'  >  ");
+                     print_r("<input class='form-control' type='text' name='c_e_cp' id='c_e_cp' value=' $cidade  $uf   $cp'  >  ");
+                     print_r("<input class='form-control' type='text' name='quantidade' id='quantidade' value=' $quantidade '  >  ");
                   ?>
 
 
@@ -184,18 +185,6 @@
          </form>
       </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
