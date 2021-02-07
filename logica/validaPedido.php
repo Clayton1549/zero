@@ -28,8 +28,6 @@
 			     header("Location: index.php");	
     }
 
-
-              
         $usuario = $_POST["nome"];
         $email = $_POST['email'];
         $confirma = $_POST['confirmar'];
@@ -160,32 +158,35 @@
         <form  method="post"  action="../templates/boleto_unibanco.php" class="was-validated">
         
           <div class="form-group">
-            <legend class="text-center text-info">Boleto</legend>
-            <input class="form-control" type="text" id="carNome-b" name="carNome-b" placeholder="Digite seu nome..." required>
-             <div class="valid-feedback">Ok.</div>
-             <div class="invalid-feedback">Este campo não pode ficar vazio.</div>
-          </div>
+            <h1 class="text-center text-info">Boleto</h1>
+                    
 
                <?php 
-
-                $valor_boleto = $quantidade * $preco ;
-                     print_r( " <input  class='form-control' type='text' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
-                     print_r("<input class='form-control' type='text' name='nomebol' id='nomebol' value='$usuario' >   ");
+                    
+                    $valor_boleto = $quantidade * $preco;
+                  
+                     print_r('<h1 class="text-primary"> Confira   nome  </h1>'); 
+                     print_r( " <input  class='form-control' type='text' name='nomebol' id='nomebol'  value= ' $usuario ' > "); 
+                     print_r("<h1> Valor:  R$ $valor_boleto  </h1>"); 
+                     print_r( " <input     class='form-control'     type='hidden' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
+                     print_r('<h1 class="text-primary"> Confira  endereço  </h1>'); 
                      print_r("<input class='form-control' type='text' name='enderecobol' id='enderecobol' value=' $logradouro'  >  ");
+                     print_r('<h1 class="text-primary" lass="text-primary"> Confira cidade ,estado e  CEP </h1>');  
                      print_r("<input class='form-control' type='text' name='c_e_cp' id='c_e_cp' value=' $cidade  $uf   $cp'  >  ");
-                     print_r("<input class='form-control' type='text' name='quantidade' id='quantidade' value=' $quantidade '  >  ");
+                     print_r("<h1> Quantidade : $quantidade  </h1>");  
+                     print_r("<input class='form-control' type='hidden' name='quantidade' id='quantidade' value=' $quantidade '  >  ");
                   ?>
 
+                 </div>
 
+            
 
-              </div>
-
-               <button id="boleto-b" class="btn btn-outline-success">Enviar</button>
-       
+               <button  onclick="myFunction()" id="boleto-b" class="btn btn-outline-success">Comfirme</button>
+              
          </form>
       </div>
   </div>
-
+</div>
 
 
    <footer style="margin-top: 1000px;"  id="contato" class="page-footer font-small  text-light bg-dark ">
@@ -210,6 +211,34 @@
   <script src="../javascript/valida.js"></script>
   <script src="../jQuery/bootstrap.bundle.min.js"></script>
   <script src="../javascript/cartoes.js"></script>
+  <script>
+
+    function myFunction() {
+        
+      var txt;
+      var r = confirm("Press a button!");
+      
+      if (r == true) {
+       
+        } else {
+          
+         
+
+
+
+             }
+ 
+      }
+        
+
+  
+     //var txt;
+    
+ 
+ 
+
+
+ </script>
   
   
  

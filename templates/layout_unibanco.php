@@ -54,11 +54,13 @@
 
 <BODY text=#000000 bgColor=#ffffff topMargin=0 rightMargin=0>
   <div style="border: 3px solid #1A99E4FF; width:700px; padding: 19px; margin:auto;">
-    <table width=666 cellspacing=0 cellpadding=0 border=0><tr><td valign=top class=cp><DIV ALIGN="CENTER">Instruções 
+   <table width=666 cellspacing=0 cellpadding=0 border=0><tr>
+
+      <!--    <td valign=top class=cp><DIV ALIGN="CENTER">Instruções 
     de Impressão</DIV></TD></TR><TR><TD valign=top class=cp><DIV ALIGN="left">
     <p>
-   <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).<br>
-   <!--   <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.<br>
+      <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).<br>
+   <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.<br>
     <li>Corte na linha indicada. Não rasure, risque, fure ou dobre a região onde se encontra o código de barras.<br>
     <li>Caso não apareça o código de barras no final, clique em F5 para atualizar esta tela.
     <li>Caso tenha problemas ao imprimir, copie a seqüencia numérica abaixo e pague no caixa eletrônico ou no internet banking: <br><br>-->

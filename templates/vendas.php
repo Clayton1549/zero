@@ -42,7 +42,7 @@
 	 </ul>
 	 <ul class="navbar-nav ml-auto">
 	    <li class="nav-item ">
-		   <a class="nav-link" href="../templates/login_h.php"><span class=""></span>Pesquisa </a>
+		   <a class="nav-link" href="#"><span class=""></span>Pesquisa </a>
 		 </li>
 		 <li class="nav-item">
 			 <a class="nav-link" href="../logica/logout.php"><span class=""></span> Sair</a></li>
@@ -53,66 +53,57 @@
    </div>
 </nav>
 
+   <?php
+	  
+	    session_start();
+		require('../bd/conexao.php');
+		if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
 
-<?php
-session_start();
-	require('../bd/conexao.php');
-	if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
+		$logado = $_SESSION['user'];
+		date_default_timezone_set('America/Sao_Paulo');
+		$x =  $_SESSION["inicio"]  = date(" d-m-Y H:i");
+		$d = preg_replace('/[-]/' , '/' , $x);
+		print_r("  <p style ='margin:10px ; color:#0F0A0A'>$d</p>");
+		echo "  <p   style = 'margin:10px; color:blue;' >      Olá    .$logado;</p>";
+		 } else{
 
-	$logado = $_SESSION['user'];
-	date_default_timezone_set('America/Sao_Paulo');
-	$x =  $_SESSION["inicio"]  = date(" d-m-Y H:i");
-	$d = preg_replace('/[-]/' , '/' , $x);
-	print_r("  <p style ='margin:10px ; color:#0F0A0A'>$d</p>");
-	echo "  <p   style = 'margin:10px; color:blue;' >      Olá    .$logado;</p>";
-	 } else{
+		 header("Location: index.php");	
 
-	 header("Location: index.php");	
+		 }
 
-	 }
+   ?>
 
-	             
+   <table class="table" border="1">
 
-  
-?>
+	<tr>
+		<td align="center">
+			Código
+			
+		</td>
 
+		<td align="center">
+			Imagem
+			
+		</td>
 
-<table class="table" border="1">
-
-<tr>
-	<td align="center">
-		Código
 		
-	</td>
 
-	<td align="center">
-		Imagem
-		
-	</td>
+		<td align="center">
+		Preços
+			
+		</td>
+		<td align="center">
+			Descrição
+			
+		</td>
+		<td align="center">
+			Nome 
+			
+		</td>
 
-	
-
-	<td align="center">
-	Preços
-		
-	</td>
-	<td align="center">
-		Descrição
-		
-	</td>
-	<td align="center">
-		Nome 
-		
-	</td>
-
-
-	
 </tr>
 
-
-
-
-<?php
+  <?php
    
    include("../bd/conexao.php");
 	$sql = 'SELECT preco FROM adminpreco';
@@ -129,7 +120,9 @@ session_start();
 	    echo "0 results";
 	}
 
-$sql = 'SELECT codigo,imagem,descricao,nome_imagem FROM imagens';
+
+
+$sql = 'SELECT  codigo,imagem,descricao,nome_imagem FROM imagens   LIMIT  9 ';
 
 
 $resultado = mysqli_query($conexao,$sql);
@@ -156,24 +149,17 @@ $resultado = mysqli_query($conexao,$sql);
 	
 	<?php 
 	
-
-	
-     echo '<div  class="card text-center container" style=" width: 38rem;" id="slideShow">';
-	 echo '</a>';
+	      echo '<div  class="card text-center container" style=" width: 38rem;" id="slideShow">';
+	      echo '</a>';
           echo  '<div class="card-body">';
           echo   '<h5 class="card-title text-info">Produto á venda preço único</h5>';
           echo '<p class="text-success"> R$ :  '  . $preco . '.00'  . '</p>';
 		  echo   '<p class="card-text text-danger">Todos os produtos enviadas por nossos internautas são meramente ilustrativos .</p>';
 		  echo '<p class="text-success">Seu Produto é garantido !  </p>';
-          
-              
-		  echo '<a href="pedidos.php?id='.$row['codigo'].
+          echo '<a href="pedidos.php?id='.$row['codigo'].
 	'"   class="btn btn-primary ">Comprar  </a>';  
 
-
-         
-		  
-            echo  ' </div>';
+          echo  ' </div>';
           echo  '</div>';
 
 	      ?>
@@ -186,29 +172,18 @@ $resultado = mysqli_query($conexao,$sql);
 
 	   <td align="center">
 	      <?php echo $row['nome_imagem']; ?>
-	  </td>
 
-             
+	    </td>
 
-    
-	
-      </tr>
+    </tr>
 
-
-
-
-
-       
-        <?php } ?>
+     <?php } ?>
 </table>
+     
 
-
-
-      
-
-
-
-<br><br><br><br>
+  <!--  <button class='btn btn-outline-info' id="carregando">Carregar mais itens</button> -->
+        
+   <br><br><br><br>
 
     <!-- boostrap javascript -->
 	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
@@ -216,6 +191,8 @@ $resultado = mysqli_query($conexao,$sql);
 	<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
 	<script src="../jQuery/jquery.js"></script>
 	<script src="../jQuery/bootstrap.bundle.min.js"></script>
+
+	
 
 </body>
 </html>

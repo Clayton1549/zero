@@ -197,12 +197,7 @@ while($arquivos = mysqli_fetch_array($resultado)){?>
 </div>
 
 <?php
-
-
- include("footer.php");
-
-
-
+      include("footer.php");
 
 ?>
        <!-- boostrap javascript -->

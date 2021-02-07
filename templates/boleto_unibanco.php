@@ -20,10 +20,12 @@
  $endereco = $_POST['enderecobol'];
  $cidade_estado_cep  = $_POST['c_e_cp'];
  $quantidade =  $_POST['quantidade'];
+
+$CECep  = utf8_decode($cidade_estado_cep);
+
  
  
-
-
+ 
 // +----------------------------------------------------------------------+
 // | BoletoPhp - Versão Beta                                              |
 // +----------------------------------------------------------------------+
@@ -74,10 +76,10 @@ $dadosboleto["valor_boleto"] = $valor_boleto; 	// Valor do Boleto - REGRA: Com v
 // DADOS DO SEU CLIENTE
 $dadosboleto["sacado"] =  $nome_boleto;
 $dadosboleto["endereco1"] =   $endereco;
-$dadosboleto["endereco2"] =  $cidade_estado_cep;
+$dadosboleto["endereco2"] = $CECep;
 
 // INFORMACOES PARA O CLIENTE
-$dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja Clayton.com";
+$dadosboleto["demonstrativo1"] = "Pagamento de Compra na Loja clayton.com";
 $dadosboleto["demonstrativo2"] = "Pagemento  em apenas uma parcella<br>Taxa bancária - R$ ".number_format($taxa_boleto, 2, ',', '');
 $dadosboleto["demonstrativo3"] = "BoletoPhp - http://www.boletophp.com.br";
 $dadosboleto["instrucoes1"] = "- Sr. Caixa, cobrar multa de 2% após o vencimento";
@@ -115,4 +117,6 @@ $dadosboleto["cedente"] = "Clayton loja online ";
 // NÃO ALTERAR!
 include("../logica/funcoes_unibanco.php"); 
 include("layout_unibanco.php");
+
+
 ?>
