@@ -49,7 +49,8 @@
 
    <?php
          session_start();
-            require('../../bd/conexao.php');
+          require('../../admin/login-logout/include_bd.php');
+		
 			if((isset ($_SESSION['email']) == true) and (isset ($_SESSION['senha']) == true)){
 	
 				$logado = $_SESSION['email'];

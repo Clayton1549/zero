@@ -16,7 +16,7 @@
      
     	<?php
          session_start();
-            require('../bd/conexao.php');
+           require('../logica/include_bd.php');
 			if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
 	
 				$logado = $_SESSION['user'];
@@ -78,7 +78,7 @@
 	             $preco = $_SESSION["preco"];
                  $codigo = $_GET['id'];
                 
-                 $sql = "SELECT nome_imagem,imagem,descricao FROM imagens WHERE codigo =   $codigo  ";
+                 $sql = "SELECT nome_imagem,imagem,descricao FROM imagens WHERE codigo =  $codigo  ";
 
 
 		          $resultado = mysqli_query($conexao,$sql);
@@ -106,7 +106,7 @@
 
                      $sql = "SELECT count(codigo) FROM imagens WHERE nome_imagem = '$nomeImagem'  ";
                      $result = $conexao->query($sql);
-					if ($result->num_rows > 0) {
+					 if ($result->num_rows > 0) {
 					    // output data of each row
 					    while($row = $result->fetch_row()) {
 							$quantidade =   $row[0] ;
@@ -202,6 +202,13 @@
             <div class="container border border-primary bg-light">
 			 	<h1>Formulario pedido</h1>
 			 	<form class="was-validated" method="post" action="../logica/validaPedido.php"   >
+
+			 	<div class="form-group ">
+
+			 		<?php echo " <input   class='form-control' type='hidden' name='nome_produto' id='nome_produto' value=' $nomeImagem ''> "; ?>
+
+			 	 </div>
+
 
 			 	<div class="form-group ">
 			    <label for="Nome">Nome Completo</label>
@@ -301,7 +308,7 @@
 			      <label for="valor">Pagamento</label>
                 <p  class="text-info" id="valorPg-b" ></p>
 			    
-                  <?php echo " <input   class='form-control' type='number' name='valorPg-b' id='valorPg-b' placeholder='Confirme a quantidade...' max='$quantidade' min='1'> "; ?>
+                  <?php echo " <input   class='form-control' type='number' name='valorPg-b' id='valorPg-b'  placeholder='Confirme a quantidade...' max='$quantidade' min='1'  required  > "; ?>
 
 
 
@@ -317,7 +324,9 @@
 			      </label>
 			    </div>
 			  </div>
+			
 			  <button id="btconfirma" name="btconfirma" type="submit" class="btn btn-primary">Proximo</button>
+			
 			   <br><br><br>
 			  </form>
 			 </div>

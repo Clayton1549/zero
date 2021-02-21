@@ -109,7 +109,6 @@ if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true))
   <?php
 
 
-include("../bd/conexao.php");
 
   $sql = 'SELECT codigo,imagem,descricao,nome_imagem FROM imagens';
 

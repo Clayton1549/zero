@@ -1,6 +1,7 @@
 <?php
   
-	require("../bd/conexao.php");
+	require('include_bd.php');
+		
 		
        $codigo = $_GET['id'];
 

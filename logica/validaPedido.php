@@ -14,7 +14,7 @@
      <body>
  <?php    
        session_start();
-       require('../bd/conexao.php');
+       require('include_bd.php');
 			if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
 
            $logado = $_SESSION['user'];
@@ -32,6 +32,7 @@
         $email = $_POST['email'];
         $confirma = $_POST['confirmar'];
         $cpf = $_POST['cpf'];
+        $numero_cpf = preg_replace('/[^\d]/', '',$cpf);
         $cp = $_POST['cep'];
         $bairro = $_POST['bairro'];
         $logradouro = $_POST['logradouro'];
@@ -42,6 +43,8 @@
         $cidade = $_POST['cidade'];
         $quantidade = $_POST['valorPg-b'];
         $preco = $_SESSION["preco"];
+        $nome_produto_selecionado =  $_POST['nome_produto'];
+       // $numero_cpf = preg_replace('/[^\d]/', '',$cpf);
 
     
       //validar email 
@@ -60,38 +63,102 @@
             } else {
                echo "<script language='javascript' type='text/javascript'>alert('CPF inválido !');window.location.href='../templates/vendas.php';</script>";
              }
-                 
-                  
-         echo "<div style='font-size: 22px;' class='container-fluid text-info'>";
-         print_r('Nome : ' . $usuario);
-         print_r('<br>');
-         print_r('Número do pedido : ' . $_SESSION['numeroPedido']  . ' - ' . $cpf); 
-         print_r('<br>');
-         print_r('Email : ' . $email);
-         print_r('<br>');
-         print_r('Cpf : ' . $cpf);
-         print_r('<br>');
-         print_r('Cep : ' . $cp);
-         print_r('<br>');
-         print_r('Bairro : ' . $bairro);
-         print_r('<br>');
-         print_r('Logradouro : ' . $logradouro);
-         print_r('<br>');
-         print_r('Número : ' . $numero);
-         print_r('<br>');
-         print_r('Compelemento : ' . $complemento);
-         print_r('<br>');
-         print_r('Referência : ' . $referencia);
-         print_r('<br>');
-         print_r('Estado : ' . $uf);
-         print_r('<br>');
-         print_r('Cidade : ' . $cidade);
-         print_r('<br>');
-         print_r('Valor :  R$  ' . $quantidade * $preco . '.00');
-         print_r('<br>');
+                
+                      
+             echo "<div style='font-size: 22px;' class='container-fluid text-info'>";
+
+             print_r('Produto Selecionado : ' . $nome_produto_selecionado);
+             print_r('<br>');
+             print_r('Nome : ' . $usuario);
+             print_r('<br>');
+             print_r('Número do pedido : ' . $_SESSION['numeroPedido']  .   $numero_cpf ); 
+             print_r('<br>');
+             print_r('Email : ' . $email);
+             print_r('<br>');
+             print_r('Cpf : ' .  $numero_cpf );
+             print_r('<br>');
+             print_r('Cep : ' . $cp);
+             print_r('<br>');
+             print_r('Bairro : ' . $bairro);
+             print_r('<br>');
+             print_r('Logradouro : ' . $logradouro);
+             print_r('<br>');
+             print_r('Número : ' . $numero);
+             print_r('<br>');
+             print_r('Compelemento : ' . $complemento);
+             print_r('<br>');
+             print_r('Referência : ' . $referencia);
+             print_r('<br>');
+             print_r('Estado : ' . $uf);
+             print_r('<br>');
+             print_r('Cidade : ' . $cidade);
+             print_r('<br>');
+             print_r('Valor :  R$  ' . $quantidade * $preco . '.00');
+             print_r('<br>');
 
       
        "</div>";
+
+
+   //Enviando  estatus  compra  para bd
+
+          $num_pedido  =   $_SESSION['numeroPedido'] .   $numero_cpf ;  //"948427638 10 - 27427580893";
+
+         $sql = "SELECT id_pedido  ,   cpf   FROM  pedido ";
+
+        if(!$stmt = $conexao->prepare($sql)){
+          die("Error prepare ".$conexao->error);}
+
+            
+            $stmt->execute();
+            $result = $stmt->get_result();
+                      
+          foreach  ($result as $row) {
+                   foreach ($row as $key => $value) {
+              echo "<br>";     
+                
+                var_dump( " </strong>" . $value . "<br>"); 
+             }
+        }
+     
+      if($value  ==  $cpf ){
+        
+       echo  "<script>
+             
+
+             alert('Usuaro já  cadastrado  em mossa base de dados !!!');
+         
+       
+         </script>";  
+
+
+       }else{
+
+   
+
+   $valor_boleto = $quantidade * $preco;
+   /* $status = 'Não confirmado';
+   $endereco_com  = $uf  . ' , ' .   $cidade .' , '.  $bairro . ' , ' . $logradouro . ' , '.   $numero; 
+   $num_pedido  = $numero .  $numero_cpf ;
+
+  
+  if(!$stmt = $conexao->prepare("INSERT INTO pedido ( produto, numero_pedido, nome, email, cpf, valor, cep, endereco,status) VALUES (?,?,?,?,?,?,?,?,?)")){
+    die("erro prepare:".$conexao->error);}
+          
+    if(!$stmt->bind_param("sssssssss", $nome_produto_selecionado,$num_pedido , $usuario, $email,  $numero_cpf , $valor_boleto,  $cp ,$endereco_com , $status )){
+      die("erro bind_param:".$conexao->error);}
+     if(!$stmt->execute()){
+      die("erro execute:".$conexao->error);
+        }
+        
+        $resultado = $conexao;
+*/
+        
+
+     
+   }
+
+  // var_dump($cpf);
 
     
 ?>
@@ -161,27 +228,35 @@
             <h1 class="text-center text-info">Boleto</h1>
                     
 
+
                <?php 
                     
-                    $valor_boleto = $quantidade * $preco;
-                  
-                     print_r('<h1 class="text-primary"> Confira   nome  </h1>'); 
-                     print_r( " <input  class='form-control' type='text' name='nomebol' id='nomebol'  value= ' $usuario ' > "); 
-                     print_r("<h1> Valor:  R$ $valor_boleto  </h1>"); 
-                     print_r( " <input     class='form-control'     type='hidden' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
-                     print_r('<h1 class="text-primary"> Confira  endereço  </h1>'); 
-                     print_r("<input class='form-control' type='text' name='enderecobol' id='enderecobol' value=' $logradouro'  >  ");
-                     print_r('<h1 class="text-primary" lass="text-primary"> Confira cidade ,estado e  CEP </h1>');  
-                     print_r("<input class='form-control' type='text' name='c_e_cp' id='c_e_cp' value=' $cidade  $uf   $cp'  >  ");
-                     print_r("<h1> Quantidade : $quantidade  </h1>");  
-                     print_r("<input class='form-control' type='hidden' name='quantidade' id='quantidade' value=' $quantidade '  >  ");
+                     
+
+
+                      
+                       print_r("<h1> Você escolheu :  $nome_produto_selecionado  </h>");
+                       print_r('<h1 class="text-primary"> Confira   nome  </h1>'); 
+                       print_r( " <input  class='form-control' type='text' name='nomebol' id='nomebol'  value= ' $usuario ' > "); 
+                       print_r("<h1> Valor:  R$ $valor_boleto  </h1>"); 
+                       print_r( " <input     class='form-control'     type='hidden' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
+                       print_r('<h1 class="text-primary"> Confira  endereço  </h1>'); 
+                       print_r("<input class='form-control' type='text' name='enderecobol' id='enderecobol' value=' $logradouro'  >  ");
+                       print_r('<h1 class="text-primary" lass="text-primary"> Confira cidade ,estado e  CEP </h1>');  
+                       print_r("<input class='form-control' type='text' name='c_e_cp' id='c_e_cp' value=' $cidade  $uf   $cp'  >  ");
+                       print_r("<h1> Quantidade : $quantidade  </h1>");  
+                       print_r("<input class='form-control' type='hidden' name='quantidade' id='quantidade' value=' $quantidade '  >  ");
+                    
+                      
+
+                
                   ?>
 
                  </div>
 
             
 
-               <button  onclick="myFunction()" id="boleto-b" class="btn btn-outline-success">Comfirme</button>
+               <button  onclick="myFunction()" id="boleto-b" class="btn btn-outline-success">Criar boleto</button>
               
          </form>
       </div>
@@ -193,7 +268,7 @@
     
      <!-- Copyright -->
     <div class="footer-copyright text-center py-3"> Desenvolvido por  Clayton  Pereira de Oliveira © em  2019  <br>
-         <?php   $ano  =  date("m/ Y ");       echo  $ano;    ?>
+    <?php   $ano  =  date("m/ Y ");       echo  $ano;    ?>
         
       
         </div>
@@ -234,11 +309,7 @@
   
      //var txt;
     
- 
- 
-
-
- </script>
+    </script>
   
   
  

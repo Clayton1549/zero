@@ -1,6 +1,6 @@
 <?php
 
- include("../bd/conexao.php");
+ require('../logica/include_bd.php');
 	$sql = 'SELECT preco FROM adminpreco';
 	$result = $conexao->query($sql);
 	if ($result->num_rows > 0) {

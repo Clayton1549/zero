@@ -1,7 +1,7 @@
 <?php
   
-		require("../../bd/conexao.php");
-		
+	require('../../admin/login-logout/include_bd.php');
+     
        $codigo = $_GET['id'];
 
       

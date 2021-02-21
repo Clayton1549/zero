@@ -1,7 +1,6 @@
 <?php
    
-		 require("../bd/conexao.php");
-
+		require('include_bd.php');
 
 		$id_imagem = $_GET['id']; //$_GET["codigo"];
 

@@ -53,25 +53,36 @@
    </div>
 </nav>
 
-   <?php
-	  
-	    session_start();
-		require('../bd/conexao.php');
-		if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
+   
+	 <?php
+         session_start();
+           require('../logica/include_bd.php');
+			if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
+	
+				$logado = $_SESSION['user'];
+			    date_default_timezone_set('America/Sao_Paulo');
+				$x =  $_SESSION["inicio"]  = date(" d-m-Y H:i");
+                $d = preg_replace('/[-]/' , '/' , $x);
+				print_r("  <p style ='margin:10px ; color:#0F0A0A'>$d</p>");
+				echo "  <p   style = 'margin:10px; color:blue;' >      Olá    .$logado;</p>";
+				 } else{
+				
+			     header("Location: index.php");	
+                   }
 
-		$logado = $_SESSION['user'];
-		date_default_timezone_set('America/Sao_Paulo');
-		$x =  $_SESSION["inicio"]  = date(" d-m-Y H:i");
-		$d = preg_replace('/[-]/' , '/' , $x);
-		print_r("  <p style ='margin:10px ; color:#0F0A0A'>$d</p>");
-		echo "  <p   style = 'margin:10px; color:blue;' >      Olá    .$logado;</p>";
-		 } else{
+             
+				    //echo mt_rand() . "\n";
+                    $rand = mt_rand() . "\n";
+                    //echo mt_rand(5, 14);
+                    $NumeroPedido = mt_rand(5, 14);
 
-		 header("Location: index.php");	
+                 
+                  $_SESSION['numeroPedido'] =  $rand . $NumeroPedido;
 
-		 }
 
-   ?>
+
+
+	         ?>
 
    <table class="table" border="1">
 
@@ -105,7 +116,7 @@
 
   <?php
    
-   include("../bd/conexao.php");
+  
 	$sql = 'SELECT preco FROM adminpreco';
 	$result = $conexao->query($sql);
 	if ($result->num_rows > 0) {

@@ -54,7 +54,9 @@
 	
 <?php
 session_start();
-require('../bd/conexao.php');
+
+require('../logica/include_bd.php');
+
 if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
 
 	$logado = $_SESSION['user'];

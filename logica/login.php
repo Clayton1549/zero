@@ -1,6 +1,7 @@
 <?php
 session_start();
-require("../bd/conexao.php");
+         require('include_bd.php');
+
 		 $usuario = $_POST["user"];
 		 $senha = $_POST["senha"];
 

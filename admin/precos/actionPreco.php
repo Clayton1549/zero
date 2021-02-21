@@ -1,5 +1,7 @@
 <?php
-	 require('../../bd/conexao.php');
+	
+	 require('../../admin/login-logout/include_bd.php');
+		
 	$novoPreco = $_POST['preco'];
 
 

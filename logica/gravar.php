@@ -1,9 +1,10 @@
 <?php
-	require("../bd/conexao.php");
+	//require("../bd/conexao.php");
+   require('include_bd.php');
     session_start();
 	$usuario = $_POST["email"];
     //$senha = password_hash($_POST["senha"],PASSWORD_ARGON2I);
-   $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $cidade = $_POST["City"];
      
          if(empty($cidade  && $usuario)){

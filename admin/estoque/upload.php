@@ -1,6 +1,8 @@
 <?php
-      
-		require("../../bd/conexao.php");
+
+      require('../../admin/login-logout/include_bd.php');
+		
+	 
 		$nomeEvento = $_POST['nome_produto'];
 		$descricaoEvento = $_POST['descricao_produto'];
 		$imagem = $_FILES['imagem']['tmp_name'];

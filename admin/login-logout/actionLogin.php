@@ -7,7 +7,9 @@
  
 <?php
 session_start();
-require("../../bd/conexao.php");
+ 
+  require('../../admin/login-logout/include_bd.php');
+		
 
 $adminUser = $_POST['email'];
 $adminSenha = $_POST['senha'];
