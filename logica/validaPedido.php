@@ -8,11 +8,15 @@
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
      <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
      <link rel="stylesheet" href="../css/img.css">
+
      <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
    </head>
     
      <body>
+
+
  <?php    
+
        session_start();
        require('include_bd.php');
 			if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
@@ -100,66 +104,7 @@
        "</div>";
 
 
-   //Enviando  estatus  compra  para bd
-
-          $num_pedido  =   $_SESSION['numeroPedido'] .   $numero_cpf ;  //"948427638 10 - 27427580893";
-
-         $sql = "SELECT id_pedido  ,   cpf   FROM  pedido ";
-
-        if(!$stmt = $conexao->prepare($sql)){
-          die("Error prepare ".$conexao->error);}
-
-            
-            $stmt->execute();
-            $result = $stmt->get_result();
-                      
-          foreach  ($result as $row) {
-                   foreach ($row as $key => $value) {
-              echo "<br>";     
-                
-                var_dump( " </strong>" . $value . "<br>"); 
-             }
-        }
-     
-      if($value  ==  $cpf ){
-        
-       echo  "<script>
-             
-
-             alert('Usuaro já  cadastrado  em mossa base de dados !!!');
-         
-       
-         </script>";  
-
-
-       }else{
-
    
-
-   $valor_boleto = $quantidade * $preco;
-   /* $status = 'Não confirmado';
-   $endereco_com  = $uf  . ' , ' .   $cidade .' , '.  $bairro . ' , ' . $logradouro . ' , '.   $numero; 
-   $num_pedido  = $numero .  $numero_cpf ;
-
-  
-  if(!$stmt = $conexao->prepare("INSERT INTO pedido ( produto, numero_pedido, nome, email, cpf, valor, cep, endereco,status) VALUES (?,?,?,?,?,?,?,?,?)")){
-    die("erro prepare:".$conexao->error);}
-          
-    if(!$stmt->bind_param("sssssssss", $nome_produto_selecionado,$num_pedido , $usuario, $email,  $numero_cpf , $valor_boleto,  $cp ,$endereco_com , $status )){
-      die("erro bind_param:".$conexao->error);}
-     if(!$stmt->execute()){
-      die("erro execute:".$conexao->error);
-        }
-        
-        $resultado = $conexao;
-*/
-        
-
-     
-   }
-
-  // var_dump($cpf);
-
     
 ?>
    
@@ -219,10 +164,10 @@
      </div>
    </div>
 
-  <div id="boleto" style="display: none;" class="container-fluid border border-info col-lg-6 col-xl-9">
+  <div id="boleto" style="display: none;" class="container   border border-info col-lg-6 col-xl-9">
      <div class="mb-5 mt-5 mr-4 ml-4 pt-4">
      
-        <form  method="post"  action="../templates/boleto_unibanco.php" class="was-validated">
+        <form  method="post"   action="../templates/boleto_unibanco.php"   class="was-validated">
         
           <div class="form-group">
             <h1 class="text-center text-info">Boleto</h1>
@@ -232,8 +177,8 @@
                <?php 
                     
                      
-
-
+                      $valor_boleto = $quantidade * $preco;
+                    
                       
                        print_r("<h1> Você escolheu :  $nome_produto_selecionado  </h>");
                        print_r('<h1 class="text-primary"> Confira   nome  </h1>'); 
@@ -241,39 +186,45 @@
                        print_r("<h1> Valor:  R$ $valor_boleto  </h1>"); 
                        print_r( " <input     class='form-control'     type='hidden' name='boletoVal' id='boletoVal'  value= ' $valor_boleto ' > "); 
                        print_r('<h1 class="text-primary"> Confira  endereço  </h1>'); 
-                       print_r("<input class='form-control' type='text' name='enderecobol' id='enderecobol' value=' $logradouro'  >  ");
+                       print_r("<input class='form-control' type='text' name='enderecobol' id='enderecobol' value=' $logradouro . $numero'  >  ");
                        print_r('<h1 class="text-primary" lass="text-primary"> Confira cidade ,estado e  CEP </h1>');  
                        print_r("<input class='form-control' type='text' name='c_e_cp' id='c_e_cp' value=' $cidade  $uf   $cp'  >  ");
                        print_r("<h1> Quantidade : $quantidade  </h1>");  
                        print_r("<input class='form-control' type='hidden' name='quantidade' id='quantidade' value=' $quantidade '  >  ");
-                    
+                     
+                   
                       
-
-                
-                  ?>
+                     ?>
 
                  </div>
-
-            
-
-               <button  onclick="myFunction()" id="boleto-b" class="btn btn-outline-success">Criar boleto</button>
+                 <button  onclick="if(!confirm('Tem certeza que quer   gerar o boleto ?   ')) return false;"  id="boleto-b" class="btn btn-outline-success">Criar boleto</button> 
+             <div style="background-image: url('../images/Boleto_6.jpg'  ); background-repeat: no-repeat ; background-size: 100%;"  >
+               <?php  include('verificaPedidos.php'); ?>
+            </div>
+               
               
          </form>
       </div>
   </div>
-</div>
 
 
-   <footer style="margin-top: 1000px;"  id="contato" class="page-footer font-small  text-light bg-dark ">
-    
-     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3"> Desenvolvido por  Clayton  Pereira de Oliveira © em  2019  <br>
-    <?php   $ano  =  date("m/ Y ");       echo  $ano;    ?>
+
+
+ <br><br><br> <br>
+
+
+  <footer  id="contato" class="page-footer font-small  text-light bg-dark ">
+            <!-- Copyright -->
+        <div class="footer-copyright text-center py-3"> Desenvolvido por  Clayton  Pereira de Oliveira © em  2019  <br>
+
+
+               <?php   $ano  =  date("m/ Y ");       echo  $ano;    ?>
         
       
         </div>
-     </footer>
-  
+
+</footer>
+      
 
   <!-- Copyright -->
   <!-- boostrap javascript -->
@@ -287,28 +238,8 @@
   <script src="../jQuery/bootstrap.bundle.min.js"></script>
   <script src="../javascript/cartoes.js"></script>
   <script>
-
-    function myFunction() {
-        
-      var txt;
-      var r = confirm("Press a button!");
-      
-      if (r == true) {
-       
-        } else {
-          
-         
-
-
-
-             }
- 
-      }
-        
-
-  
-     //var txt;
-    
+   //confirmar   click
+      document.getElementsByTagName("a")[0].click();
     </script>
   
   

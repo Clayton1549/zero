@@ -1,48 +1,24 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Vendas</title>
+		<title>Vendas</title>-->
 		<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-         <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
+       <!--  <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
 		 <link rel="stylesheet" href="../css/img.css">
 	     <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
 
 		 
        </head>
-     <body>
-
+     <body>-->
+        
      
     	<?php
-         session_start();
-           require('../logica/include_bd.php');
-			if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
-	
-				$logado = $_SESSION['user'];
-			    date_default_timezone_set('America/Sao_Paulo');
-				$x =  $_SESSION["inicio"]  = date(" d-m-Y H:i");
-                $d = preg_replace('/[-]/' , '/' , $x);
-				print_r("  <p style ='margin:10px ; color:#0F0A0A'>$d</p>");
-				echo "  <p   style = 'margin:10px; color:blue;' >      Olá    .$logado;</p>";
-				 } else{
-				
-			     header("Location: index.php");	
-                   }
-
-             
-				    //echo mt_rand() . "\n";
-                    $rand = mt_rand() . "\n";
-                    //echo mt_rand(5, 14);
-                    $NumeroPedido = mt_rand(5, 14);
-
-                 
-                  $_SESSION['numeroPedido'] =  $rand . $NumeroPedido;
-
-
-
-
-	         ?>
+           include('../logica/autentica_login.php'); 
+    	   require('../logica/include_bd.php');
+       
+             ?>
 
 	         	<div class="container text-center">
      		        
@@ -344,9 +320,7 @@
 			  </div>
 
 
-
-			  
-		 </footer>
+           </footer>
 			
 
 

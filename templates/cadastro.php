@@ -55,6 +55,10 @@
 	  <label for="senha">Senha</label>
 	  <input type="password" class="form-control" id="senha" placeholder="senha" name="senha" required>
 	 <div class="valid-feedback">Ok.</div>
+     <div class="form-group">
+	  <label for="senha">Redigitar senha</label>
+	  <input type="password" class="form-control" id="senha" placeholder="digite  a senha  novamente" name="senha_a" required>
+	 <div class="valid-feedback">Ok.</div>
 	  <div class="invalid-feedback">Preencha esse campo por  favor.</div>
 		<div class="form-group">
 		  <label for="City">Cidade</label>
