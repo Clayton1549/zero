@@ -30,7 +30,7 @@
 	  <a class="nav-link " href="../templates/template.php">Inicio</a>
   </li>
   <li class="nav-item"> 
-	  <a class="nav-link active" href="../templates/in_conteudo.php">Conteúdo</a>
+	  <a class="nav-link " href="../templates/in_conteudo.php">Conteúdo</a>
   </li>
   <li class="nav-item">
 	  <a class="nav-link" href="../templates/produtos.php">Enviar foto </a>
@@ -44,18 +44,12 @@
 	   <a class="nav-link" href="../templates/login_h.php"><span class=""></span>Pesquisa </a>
 	 </li>
 	 <li class="nav-item">
-		 <a class="nav-link" href="../logica/logout.php"><span class=""></span> Sair</a></li>
+		 <a class="nav-link" href="../logica/logout.php" onclick="if(!confirm(' Tem certeza que quer  fazer   logout   no sistema  ?   ')) return false;">  <span class=""></span> Sair</a></li>
 	 </li>
 	 
   </ul>     
 </div>
 </nav>
-
-
-
-
-
-
 
 
 <?php

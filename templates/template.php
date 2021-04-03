@@ -1,5 +1,5 @@
-
-      <?php    include('../logica/autentica_login.php');?>
+<?php    include('../logica/autentica_login.php');     ?>
+      <title>Imicio</title>
 
 		<div class="container-fluid text-info display-4">
 				<p class=" text-center">Sua Jornada pelo mundo do entretenimento digital</p>
@@ -159,15 +159,7 @@ Praesent vulputate eros eget lacus convallis tristique. Donec vitae pretium sapi
 <br><br><br>
 	 
 
-<?php
-
-
-include("footer.php");
-
-
-
-
-?>
+<?php include("footer.php");?>
 
 		
 

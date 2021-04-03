@@ -16,7 +16,9 @@
 		<a class="navbar-brand" href="#"><img src="../../images/logo_b.jpg" alt="clayton"></a>
 		<!-- menu sanduich -->
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+	     
 	      <span class="navbar-toggler-icon"></span>
+	      
          </button>
 		
 		<div id="menu" class="collapse navbar-collapse">

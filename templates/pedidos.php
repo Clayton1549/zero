@@ -1,33 +1,34 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Vendas</title>-->
+		<title>Vendas</title>
 		<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-       <!--  <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
+         <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
 		 <link rel="stylesheet" href="../css/img.css">
 	     <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
 
 		 
        </head>
-     <body>-->
-        
-     
-    	<?php
-           include('../logica/autentica_login.php'); 
-    	   require('../logica/include_bd.php');
+     <body>
        
-             ?>
+       	<?php
+	    	
+	    	 session_start();
+	        
+	    	   require('../logica/include_bd.php');
+	       
+	        ?>
 
-	         	<div class="container text-center">
-     		        
-     		        <h1 class="text-info">Tela cadastro de pedidos   </h1>
-                  
+	    	<div class="container text-center">
+	     		        
+	     		        <h1 class="text-info">Tela cadastro de pedidos   </h1>
+	                  
 
-                </div>
+	                </div>
 
-                   <hr>
+	           <hr>
   
 
            	<div class="container-fluid  ">
@@ -47,11 +48,10 @@
               </div>
 
             <div class="col-md-6">
-               <?php
+    
+              <?php
 
-               
-
-	             $preco = $_SESSION["preco"];
+                 $preco = $_SESSION["preco"];
                  $codigo = $_GET['id'];
                 
                  $sql = "SELECT nome_imagem,imagem,descricao FROM imagens WHERE codigo =  $codigo  ";
@@ -77,8 +77,8 @@
 		                 
                         }
 				     }
-                    
-                     
+                  
+
 
                      $sql = "SELECT count(codigo) FROM imagens WHERE nome_imagem = '$nomeImagem'  ";
                      $result = $conexao->query($sql);
@@ -94,8 +94,47 @@
 					    echo "0 results";
 					}
 
+
+					  //echo mt_rand() . "\n";
+                    $rand = mt_rand() . "\n";
+                    //echo mt_rand(5, 14);
+                    $NumeroPedido = mt_rand(5, 14);
+
+                 
+                  $_SESSION['numeroPedido'] =  $rand . $NumeroPedido;  //echo mt_rand() . "\n";
+                    $rand = mt_rand() . "\n";
+                    //echo mt_rand(5, 14);
+                    $NumeroPedido = mt_rand(5, 14);
+
+                 
+                  $_SESSION['numeroPedido'] =  $rand . $NumeroPedido;
+
+                 // echo $_SESSION['numeroPedido'];
+
                   
 			 ?>
+
+			 <div  class="text-danger bg-light" >
+			 	
+			 	  <div id="erros1"></div>
+			      <div id="errosA"></div>
+			      <div id="errosB"></div>
+			      <div id="errosC"></div>
+			      <div id="errosD"></div> 
+			      <div id="errosE"></div>
+			      <div id="errosF"></div>
+			      <div id="errosG"></div>
+			      <div id="errosH"></div>
+			      <div id="errosI"></div>
+			      <div id="errosJ"></div>
+			      <div id="errosL"></div>
+			      <div id="errosM"></div>
+			      <div id="errosN"></div>
+              
+              </div>
+			     
+			      
+
 
 			  </div>
 			  <div class="col-md-3">
@@ -146,11 +185,8 @@
 			  	 	
 
 			  
-			  	 	
-			  	 	
-			  	 	
-			  	       
-			  	     <?php if($quantidade <= 8){ echo '<script> var document.getElemetById(quan).style.display = "none" </script>'; } 
+			
+			         <?php if($quantidade <= 8){ echo '<script> var document.getElemetById(quan).style.display = "none" </script>'; } 
 			  	 	    
 			  	 	    else { echo "<div id='quan'>
 			  	 	                        
@@ -177,7 +213,7 @@
 
             <div class="container border border-primary bg-light">
 			 	<h1>Formulario pedido</h1>
-			 	<form class="was-validated" method="post" action="../logica/validaPedido.php"   >
+			 <form   id="val_pedidos" class="was-validated" method="post" action="../logica/validaPedido.php"   >
 
 			 	<div class="form-group ">
 
@@ -193,7 +229,7 @@
 
 			  <div class="form-group">
 			    <label for="">CPF</label>
-			    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+			    <input type="text"  class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
 			  </div>
 			  <div class="form-row">
 			    <div class="form-group col-md-6 ">
@@ -301,7 +337,7 @@
 			    </div>
 			  </div>
 			
-			  <button id="btconfirma" name="btconfirma" type="submit" class="btn btn-primary">Proximo</button>
+			    <button id="btconfirma" onclick="myFunction()" name="btconfirma" type="submit" class="btn btn-primary">Proximo</button>
 			
 			   <br><br><br>
 			  </form>
@@ -309,38 +345,19 @@
 			<br>
 
        
-           <footer  id="contato" class="page-footer font-small  text-light bg-dark ">
-            <!-- Copyright -->
-			  <div class="footer-copyright text-center py-3"> Desenvolvido por  Clayton  Pereira de Oliveira © em  2019  <br>
-
-
-               <?php   $ano  =  date("m/ Y ");       echo  $ano;    ?>
-			  
-			
-			  </div>
-
-
-           </footer>
+      <?php   include('../templates/footer_b.php');   ?>
 			
 
 
-
-
-	<!-- Copyright -->
-    <!-- boostrap javascript -->
-	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
-	<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
-
-
-	<script src="../jQuery/jquery.js"></script>
-	<script src="../jQuery/bootstrap.bundle.min.js"></script>
-	
+    <script src="../jQuery/jquery.js"></script>
+    <script src="../jQuery/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/valida_cpf.js"></script>
+	<script src="../javascript/valida_pedidos.js"></script>
 	
 	
 	
 	<script >
-		
+
 	   $(function(){
           
           // preencher campos de endereço
