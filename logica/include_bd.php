@@ -1,7 +1,11 @@
 <?php   
 
 include("../bd/conexao.php");
-// include("../../testesDB/conexao.php");
+//include('...php');
+
+//include('../../conexoes/conexao.php');
+
+
 
   
   ?>

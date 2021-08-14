@@ -1,16 +1,8 @@
 <?php
+  include("./include_bd.php");
+  $status  =  'Não confirmado' ;  
 
-
-//Enviando  estatus  compra  para bd
-  $num_pedido  =   $numero_cpf ;  
-   
-   // $num_pedido  = "1360038685 503644687005" ;
-
-  // $num_pedido  = $_SESSION['numeroPedido']. $numero_cpf;  
-   
-
-
-         $sql = "SELECT id_pedido FROM  pedido ";
+       $sql = "SELECT status FROM  pedido ";
 
         if(!$stmt = $conexao->prepare($sql)){
           die("Error prepare ".$conexao->error);}
@@ -23,15 +15,15 @@
                    foreach ($row as $key => $value) {
               echo "<br>";     
                 
-            //  var_dump( " </strong>" . $value . "<br>"); 
-             // var_dump(  $value ); 
-           //   print_r("<br>");
-             // var_dump($num_pedido);
+             var_dump( " </strong>" . $value . "<br>"); 
+             print_r(  $status ); 
+             print_r("<br>");
+             
              }
         }
 
 
-      if($value  !== $value ){
+      if($value  ===  $status  ){
         
        echo  "<script>
                 alert('Escolha  a  forma de  pagamento !!!');
@@ -64,7 +56,7 @@
                 alert('Algo errado !');
              </script>";  
 
-           }
+      }
 
 
 

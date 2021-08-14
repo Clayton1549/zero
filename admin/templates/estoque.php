@@ -281,7 +281,8 @@
 			<script src="../../jQuery/jquery.js"></script>
 	        <script src="../../jQuery/bootstrap.bundle.min.js"></script>
 		
-	
+	  <?php  include('..//inicio_footer_validacao/admin_footer.php'); ?>
+
 
 </body>
 
