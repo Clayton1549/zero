@@ -203,8 +203,9 @@
 
                  </div>
                  <button  onclick="if(!confirm('Tem certeza que quer   gerar o boleto ?   ')) return false;"  id="boleto-b" class="btn btn-outline-success">Criar boleto</button> 
+               
                 <div  >
-               <?php // include('verificaPedidos.php'); ?>
+              
             </div>
                
               
@@ -212,9 +213,8 @@
       </div>
   </div>
 
-
-
-
+ 
+  <?php  include('verificaPedidos.php'); ?>
 
  <br><br><br> <br>
 

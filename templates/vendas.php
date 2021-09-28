@@ -1,10 +1,14 @@
 
+     
        <?php include('../logica/autentica_login.php'); 
           require('../logica/include_bd.php');
- 
-     ?>
 
-   <table class="table" border="1">
+ 
+         ?>
+
+         <h2 id="textoAcima" class='text-center  text-info'> Produtos ilustrativos enviados por   Internautas</h2>
+
+   <table id="semItens" class="table" border="1">
 
 	<tr>
 		<td align="center">
@@ -32,6 +36,12 @@
 			
 		</td>
 
+
+			<td align="center">
+			   status
+			
+		</td>
+
 </tr>
 
   <?php
@@ -53,18 +63,46 @@
 
 
 
+	$sql = 'SELECT codigo FROM imagens ';
+	$result = $conexao->query($sql);
+	if ($result->num_rows > 0) {
+	     while($row = $result->fetch_row()) {
+			 $codigo =  $row[0] ;
+		    $_SESSION["codigo"]  = $codigo;
+
+		 }
+
+		
+		} else {
+	      echo "<h1 class='text-center text-primary' > Não temos  nehum produto aqui ainda... </h1>";
+        echo  "<script>;
+                       alert('Compra  cadastrada !');
+                       document.getElementById('semItens').style.display = 'none';
+                       document.getElementById('textoAcima').style.display = 'none';
+                       
+                       
+               </script>";  
+	  }
+
+	
+
+
+
+
 $sql = 'SELECT  codigo,imagem,descricao,nome_imagem FROM imagens   LIMIT  9 ';
 
 
 $resultado = mysqli_query($conexao,$sql);
 
-
-       echo "<h2 class='text-center  text-info'> Produtos ilustrativos enviados por   Internautas</h2>";
+   
+      // echo "<h2  class='text-center  text-info'> Produtos ilustrativos enviados por   Internautas</h2>";
     
 	
     while ($row = mysqli_fetch_array($resultado)) {?>   
+
+
     
-    <tr  style=>
+  <tr  style=>
 	<td align="center">
 	<?php echo $row['codigo']; ?>
 	</td>
@@ -79,6 +117,7 @@ $resultado = mysqli_query($conexao,$sql);
 	<td align="center">
 	
 	<?php 
+
 	
 	      echo '<div  class="card text-center container" style=" width: 38rem;" id="slideShow">';
 	      echo '</a>';
@@ -106,6 +145,20 @@ $resultado = mysqli_query($conexao,$sql);
 
 	    </td>
 
+  
+
+      <td align="center">
+	  
+	  
+
+	       
+             <?php echo  $codigo;  ?>
+
+    	   
+    	 
+
+      </td>
+
     </tr>
 
      <?php } ?>
@@ -118,7 +171,7 @@ $resultado = mysqli_query($conexao,$sql);
    <?php  include('../templates/footer_b.php');     ?>
 
 
-    <!-- boostrap javascript -->
+   <!-- boostrap javascript -->
 	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
 	<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
