@@ -84,12 +84,17 @@
 
 <?php
 
-$sql = "SELECT codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens ";
+ 
+   $sql = "SELECT codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens ";
 	
 
-$resultado = mysqli_query($conexao,$sql);
+  $resultado = mysqli_query($conexao,$sql);
 
-while($arquivos = mysqli_fetch_array($resultado)){?>
+  
+   if($resultado->num_rows === 0){    print_r("Não temmos produtos nesta  pagian por enquanto");      }           
+    while($arquivos = mysqli_fetch_array($resultado)){?>
+	  
+
         <tr  style=>
 		<td align="center">
 		<?php echo $arquivos['codigo']; ?>
@@ -121,7 +126,7 @@ while($arquivos = mysqli_fetch_array($resultado)){?>
 
 	</tr>	
  
-<?php } ?>
+<?php   }   ?>
 
 </table>
 <br><br><br>
