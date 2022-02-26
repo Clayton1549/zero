@@ -1,8 +1,6 @@
  <?php include('../logica/autentica_login.php');
-		          require('../logica/include_bd.php'); ?>
+       require('../logica/include_bd.php'); ?>
 			
-
-
     <div class="container  text-secondary">
         	<h1>Envie uma foto do seu produto.</h1>
          </div>
@@ -52,7 +50,7 @@
 <div class="container  text-secondary">
  <h1  style='color:red;text-align: center;'>Produtos cadastradas na  base  de dados</h1> 
 
-<table class="table" border="1">
+<table id="prod_t" class="table" border="1">
 	
 	<tr>
 		<td align="center">
@@ -83,19 +81,16 @@
 
 
 <?php
-
  
    $sql = "SELECT codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens ";
 	
-
-  $resultado = mysqli_query($conexao,$sql);
+   $resultado = mysqli_query($conexao,$sql);
 
   
-   if($resultado->num_rows === 0){    print_r("Não temmos produtos nesta  pagian por enquanto");      }           
+    if($resultado->num_rows === 0){    print_r("<h3 class='text-info'>Não temos produtos nesta página por enquanto  ! </h3> <script>  document.getElementById('prod_t').style.display = 'none' </script>" );    }           
     while($arquivos = mysqli_fetch_array($resultado)){?>
-	  
-
-        <tr  style=>
+	   
+	   <tr  style=>
 		<td align="center">
 		<?php echo $arquivos['codigo']; ?>
 		</td>

@@ -9,16 +9,9 @@
        <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
        <link rel="stylesheet" href="../css/img.css">
        <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
-
-     
-       </head>
-    
-        
-    
+         </head>
      <body>
-
-
- <?php    
+   <?php    
 
        session_start();
        require('include_bd.php');
@@ -105,13 +98,8 @@
 
       
        "</div>";
-
-
-
-
-   
-    
-?>
+ 
+ ?>
    
    <div class="container-fluid col-lg-6 col-xl-4">
     <div class="mb-5 mt-5 mr-4 ml-4 pt-4">
@@ -181,7 +169,6 @@
 
                <?php 
                     
-                     
                       $valor_boleto = $quantidade * $preco;
                     
                       

@@ -1,13 +1,8 @@
+ <?php include('../logica/autentica_login.php'); 
+        require('../logica/include_bd.php');
 
-     
-       <?php include('../logica/autentica_login.php'); 
-          require('../logica/include_bd.php');
-
- 
-         ?>
-
-         <h2 id="textoAcima" class='text-center  text-info'> Produtos ilustrativos enviados por   Internautas</h2>
-
+ ?>
+   <h2 id="textoAcima" class='text-center  text-info'> Produtos ilustrativos enviados por   Internautas</h2>
    <table id="semItens" class="table" border="1">
 
 	<tr>
@@ -20,8 +15,6 @@
 			Imagem
 			
 		</td>
-
-		
 
 		<td align="center">
 		Preços
@@ -45,9 +38,8 @@
 </tr>
 
   <?php
-   
-  
-	$sql = 'SELECT preco FROM adminpreco';
+    
+    $sql = 'SELECT preco FROM adminpreco';
 	$result = $conexao->query($sql);
 	if ($result->num_rows > 0) {
 	    // output data of each row
@@ -61,9 +53,7 @@
 	    echo "0 results";
 	}
 
-
-
-	$sql = 'SELECT codigo FROM imagens ';
+        $sql = 'SELECT codigo FROM imagens ';
 	$result = $conexao->query($sql);
 	if ($result->num_rows > 0) {
 	     while($row = $result->fetch_row()) {
@@ -108,7 +98,7 @@ $resultado = mysqli_query($conexao,$sql);
 	</td>
 
 	<td align="center">
-	<?php echo   $img_template = '<img src="data:image/jpg;base64,'. base64_encode($row[1]) . '" alt= "" width="600" height="200" />';
+	<?php echo   $img_template = '<img src="data:image/jpg;base64,'. base64_encode($row[1]) . '" alt= "produtos" width="600" height="200" />';
 
           ?>
 
@@ -117,14 +107,12 @@ $resultado = mysqli_query($conexao,$sql);
 	<td align="center">
 	
 	<?php 
-
-	
 	      echo '<div  class="card text-center container" style=" width: 38rem;" id="slideShow">';
 	      echo '</a>';
           echo  '<div class="card-body">';
           echo   '<h5 class="card-title text-info">Produto á venda preço único</h5>';
           echo '<p class="text-success"> R$ :  '  . $preco . '.00'  . '</p>';
-		  echo   '<p class="card-text text-danger">Todos os produtos enviadas por nossos internautas são meramente ilustrativos .</p>';
+		  echo   '<p class="card-text text-danger">Todos os produtos enviadas por nossos internautas são  ilustrativos .</p>';
 		  echo '<p class="text-success">Seu Produto é garantido !  </p>';
           echo '<a href="pedidos.php?id='.$row['codigo'].
 	'"   class="btn btn-primary ">Comprar  </a>';  
@@ -149,13 +137,7 @@ $resultado = mysqli_query($conexao,$sql);
 
       <td align="center">
 	  
-	  
-
-	       
-             <?php echo  $codigo;  ?>
-
-    	   
-    	 
+	      <?php echo  $codigo;  ?>
 
       </td>
 

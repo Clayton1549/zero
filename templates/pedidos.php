@@ -12,10 +12,8 @@
 		 
        </head>
      <body>
-       
-       	<?php
-	    	
-	    	 session_start();
+     	<?php
+	       session_start();
 	        
 	    	   require('../logica/include_bd.php');
 	       
@@ -29,9 +27,8 @@
 	                </div>
 
 	           <hr>
-  
-
-           	<div class="container-fluid  ">
+        
+         	<div class="container-fluid  ">
            		<div class="row">
            			<div  class="col-md-3   ">
        
@@ -43,25 +40,17 @@
                   localidade.
                 </p>
                 <p class="text-info">Agradecemos por nos escolher !</p>
-              
-
               </div>
 
             <div class="col-md-6">
-    
-              <?php
-
+                <?php
                  $preco = $_SESSION["preco"];
                  $codigo = $_GET['id'];
                 
                  $sql = "SELECT nome_imagem,imagem,descricao FROM imagens WHERE codigo =  $codigo  ";
-
-
-		          $resultado = mysqli_query($conexao,$sql);
+                 $resultado = mysqli_query($conexao,$sql);
 		         
-
-                  
-                     if($resultado->num_rows > 0){
+                 if($resultado->num_rows > 0){
 				     while ($row = mysqli_fetch_array($resultado)){
 				      	
 				       $img_template = '<img src="data:image/jpg;base64,'. base64_encode($row[1]) . '" alt= "imagem" width="600" height="200" />';
@@ -74,12 +63,9 @@
 				      	print_r ('<p class="text-info">' .   $row['descricao'] . '</p>');
 				      	$nomeImagem =  $row['nome_imagem'];
 
-		                 
-                        }
+		                  }
 				     }
-                  
-
-
+                     
                      $sql = "SELECT count(codigo) FROM imagens WHERE nome_imagem = '$nomeImagem'  ";
                      $result = $conexao->query($sql);
 					 if ($result->num_rows > 0) {
@@ -94,8 +80,7 @@
 					    echo "0 results";
 					}
 
-
-					  //echo mt_rand() . "\n";
+                   //echo mt_rand() . "\n";
                     $rand = mt_rand() . "\n";
                     //echo mt_rand(5, 14);
                     $NumeroPedido = mt_rand(5, 14);
@@ -110,9 +95,7 @@
                   $_SESSION['numeroPedido'] =  $rand . $NumeroPedido;
 
                  // echo $_SESSION['numeroPedido'];
-
-                  
-			 ?>
+              ?>
 
 			 <div  class="text-danger bg-light" >
 			 	
@@ -147,9 +130,8 @@
 			  	 	
 			  	   <option class="select"><?php if($quantidade <= 8){ echo '<script> var document.getElemetById(select).style.display = "none" </script>'; } 
 			  	 	else { echo  $quantidade - 8; } ?>Escolha a quantidade</option>
-
-
-			  	 	<option class="select"><?php if($quantidade <= 7){ echo '<script> var document.getElemetById(select).style.display = "none" </script>'; } 
+                   
+                   <option class="select"><?php if($quantidade <= 7){ echo '<script> var document.getElemetById(select).style.display = "none" </script>'; } 
 			  	 	else { echo  $quantidade - 7; } ?></option>
 
 			  	 	<option class="select"><?php if($quantidade <= 6){ echo '<script> var document.getElemetById(select).style.display = "none" </script>'; } 
@@ -183,10 +165,7 @@
 			  	 	<p  class="text-info" id="valorPg"></p>
 
 			  	 	
-
-			  
-			
-			         <?php if($quantidade <= 8){ echo '<script> var document.getElemetById(quan).style.display = "none" </script>'; } 
+                <?php if($quantidade <= 8){ echo '<script> var document.getElemetById(quan).style.display = "none" </script>'; } 
 			  	 	    
 			  	 	    else { echo "<div id='quan'>
 			  	 	                        
@@ -198,12 +177,7 @@
 			  	 	                	</div>";
 			  	 	           } ?>
 
-                  
-			  	   
-			 
-                
-
-			  </div>
+               	  </div>
             </div>
 
             
@@ -264,9 +238,7 @@
 			    </div>
 
              
-
-			  
-			  <div class="form-group">
+         <div class="form-group">
 			    <label for="">Compelemento</label>
 
 			    <input type="text" class="form-control" id="compelemento" name="compelemento" placeholder=" Apartameto,Bloco,etc..."  >
@@ -321,10 +293,7 @@
                 <p  class="text-info" id="valorPg-b" ></p>
 			    
                   <?php echo " <input   class='form-control' type='number' name='valorPg-b' id='valorPg-b'  placeholder='Confirme a quantidade...' max='$quantidade' min='1'  required  > "; ?>
-
-
-
-			   </div>
+              </div>
 			     
 			    	
 			  </div>
@@ -347,16 +316,12 @@
        
       <?php   include('../templates/footer_b.php');   ?>
 			
-
-
-    <script src="../jQuery/jquery.js"></script>
+     <script src="../jQuery/jquery.js"></script>
     <script src="../jQuery/bootstrap.bundle.min.js"></script>
     <script src="../javascript/valida_cpf.js"></script>
 	<script src="../javascript/valida_pedidos.js"></script>
 	
-	
-	
-	<script >
+   	<script>
 
 	   $(function(){
           
@@ -473,8 +438,7 @@
 	   }
 
 	  });
-
-
-          </script>
+       
+        </script>
 	  </body>
 </html>

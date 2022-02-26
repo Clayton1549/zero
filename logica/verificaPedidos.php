@@ -6,41 +6,57 @@
    $status = '';
    $endereco_com  = $uf  . ' , ' .   $cidade .' , '.  $bairro . ' , ' . $logradouro . ' , '.   $numero; 
    $num_pedido  =   $numero_cpf . $_SESSION['numeroPedido']; 
+   
+    $j = $usuario; 
+    if ($j == "Fernanando de Souza"){
+   
+    // MODIFICAÇÃO
 
+      //id_pedido, produto, numero_pedido, nome, email, cpf, valor, cep, endereco, status
 
+     $sqlChecar = "SELECT cpf FROM pedido WHERE numero_pedido = ? AND nome =  ? and email = ?";
+    if(!$stmt = $conexao->prepare($sqlChecar)){
+      die("Error prepare" .$conexao->error);
+    }
 
+    $stmt->bind_param("sss" ,$numero_pedido,$usuario,$email );
+    $stmt->execute();
+    $result = $stmt->get_result();
+    //Irá buscar os registros
 
+    if($result->num_rows > 0){
+      while ($row = $result-> fetch_assoc()) {
 
+            // print_r('Olá  ' . $j);
+      }
+    // Se não houver resgistros faça...
+     
+  
+   // FIM DA MODIFICAÇÃO 
 
+/*  if(!$stmt = $conexao->prepare("INSERT INTO pedido ( produto, numero_pedido, nome, email, cpf, valor, cep, endereco,status) VALUES (?,?,?,?,?,?,?,?,?)")){
+        die("erro prepare:".$conexao->error);}
+                      
+       if(!$stmt->bind_param("sssssssss", $nome_produto_selecionado,$num_pedido , $usuario, $email,  $numero_cpf , $valor_boleto,  $cp ,$endereco_com , $status )){
+          die("erro bind_param:".$conexao->error);}
+            if(!$stmt->execute()){
+              die("erro execute:".$conexao->error);
+       }
+    // Insere normalmente
 
-
-
-$libera = $_POST['libera']; 
-if ($libera == "sim"){
-
-// MODIFICAÇÃO
-
-$sqlChecar = mysql_query("SELECT id FROM a_finan WHERE id_reserva = '$id_res' AND id_cliente = '$id_cliente'");
-// Irá buscar os registros
-
-if(mysql_num_rows($sqlChecar) === 0){
-// Se não houver resgistros faça...
-
-// FIM DA MODIFICAÇÃO 
-
-$sql = mysql_query ("INSERT INTO a_finan(id_reserva,id_cliente)VALUES('$id_res','$id_cliente')", $conexao) or die( mysql_error());
-// Insere normalmente
-
-}else{
-//se não
-
-echo "Já existe";
-
-
+    */
+  }
 }
-}else{
-echo ""
-}
+
+  /* else{
+    //se não
+
+         echo "Já existe";
+        }
+      }else{
+
+        print_r('erro');
+ }*/
 
 
 /*
