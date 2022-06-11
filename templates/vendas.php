@@ -28,9 +28,7 @@
 			Nome 
 			
 		</td>
-
-
-			<td align="center">
+           <td align="center">
 			   status
 			
 		</td>
@@ -53,7 +51,7 @@
 	    echo "0 results";
 	}
 
-        $sql = 'SELECT codigo FROM imagens ';
+    $sql = 'SELECT codigo FROM imagens ';
 	$result = $conexao->query($sql);
 	if ($result->num_rows > 0) {
 	     while($row = $result->fetch_row()) {
@@ -78,8 +76,7 @@
 
 
 
-
-$sql = 'SELECT  codigo,imagem,descricao,nome_imagem FROM imagens   LIMIT  9 ';
+$sql = 'SELECT  codigo,imagem,descricao,nome_imagem FROM imagens LIMIT  4 ';
 
 
 $resultado = mysqli_query($conexao,$sql);

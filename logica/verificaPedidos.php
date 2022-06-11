@@ -6,35 +6,50 @@
    $status = '';
    $endereco_com  = $uf  . ' , ' .   $cidade .' , '.  $bairro . ' , ' . $logradouro . ' , '.   $numero; 
    $num_pedido  =   $numero_cpf . $_SESSION['numeroPedido']; 
+
+   //print_r($usuario);
    
-    $j = $usuario; 
-    if ($j == "Fernanando de Souza"){
+   // $j = $usuario; 
+  //  if ($j == "Fernanando de Souza"){
    
     // MODIFICAÇÃO
 
       //id_pedido, produto, numero_pedido, nome, email, cpf, valor, cep, endereco, status
 
-     $sqlChecar = "SELECT cpf FROM pedido WHERE numero_pedido = ? AND nome =  ? and email = ?";
+  //$sqlChecar = "SELECT * FROM pedido WHERE numero_pedido = ? AND nome =  ? and email = ?";
+  $sqlChecar = "SELECT * FROM pedido WHERE  nome =  ? and status = ?  and cpf = ? ";
+
     if(!$stmt = $conexao->prepare($sqlChecar)){
       die("Error prepare" .$conexao->error);
     }
-
-    $stmt->bind_param("sss" ,$numero_pedido,$usuario,$email );
+    
+    $stmt->bind_param("sss" ,$usuario,$status, $cpf );
     $stmt->execute();
     $result = $stmt->get_result();
     //Irá buscar os registros
 
     if($result->num_rows > 0){
-      while ($row = $result-> fetch_assoc()) {
+    while ($row = $result-> fetch_assoc()) {
+            foreach ($row as $key => $value) {
+                    print_r($key . ' :  ' );
+                    print_r($value);
+                    print_r('<br>');
+              }  
+         }
 
-            // print_r('Olá  ' . $j);
-      }
-    // Se não houver resgistros faça...
-     
-  
-   // FIM DA MODIFICAÇÃO 
+     }
+        else{
+          //se não
 
-/*  if(!$stmt = $conexao->prepare("INSERT INTO pedido ( produto, numero_pedido, nome, email, cpf, valor, cep, endereco,status) VALUES (?,?,?,?,?,?,?,?,?)")){
+        echo "sem  dados desse  usuario";
+        }
+
+
+      /*else{
+
+       print_r('erro');
+        ///Se não houver resgistros faça...
+        if(!$stmt = $conexao->prepare("INSERT INTO pedido ( produto, numero_pedido, nome, email, cpf, valor, cep, endereco,status) VALUES (?,?,?,?,?,?,?,?,?)")){
         die("erro prepare:".$conexao->error);}
                       
        if(!$stmt->bind_param("sssssssss", $nome_produto_selecionado,$num_pedido , $usuario, $email,  $numero_cpf , $valor_boleto,  $cp ,$endereco_com , $status )){
@@ -44,20 +59,9 @@
        }
     // Insere normalmente
 
-    */
-  }
-}
-
-  /* else{
-    //se não
-
-         echo "Já existe";
-        }
-      }else{
-
-        print_r('erro');
- }*/
-
+    
+ }
+*/
 
 /*
 

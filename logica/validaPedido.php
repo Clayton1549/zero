@@ -165,9 +165,7 @@
           <div class="form-group">
             <h1 class="text-center text-info">Boleto</h1>
                     
-
-
-               <?php 
+                 <?php 
                     
                       $valor_boleto = $quantidade * $preco;
                     

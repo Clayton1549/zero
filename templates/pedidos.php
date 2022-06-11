@@ -9,8 +9,8 @@
 		 <link rel="stylesheet" href="../css/img.css">
 	     <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
 
-		 
-       </head>
+	 </head>
+	 
      <body>
      	<?php
 	       session_start();
@@ -316,7 +316,7 @@
        
       <?php   include('../templates/footer_b.php');   ?>
 			
-     <script src="../jQuery/jquery.js"></script>
+    <script src="../jQuery/jquery.js"></script>
     <script src="../jQuery/bootstrap.bundle.min.js"></script>
     <script src="../javascript/valida_cpf.js"></script>
 	<script src="../javascript/valida_pedidos.js"></script>
