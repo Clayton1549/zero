@@ -64,7 +64,7 @@ function validaCadastro(){
 
           if (email.value  !=  confirmar.value   ){
           
-           document.getElementById("errosM").innerHTML =   'Campo   email   estão  diferenntes '; 
+           document.getElementById("errosM").innerHTML =   'Campos de  email   estão  diferenntes '; 
           }
            else{
             //  document.getElementById("errosM").innerHTML =   'confirme   email    ok '; 
@@ -113,7 +113,7 @@ function validaCadastro(){
           	 document.getElementById("errosG").innerHTML =   'Campo  número não pode estar vazio  '; 
           }
            else{
-          document.getElementById("errosG").innerHTML =   'nummero  ok '; 
+          document.getElementById("errosG").innerHTML =   'numero  ok '; 
            document.getElementById("errosG").style.color = "green";
           }
            if  (compelemento.value  ===  ''){
