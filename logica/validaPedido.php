@@ -55,14 +55,14 @@
          }
  
               // Inclui o arquivo com a função valida_cpf
-          //include('../logica/valida-cpf.php');
+          include('../logica/valida-cpf.php');
 
              // Verifica o CPF
-         /*  if (valida_cpf( $cpf ) ) {
-             echo "CPF oK";
+           if (valida_cpf( $cpf ) ) {
+             //echo "CPF oK";
             } else {
                echo "<script language='javascript' type='text/javascript'>alert('CPF inválido !');window.location.href='../templates/vendas.php';</script>";
-             }*/
+             }
                 
                       
              echo "<div style='font-size: 22px;' class='container-fluid text-info'>";
@@ -199,12 +199,14 @@
   </div>
 
  
-  <?php  include('verificaPedidos.php'); ?>
+ 
 
  <br><br><br> <br>
-
-
+  
+ <!-- <?php  //include('verificaPedidos.php'); ?>-->
+  <?php  include('verificaPedidos.php'); ?>
   <?php  include('../templates/footer_b.php');     ?>
+
 
   <!-- Copyright -->
   <!-- boostrap javascript -->

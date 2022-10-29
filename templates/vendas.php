@@ -28,10 +28,7 @@
 			Nome 
 			
 		</td>
-           <td align="center">
-			   status
-			
-		</td>
+        
 
 </tr>
 
@@ -43,7 +40,7 @@
 	    // output data of each row
 	    while($row = $result->fetch_row()) {
 			$preco =  $row[0] ;
-		   $_SESSION["preco"]  = $preco;
+		    $_SESSION["preco"]  = $preco;
 
 		 }
 	   
@@ -107,11 +104,11 @@ $resultado = mysqli_query($conexao,$sql);
 	      echo '<div  class="card text-center container" style=" width: 38rem;" id="slideShow">';
 	      echo '</a>';
           echo  '<div class="card-body">';
-          echo   '<h5 class="card-title text-info">Produto á venda preço único</h5>';
-          echo '<p class="text-success"> R$ :  '  . $preco . '.00'  . '</p>';
-		  echo   '<p class="card-text text-danger">Todos os produtos enviadas por nossos internautas são  ilustrativos .</p>';
-		  echo '<p class="text-success">Seu Produto é garantido !  </p>';
-          echo '<a href="pedidos.php?id='.$row['codigo'].
+          echo  '<h5 class="card-title text-info">Produto á venda preço único</h5>';
+          echo  '<p class="text-success"> R$ :  '  . $preco . '.00'  . '</p>';
+		  echo  '<p class="card-text text-danger">Todos os produtos enviadas por nossos internautas são  ilustrativos .</p>';
+		  echo  '<p class="text-success">Seu Produto é garantido !  </p>';
+          echo  '<a href="pedidos.php?id='.$row['codigo'].
 	'"   class="btn btn-primary ">Comprar  </a>';  
 
           echo  ' </div>';
@@ -129,14 +126,6 @@ $resultado = mysqli_query($conexao,$sql);
 	      <?php echo $row['nome_imagem']; ?>
 
 	    </td>
-
-  
-
-      <td align="center">
-	  
-	      <?php echo  $codigo;  ?>
-
-      </td>
 
     </tr>
 

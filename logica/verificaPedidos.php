@@ -28,47 +28,15 @@
                                  alert('Compra  cadastrada !');
                               </script>";  
 
-                    }
+                     }
              
                 } catch(Exception $e) {
-                    print_r("Cadastro em andamento...!");
+                    print_r("<h4 class='text-info'>Cadastro em andamento...!</h3>");
               }
 
             
          
 
-           /*  try {
-                 //$rand = rand(0, 3);
-
-                 $error = 'exception';
-                 $ok = '-?sdsdsd';
-                 $quem = '-asasa';
-
-                 $rand = $quem;
-                
-                 switch($rand) {
-                 // case 0: throw new Exception();
-                 // case 1: throw new OutOfBoundsException();
-                 // case 2: throw new LogicException();
-
-                  case $error: throw new Exception();
-                  case $ok : throw new OutOfBoundsException();
-                  case $quem: throw new LogicException();
-                  
-                
-
-              }
-
-              } catch(OutOfBoundsException $e) {
-                echo "Caught an out of bounds exception";
-              } catch(LogicException $e) {
-                echo "Caught a logic exception";
-              } catch(Exception $e) {
-                echo "Caught an ordinary exception";
-              }
-
-           print_r($rand);  */
-           
           
 ?>
 
