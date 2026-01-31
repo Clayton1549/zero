@@ -73,7 +73,7 @@
 
 
 
-$sql = 'SELECT  codigo,imagem,descricao,nome_imagem FROM imagens LIMIT  4 ';
+$sql = 'SELECT  codigo,imagem,descricao,nome_imagem FROM imagens LIMIT  14 ';
 
 
 $resultado = mysqli_query($conexao,$sql);

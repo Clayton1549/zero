@@ -173,6 +173,7 @@
 							  	 	             <input type='number' name='quantidade>9' id='quantidade>9' placeholder='Digite a quantidade...' max='$quantidade' > 
 							  	 	             <legend class='text-info'>Tudo certo ? </legend>
 							  	 	             <button id='conf' class='btn btn-primary'>Confirmar</button>
+
 							  	 	         
 			  	 	                	</div>";
 			  	 	           } ?>
@@ -195,8 +196,7 @@
 
 			 	 </div>
 
-
-			 	<div class="form-group ">
+              <div class="form-group ">
 			    <label for="Nome">Nome Completo</label>
 			    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
 			  </div>
@@ -307,14 +307,17 @@
 			  </div>
 			
 			    <button id="btconfirma" onclick="myFunction()" name="btconfirma" type="submit" class="btn btn-primary">Proximo</button>
-			
+			    <button style="background:rgba(340,340,340,0.1);color:salmon; " class="btn btn-primary"> <a href="vendas.php" > Cancelar</a></button>
+			    </form>
+
+			   
 			   <br><br><br>
-			  </form>
+			  
 			 </div>
 			<br>
 
        
-      <?php   include('../templates/footer_b.php');   ?>
+    <?php   include('../templates/footer_b.php');   ?>
 			
     <script src="../jQuery/jquery.js"></script>
     <script src="../jQuery/bootstrap.bundle.min.js"></script>

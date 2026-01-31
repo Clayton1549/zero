@@ -11,9 +11,8 @@
 </head>
 <body>
 
- 
 <nav  class="navbar  bg-dark navbar-dark  navbar-expand-lg ">
-	<a class="navbar-brand"  href="../templates/index.php"><img src="../images/logo_b.jpg" alt="clayton"></a>
+	<a class="navbar-brand"  href="../index.php"><img src="../images/logo_b.jpg" alt="clayton"></a>
 	   <!-- menu sanduich -->
 	   <button class="navbar-toggler" data-toggle="collapse" data-target="#menu" >
 	   	<span class="navbar-toggler-icon"></span>

@@ -11,7 +11,7 @@ session_start();
 			print_r("<br>");
 			 if (!filter_var($usuario, FILTER_VALIDATE_EMAIL)) {
 
-						   die(" Digite  um    um email valído");
+						   die(" Digite  um  email valído");
 						  }
 			print_r("<br>");
 

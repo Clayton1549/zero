@@ -31,6 +31,7 @@
                      }
              
                 } catch(Exception $e) {
+                   
                     print_r("<h4 class='text-info'>Cadastro em andamento...!</h3>");
               }
 

@@ -18,12 +18,12 @@
 
 			        <ul class="list-unstyled " >
 			          <li>
-			          	<img src="..\images\icones\facebook.png" width="30px" alt="faceboock">
+			          	<img src="images\icones\facebook.png" width="30px" alt="faceboock">
 			            <a href="http:/www.facebook.com/clayton.pereira.5688"  target ="_blank" class="text-light">Facebook</a>
 			          </li>
 			          <br>
 			           <li>
-			          	<img src="..\images\icones\twitter.png" width="30px" alt="twitter">
+			          	<img src="images\icones\twitter.png" width="30px" alt="twitter">
 			            <a href="https://twitter.com/clayton1549" target="_blank" class="text-light">Twitter</a>
 			          </li>
 			                
@@ -45,13 +45,13 @@
 
 			        	  <li>
 			         
-			          	<img src="..\images\icones\instagram.png" width="30px" alt="instagran">
+			          	<img src="images\icones\instagram.png" width="30px" alt="instagran">
 			            <a href="https://www.instagram.com/clayton.pereira.5688/"  target="_blank" class="text-light">Instagram</a>
 			              </li>
 			              <br>
 			              <li>
 			          <li>
-			          	<img src="..\images\icones\linkedin.png" width="30px" alt="linkedin">
+			          	<img src="images\icones\linkedin.png" width="30px" alt="linkedin">
 			            <a href="https://www.linkedin.com/in/clayton-pereira-de-oliveira-9b3a14159" target = "_blank"  class="text-light">Likedin</a>
 			          </li>
 
@@ -73,7 +73,7 @@
 			        <ul class="list-unstyled">
 			        
 			           <li>
-			          	<img src="..\images\icones\github.png" width="30px" alt="github">
+			          	<img src="images\icones\github.png" width="30px" alt="github">
 			            <a href="https://github.com/Clayton1549" target="_blank" class="text-light">Github</a>
 			          </li>
                         <br>
