@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
 		<title>Vendas</title>
-		<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-         <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
+		<link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
 		 <link rel="stylesheet" href="../css/img.css">
 	     <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
 
@@ -14,17 +12,14 @@
      <body>
      	<?php
 	       session_start();
-	        
-	    	   require('../logica/include_bd.php');
-	       
-	        ?>
+	       require('../logica/include_bd.php');
+	     ?>
 
 	    	<div class="container text-center">
 	     		        
-	     		        <h1 class="text-info">Tela cadastro de pedidos   </h1>
+	     		        <h1 class="text-info">Tela cadastro de pedidos</h1>
 	                  
-
-	                </div>
+	           </div>
 
 	           <hr>
         
@@ -116,10 +111,7 @@
               
               </div>
 			     
-			      
-
-
-			  </div>
+		</div>
 			  <div class="col-md-3">
               
 			  	 <h4 class="text-success">  Quantidade em estoque :  <?php  echo  $quantidade;  ?>  </h4>  
@@ -176,34 +168,33 @@
 
 							  	 	         
 			  	 	                	</div>";
-			  	 	           } ?>
+			  	 	         } ?>
 
                	  </div>
-            </div>
-
-            
-          
-		 </div>	 
+             </div>
+         </div>	 
 		 	 <br><br><br>
 
             <div class="container border border-primary bg-light">
-			 	<h1>Formulario pedido</h1>
-			 <form   id="val_pedidos" class="was-validated" method="post" action="../logica/validaPedido.php"   >
+			 	<h1 class="text-info">Formulario pedido</h1>
+			 <form  id="val_pedidos" class="was-validated" method="post" action="../logica/validaPedido.php"   >
 
 			 	<div class="form-group ">
 
-			 		<?php echo " <input   class='form-control' type='hidden' name='nome_produto' id='nome_produto' value=' $nomeImagem ''> "; ?>
+			 		<?php echo " <input  class='form-control' type='hidden' name='nome_produto' id='nome_produto' value=' $nomeImagem ''> "; ?>
 
 			 	 </div>
 
               <div class="form-group ">
 			    <label for="Nome">Nome Completo</label>
-			    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" required>
+			    <input type="text" class="form-control" id="nome" name="nome" maxlength="100" placeholder="Digite seu nome" required>
 			  </div>
 
 			  <div class="form-group">
+			  <div class="form-group col-md-3 ">
 			    <label for="">CPF</label>
-			    <input type="text"  class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
+			    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" maxlength="15" required>
+			    </div>
 			  </div>
 			  <div class="form-row">
 			    <div class="form-group col-md-6 ">
@@ -216,7 +207,7 @@
 			    </div>
 			  </div>
 			 
-			 <legend>Endereço:</legend>
+			   <legend>Endereço:</legend>
 			   <div class="form-group col-md-3">
 			      <label for="cep">CEP</label>
 			      <input type="text" class="form-control" id="cep" name="cep" required>
@@ -224,7 +215,7 @@
 			     <div class="form-group">
 			    <label for="inputAddress">Bairro</label>
 
-			    <input type="text" class="form-control" id="bairro" name="bairro" placeholder=" Bairro" required>
+			    <input type="text" class="form-control" id="bairro" name="bairro" placeholder=" Bairro" maxlength="100" required>
 			  </div>
 			  <div class="form-group">
 			  
@@ -289,8 +280,8 @@
 			    </div>
 
 			  <div class="form-group col-md-6">
-			      <label for="valor">Pagamento</label>
-                <p  class="text-info" id="valorPg-b" ></p>
+			      <label for="valor">Valor inial de pagamento:</label>
+                  <p class="text-info" id="valorPg-b" ></p>
 			    
                   <?php echo " <input   class='form-control' type='number' name='valorPg-b' id='valorPg-b'  placeholder='Confirme a quantidade...' max='$quantidade' min='1'  required  > "; ?>
               </div>
@@ -317,7 +308,7 @@
 			<br>
 
        
-    <?php   include('../templates/footer_b.php');   ?>
+    <?php  include('../templates/footer_b.php');   ?>
 			
     <script src="../jQuery/jquery.js"></script>
     <script src="../jQuery/bootstrap.bundle.min.js"></script>

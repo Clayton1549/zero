@@ -1,9 +1,6 @@
 <?php  include('../inicio_footer_validacao/autentication_admin.php');  ?>
 
-		
-  <br><br><br>
- 
-
+   <br><br><br>
     <div class="container diplay-5 text-secondary">
         	<h1>Envie um produto.</h1>
          </div>
@@ -86,10 +83,6 @@
 <?php
     
   
-	
-
-
-
 	$sql = "SELECT  codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens  ";
 
 
@@ -97,11 +90,7 @@
 
 
 
-	   
-			  
-
-
-	while($arquivos = mysqli_fetch_array($resultado)){?>
+	      while($arquivos = mysqli_fetch_array($resultado)){?>
 	        <tr  style=>
 			<td align="center">
 			<?php echo $arquivos['codigo']; ?>
@@ -199,8 +188,8 @@
 
            	<?php 
            	
-                // echo $arquivo['NUM'];
-           	    $sql = "SELECT  nome_imagem as quan   FROM  imagens   "  ;
+            /*   // echo $arquivo['NUM'];
+           	   $sql = "SELECT  nome_imagem as quan   FROM  imagens   "  ;
 
                 $result = $conexao->query($sql);
 
@@ -220,9 +209,20 @@
 
 	                  	echo ' ';
 	             }
-       }
+       }*/
+        $sql = "SELECT nome_imagem, COUNT(*) AS quan
+        FROM imagens
+        GROUP BY nome_imagem
+        HAVING COUNT(*) > 1";
 
-}
+             $result = $conexao->query($sql);
+
+                if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                echo "Quantidade: " . $row['quan'] . "<br>";
+                    }
+             } 
+        
            	  
                 /* if($arquivo['nome_imagem'] === "metro.jpg"){
                    
