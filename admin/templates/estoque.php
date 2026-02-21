@@ -1,6 +1,11 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
 <?php  include('../inicio_footer_validacao/autentication_admin.php');  ?>
-
-   <br><br><br>
+ <br><br><br>
     <div class="container diplay-5 text-secondary">
         	<h1>Envie um produto.</h1>
          </div>
@@ -43,8 +48,6 @@
 		<button type="submit" class="btn btn-primary">Enviar</button>
 	  </form>
 	</div>
-
-   
 <br/>
  <h1 style='color:red;text-align: center;'>Produtos cadastradas na  base  de dados</h1> 
 
@@ -68,29 +71,24 @@
 			Tamanho
 		</td>
 
-		
-	 
-     <!-- <td align="center">
-      	Quantidade
-		
-		</td>-->
-
-         <td align="center">
+	  <td align="center">
             Excluir imagem
 			
 		</td>
 	</tr>
-<?php
-    
-  
-	$sql = "SELECT  codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens  ";
-
-
+ <?php
+    $sql = "SELECT  codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens  ";
     $resultado = mysqli_query($conexao,$sql);
-
-
-
-	      while($arquivos = mysqli_fetch_array($resultado)){?>
+    function formatTamanho($bytes) {
+             	if($bytes >=  1024 * 1024) {
+             		return round($bytes / (1024 * 1024),2) . " MB";
+             	}else if($bytes >= 1024){
+             		return round($bytes / 1024, 2) . " KB";
+             	}else {
+             		return $bytes . " bytes";
+             	}
+             }
+    while($arquivos = mysqli_fetch_array($resultado)){?>
 	        <tr  style=>
 			<td align="center">
 			<?php echo $arquivos['codigo']; ?>
@@ -108,184 +106,65 @@
 			<?php echo $arquivos['nome_imagem']; ?>
 			</td>
 			<td align="center">
-			<?php echo $arquivos['tamanho_imagem']; ?>
+			<?php 
+             
+			 echo formatTamanho($arquivos['tamanho_imagem']); ?>
 			</td>
 		
-
-	       
-
-
-	  <td align="center">
+       <td align="center">
 		<?php   echo '<a href="../estoque/excluir_imagem.php?id='.$arquivos['codigo'].
 		'">Excluir   </a>'; "<br/>"   ?>
 
          </td>
-
-
-	</tr>	
+     </tr>	
  
 <?php } ?>
 
 </table>
-
-
-
-
 <table class="table container" border="1">
-	
-	<tr>
+	  <tr>
 		<td align="center">
 			codigo/id
-			
-		</td>
+	  </td>
 		<td align="center">
 			Produto
-			
 		</td>
 		<td align="center">
 			Quantidade/estoque
-			
-		  </td>
+		</td>
 		</tr>
-
-   	   <div class="container text-center">
+       <div class="container text-center">
 	   <h1 class="text-info">Quantidade em estoque...</h1>
 
 	   <?php
-
-	  // $sql = "SELECT codigo, nome_imagem FROM  imagens WHERE codigo  ";
-	  $sql = " SELECT codigo, nome_imagem, COUNT('codigo') as NUM FROM imagens 
-
-        GROUP BY codigo , nome_imagem  "   ;
-
-     
-      /* ORDER BY nome_imagem  */ 
-
-	  
-       $resultado = mysqli_query($conexao,$sql);
-
-	   
-			
-
-
-	while($arquivo = mysqli_fetch_array($resultado)){?>
-	      
-	        <tr  style=>
-			<td align="center">
-
-               <?php echo $arquivo['codigo'] ?>
-            
-            </td>
-
-
-			<td align="center">
-		    	
-                  <?php echo $arquivo['nome_imagem']; ?>
-            </td>
-
-           <td align="center">
-
-
-           	<?php 
-           	
-            /*   // echo $arquivo['NUM'];
-           	   $sql = "SELECT  nome_imagem as quan   FROM  imagens   "  ;
-
-                $result = $conexao->query($sql);
-
-	            if ($result->num_rows > 0) {
-	                // output data of each row
-	             while($row = $result->fetch_assoc()) {
-	         
-	             
-	               if ($row["quan"] == $arquivo['nome_imagem'] ){
-	                
-                        
-                        echo   ' / ' . $arquivo[1][0]   . count($row);
-                       
-
-                      	
-	                } else {
-
-	                  	echo ' ';
-	             }
-       }*/
-        $sql = "SELECT nome_imagem, COUNT(*) AS quan
+        $sql = "SELECT codigo,nome_imagem, COUNT(*) AS quan
         FROM imagens
         GROUP BY nome_imagem
-        HAVING COUNT(*) > 1";
+        HAVING COUNT(*) >= 1";
 
-             $result = $conexao->query($sql);
-
-                if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                echo "Quantidade: " . $row['quan'] . "<br>";
-                    }
-             } 
+         $resultado = mysqli_query($conexao,$sql);
         
-           	  
-                /* if($arquivo['nome_imagem'] === "metro.jpg"){
-                   
-                      echo "1";
-                
-                  }else{
-                  
-                  	echo 'j';
-                 
-                  }
-
-                  */
-
-           
-               ?>
-           	
-             	
-          
-          <?php
-           
-	           /*	if($arquivo['nome_imagem']  =  1){
-
-	                $quan +=  $arquivo['nome_imagem'];
-
-	           		echo $quan;
-	           	}
-
-	           	else{
-
-	           		echo 'n';
-	           	}*/
-           	
-            ?>
-
-
-			
-	     	</td>
-			
-			
-
-	       
-
-	      </tr>	
- 
-        <?php } ?>
+        while($arquivo = mysqli_fetch_array($resultado)){?>
+	         <tr>
+			<td align="center">
+				<?php echo $arquivo['codigo'] ?>
+             </td>
+            <td align="center">
+		    	<?php echo $arquivo['nome_imagem']; ?>
+            </td>
+          <td align="center">
+        	<strong><?php  echo  $arquivo['quan'];  ?></strong>
+          </td>
+	   </tr>	
+     <?php } ?>
 
       </table>
-
-
-	</div>
-
-<br><br><br>
-
-
-       
-			<script src="../../jQuery/jquery.js"></script>
-	        <script src="../../jQuery/bootstrap.bundle.min.js"></script>
-		
-	  <?php  include('..//inicio_footer_validacao/admin_footer.php'); ?>
-
-
-</body>
-
-
+    </div>
+   <br><br><br>
+   <script src="../../jQuery/jquery.js"></script>
+   <script src="../../jQuery/bootstrap.bundle.min.js"></script>
+  <?php  include('..//inicio_footer_validacao/admin_footer.php'); ?>
+ 
+ </body>
 </html>
 

@@ -53,7 +53,7 @@
 	if ($result->num_rows > 0) {
 	     while($row = $result->fetch_row()) {
 			 $codigo =  $row[0] ;
-		    $_SESSION["codigo"]  = $codigo;
+		     $_SESSION["codigo"]  = $codigo;
 
 		 }
 

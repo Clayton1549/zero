@@ -31,8 +31,6 @@ function myFunction() {
   if(TestaCPF(x)  ===   true ){
 
   // document.getElementById("erros1").innerHTML =   'cpf'; 
-
-  
   }else{
 
    document.getElementById("erros1").innerHTML =   'Cpf   invalido '; 
