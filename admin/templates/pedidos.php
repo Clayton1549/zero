@@ -2,8 +2,7 @@
  include('../inicio_footer_validacao/autentication_admin.php'); 
 
  include('../login-logout/include_bd.php');
-
- ?>
+?>
 
 <table class="table" border="1">
    <tr>
@@ -16,7 +15,7 @@
      <td align="center">Valor compra</td>
      <td align="center">Cp</td>
      <td align="center">Pendencias</td>
-    <td align="center">Comfirmar </td>
+     <td align="center">Comfirmar </td>
 </tr>
 
     
@@ -25,9 +24,8 @@
   $sql = "SELECT id_pedido, produto, numero_pedido, nome, email, cpf, valor, cep,status FROM  pedido ";
         $resultado = mysqli_query($conexao,$sql);
 
- while ($row = mysqli_fetch_array($resultado)) {?>   
-
-   <tr class="text-info">Cofirmar" style=>
+ while($row = mysqli_fetch_array($resultado)) {?>   
+    <tr class="text-info">
       <td align="center">
       <?php echo $row['id_pedido']; ?>
     </td>
@@ -65,7 +63,9 @@
     </td>
      <td class="text-primary" align="center">
       <?php  print_r('<br>');
-       echo ' <form action="../login-logout/status.php" method="post" ><button type="submit" class="btn btn-outline-info text-secondary">Cofirmar compra</button> </form>'; 
+        echo "<form action='../login-logout/status.php' method='post' >
+              <input type='hidden' name='idmg' value ='{$row['id_pedido']}' >
+              <button type='submit' class='btn btn-outline-info text-secondary'>Cofirmar compra</button> </form>"; 
        ?>
       </td>
    </tr>
@@ -74,8 +74,8 @@
 </table>
 
 
+<?php include('../inicio_footer_validacao/admin_footer.php');?>
 
-<?php include('..//inicio_footer_validacao/admin_footer.php');?>
 
 		
   

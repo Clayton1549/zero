@@ -69,7 +69,6 @@
 
 
 	  <script>
-   //confirmar   click
-      document.getElementsByTagName("a")[0].click();
+     
     </script>
   
