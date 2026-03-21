@@ -4,44 +4,40 @@
  
      
 	<div class="container border border-primary bg-light">
-	
-	  <p>Seja bem vindo</p>
-	  <div class="container">
-	  	<h1>Atualizar preços</h1>
+	   <h1 class="text-info">Seja bem vindo</h1>
+	   <h3 class="text-primary">Atualizar preços</h3>
 	  	<form action="../precos/actionPreco.php" method="post">
 	  		
 	    	<br><br><br>
-	    	<div class="input-group">
-		    	<p style="color: #2715E9FF; font-size: 20px; "> Insira o novo valor unitário  para os produtos 	<strong style="color:#2808F6FF; font-size: 24px;"> "Sem pontos ou virgulas :   Correto :    100  errado : 100,00" </strong>	 </p>   	
+	    	<div class="text-group">
+		    	<p style="color: #2715E9FF; font-size: 20px; "> Insira um novo valor unitário para os produtos -> <strong style="color:#2808F6FF; font-size: 24px;"> Exemplo: 0.00 </strong></p>   	
 		      </div>
-		    </div>
-              <br><br>
+		     <br>
 		    <div class="input-group">
 		     <div class="input-group-preapend">
 		    	 <span class="input-group-text">R$</span>
 		       </div>
-		    	 <input type="text"  name="preco" class="form-control" maxlength="9" placeholder="Digite o valor">
-		    	 <legend>O valor será atualizado na base de dados</legend>
+		    	 <input class="w-50" type="text" name="preco" class="form-control" maxlength="9" placeholder="Digite o valor" required>
+                 
+               </div>
+               <br>
+               <div>
+		    	    <h3 class="text-primary">O valor será atualizado na base de dados.</h3>
                </div>
    		   <div>
-   		   	<legend></legend>
-   		    <button type="submit" class="btn btn-primary">Atualizar</button>
-   		   <legend></legend>
+   		    <div> 
+   		      <button type="submit" class="btn btn-primary">Atualizar</button>
+   		    </div>
+   		     <br>
    		  </div>
 
-	  	</form>
-	</div>
-
-	 
-		
-         </form>
-	</div>
-	   
-    
-	<script src="../../jQuery/jquery.js"></script>
+	  	 </form>
+	    </div>
+   
+   
+    <script src="../../jQuery/jquery.js"></script>
 	<script src="../../jQuery/bootstrap.bundle.min.js"></script>
-
-	  <?php  include('..//inicio_footer_validacao/admin_footer.php'); ?>
+    <?php  include('..//inicio_footer_validacao/admin_footer.php'); ?>
 
 </body>
 </html>

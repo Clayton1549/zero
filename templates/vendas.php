@@ -2,35 +2,25 @@
         require('../logica/include_bd.php');
 
  ?>
-   <h2 id="textoAcima" class='text-center  text-info'> Produtos ilustrativos enviados por   Internautas</h2>
+   <h2 id="textoAcima" class='text-center  text-info'> Produtos ilustrativos enviados por  Internautas</h2>
    <table id="semItens" class="table" border="1">
-
-	<tr>
+     <tr>
 		<td align="center">
 			Código
-			
-		</td>
-
-		<td align="center">
+	    </td>
+       <td align="center">
 			Imagem
-			
 		</td>
-
-		<td align="center">
-		Preços
-			
+        <td align="center">
+		    Preços
 		</td>
 		<td align="center">
 			Descrição
-			
 		</td>
 		<td align="center">
 			Nome 
-			
 		</td>
-        
-
-</tr>
+     </tr>
 
   <?php
     
@@ -60,7 +50,7 @@
 		
 		} else {
 	      echo "<h1 class='text-center text-primary' > Não temos  nehum produto aqui ainda... </h1>";
-        echo  "<script>;
+          echo  "<script>;
                        alert('Compra  cadastrada !');
                        document.getElementById('semItens').style.display = 'none';
                        document.getElementById('textoAcima').style.display = 'none';
@@ -69,24 +59,16 @@
                </script>";  
 	  }
 
-	
-
-
-
-$sql = 'SELECT  codigo,imagem,descricao,nome_imagem FROM imagens LIMIT  14 ';
-
-
-$resultado = mysqli_query($conexao,$sql);
+	$sql = 'SELECT  codigo,imagem,descricao,nome_imagem FROM imagens LIMIT  14 ';
+    $resultado = mysqli_query($conexao,$sql);
 
    
       // echo "<h2  class='text-center  text-info'> Produtos ilustrativos enviados por   Internautas</h2>";
     
 	
     while ($row = mysqli_fetch_array($resultado)) {?>   
-
-
-    
-  <tr  style=>
+   
+    <tr  style=>
 	<td align="center">
 	<?php echo $row['codigo']; ?>
 	</td>
@@ -105,7 +87,7 @@ $resultado = mysqli_query($conexao,$sql);
 	      echo '</a>';
           echo  '<div class="card-body">';
           echo  '<h5 class="card-title text-info">Produto á venda preço único</h5>';
-          echo  '<p class="text-success"> R$ :  '  . $preco . '.00'  . '</p>';
+          echo  '<p class="text-success"> R$ :  '  . $preco . '</p>';
 		  echo  '<p class="card-text text-danger">Todos os produtos enviadas por nossos internautas são  ilustrativos .</p>';
 		  echo  '<p class="text-success">Seu Produto é garantido !  </p>';
           echo  '<a href="pedidos.php?id='.$row['codigo'].

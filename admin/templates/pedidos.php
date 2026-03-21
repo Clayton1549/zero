@@ -1,9 +1,7 @@
 <?php 
  include('../inicio_footer_validacao/autentication_admin.php'); 
-
  include('../login-logout/include_bd.php');
 ?>
-
 <table class="table" border="1">
    <tr>
      <td align="center">id </td>
@@ -17,8 +15,6 @@
      <td align="center">Pendencias</td>
      <td align="center">Comfirmar </td>
 </tr>
-
-    
 <?php
 
   $sql = "SELECT id_pedido, produto, numero_pedido, nome, email, cpf, valor, cep,status FROM  pedido ";
@@ -58,14 +54,21 @@
       <?php echo $row['cep']; ?>
     </td>
     
-     <td class="text-primary" align="center">
-      <?php echo $row['status']; ?>
+    <td class="text-primary" align="center">
+    
+    <?php echo $row['status']; ?>
     </td>
      <td class="text-primary" align="center">
-      <?php  print_r('<br>');
-        echo "<form action='../login-logout/status.php' method='post' >
-              <input type='hidden' name='idmg' value ='{$row['id_pedido']}' >
-              <button type='submit' class='btn btn-outline-info text-secondary'>Cofirmar compra</button> </form>"; 
+      <?php 
+        if($row['status'] != 'Status compra ok' ) {
+        
+         echo "<form action='../login-logout/status.php' method='post'>
+                <input type='hidden' name='idmg' value ='{$row['id_pedido']}'>
+                <button type='submit' class='btn btn-outline-light text-danger'>Cofirmar compra</button> 
+                </form>"; 
+            } else {
+             //echo "";
+            }
        ?>
       </td>
    </tr>

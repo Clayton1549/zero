@@ -232,7 +232,7 @@
          <div class="form-group">
 			    <label for="">Compelemento</label>
 
-			    <input type="text" class="form-control" id="compelemento" name="compelemento" placeholder=" Apartameto,Bloco,etc..."  >
+			    <input type="text" class="form-control" id="compelemento" name="compelemento" placeholder=" Apartameto,Bloco,etc..." >
 			  </div>
 			  <div class="form-group">
 			    <label for="inputReferncia">Referência</label>
@@ -280,10 +280,10 @@
 			    </div>
 
 			  <div class="form-group col-md-6">
-			      <label for="valor">Valor inial de pagamento:</label>
-                  <p class="text-info" id="valorPg-b" ></p>
+			      <label for="valor">Valor inicial de pagamento:</label>
+                  <p class="text-info" id="valorPg-b"></p>
 			    
-                  <?php echo " <input   class='form-control' type='number' name='valorPg-b' id='valorPg-b'  placeholder='Confirme a quantidade...' max='$quantidade' min='1'  required  > "; ?>
+                  <?php echo " <input class='form-control' type='number' name='valorPg-b' id='valorPg-b'  placeholder='Confirme a quantidade...' max='$quantidade' min='1'  required> "; ?>
               </div>
 			     
 			    	
@@ -397,8 +397,8 @@
 			
 			 }
 			else  if(quantidade <= 8 ){
-		      document.getElementById("valorPg").innerHTML = ' R$ :  '  + quantidade * <?php echo $preco; ?> + '.00';
-		      document.getElementById('valorPg-b').innerHTML = ' R$ :  '  + quantidade * <?php echo $preco; ?> + '.00';
+		      document.getElementById("valorPg").innerHTML = ' R$ :  '  + quantidade * <?php echo $preco; ?> 
+		      document.getElementById('valorPg-b').innerHTML = ' R$ :  '  + quantidade * <?php echo $preco; ?>
 		      }
 		      else{
 		       document.getElementById("valorPg").innerHTML =  '';
