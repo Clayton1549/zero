@@ -83,8 +83,8 @@
 	<td align="center">
 	
 	<?php 
-	      echo '<div  class="card text-center container" style=" width: 38rem;" id="slideShow">';
-	      echo '</a>';
+	      echo  '<div  class="card text-center container" style=" width: 38rem;" id="slideShow">';
+	      echo  '</a>';
           echo  '<div class="card-body">';
           echo  '<h5 class="card-title text-info">Produto á venda preço único</h5>';
           echo  '<p class="text-success"> R$ :  '  . $preco . '</p>';

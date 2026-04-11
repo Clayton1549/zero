@@ -51,9 +51,9 @@
 <br/>
  <h1 style='color:red;text-align: center;'>Produtos cadastradas na  base  de dados</h1> 
 
-<table class="table container" border="1">
+<table class="table table table-bordered  border-primary container">
 	
-	<tr>
+	<tr class="bg-primary">
 		<td align="center">
 			Código
 			
@@ -121,8 +121,8 @@
 <?php } ?>
 
 </table>
-<table class="table container" border="1">
-	  <tr>
+<table class="table table-bordered  border-primary  container" >
+	  <tr class="bg-danger">
 		<td align="center">
 			codigo/id
 	  </td>

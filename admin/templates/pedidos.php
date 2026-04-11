@@ -2,11 +2,11 @@
  include('../inicio_footer_validacao/autentication_admin.php'); 
  include('../login-logout/include_bd.php');
 ?>
-<table class="table" border="1">
-   <tr>
-     <td align="center">id </td>
+<table class="table table-bordered border-primary text-light">
+   <tr class="bg-primary">
+     <td align="center">id</td>
      <td align="center">Produto</td>
-     <td align="center">Nunero do pedido</td>
+     <td align="center">Numero do pedido</td>
      <td align="center">Nome</td>
      <td align="center">Email</td>
      <td align="center">Cpf</td>
@@ -64,11 +64,18 @@
         
          echo "<form action='../login-logout/status.php' method='post'>
                 <input type='hidden' name='idmg' value ='{$row['id_pedido']}'>
-                <button type='submit' class='btn btn-outline-light text-danger'>Cofirmar compra</button> 
+                <button type='submit' class='btn btn-outline-primary text-danger'>Cofirmar compra</button> 
                 </form>"; 
-            } else {
-             //echo "";
-            }
+            } else if($row['status'] == 'Status compra ok') {
+              echo "<form action='../estoque/excluirstatus.php' method='post'>
+                    <input type='hidden' name='idmg' value ='{$row['id_pedido']}'>
+                   <button type='submit' class='btn btn-outline-primary text-danger'>Excluir registro</button> 
+                   </form>"; 
+            
+            }else {
+                  echo "Parece que algo está errado !???";
+
+                  }
        ?>
       </td>
    </tr>

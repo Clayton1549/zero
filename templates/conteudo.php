@@ -13,9 +13,6 @@
 
 </head>
 <body>
-
-
-
 <nav  class="navbar  bg-dark navbar-dark  navbar-expand-lg ">
 <a class="navbar-brand"   href="../templates/index.php"><img src="../images/logo_b.jpg" alt="clayton"></a>
 <!-- menu sanduich -->
@@ -41,7 +38,12 @@
  </ul>
  <ul class="navbar-nav ml-auto">
     <li class="nav-item ">
-	   <a class="nav-link" href="../templates/login_h.php"><span class=""></span>Pesquisa </a>
+	  <form class="form-inline">
+			     <div class="input-group">
+			     	<input type="text" name="buscar" placeholder="Buscar" class="form-control">
+			     	<input type="submit" class="btn btn-primary input-group-append">
+			     </div>
+			   </form>
 	 </li>
 	 <li class="nav-item">
 		 <a class="nav-link" href="../logica/logout.php" onclick="if(!confirm(' Tem certeza que quer  fazer   logout   no sistema  ?   ')) return false;">  <span class=""></span> Sair</a></li>
@@ -70,14 +72,7 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['senha'])){
 <br><br><br>		       
 
 <div class="container" id="folha">
-<form  method="post" class="was-validated">
-<legend>Pesquise</legend>
-<input type="text" class="form-control" id="pesquias" placeholder="pesquisa" name="pesquisa" required>
-<br>
-<button type="button" class="btn btn-success">Pesquias</button>
-<br>
 
-</form>
 
 </div>
 

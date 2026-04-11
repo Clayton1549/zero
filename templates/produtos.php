@@ -50,9 +50,9 @@
 <div class="container  text-secondary">
  <h1  style='color:red;text-align: center;'>Produtos cadastradas na  base  de dados</h1> 
 
-<table id="prod_t" class="table" border="1">
+<table id="prod_t" class="table bordered  border-primary " >
 	
-	<tr>
+	<tr class="bg-success">
 		<td align="center">
 			Código
 			
@@ -72,12 +72,7 @@
 		<td align="center">
 			Visualizar imagem
 		</td>
-
-
-       <td align="center">
-			Quantidade
-		</td>
-	</tr>
+     </tr>
 
 
 <?php
@@ -113,13 +108,7 @@
 		<?php echo '<a href="../logica/ver_imagem.php?id='.$arquivos['codigo'].
 		'">Produto : '.$arquivos['nome_imagem'].'</a>';  ?>
 		</td>
-	  
-	  <td align="center">
-		
-
-         </td>
-
-	</tr>	
+	  </tr>	
  
 <?php   }   ?>
 
