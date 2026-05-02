@@ -10,7 +10,14 @@
 
 <link rel="stylesheet" href="../css/img.css">
 <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
+<style>
+  .img-card-fixa {
+  height: 450px;      /* escolha a altura desejada */
+  width: 100%;
+  object-fit: cover;  /* corta a imagem mantendo proporção */
+}
 
+</style>
 </head>
 <body>
 <nav  class="navbar  bg-dark navbar-dark  navbar-expand-lg ">
@@ -71,8 +78,29 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['senha'])){
 ?>
 <br><br><br>		       
 
-<div class="container" id="folha">
-
+   <div class="container" id="folha">
+     <h1 class="text-info">Alguns dos nossos produtos, ou enviados:</h1>
+  
+     <div class="card" style="width: 48rem;">
+    <img class="card-img-top img-thumbnail img-fluid  img-card-fixa" src="../images/20180111_012951_thumb.jpg" alt="imagem de anime" >
+    <div class="card-body">
+    <h5 class="card-title text-info">Item quadro 1</h5>
+    <p class="card-text text-primary">este produto é um quadro anonimo para decoração.</p>
+  </div>
+    <ul class="list-group list-group-flush text-info">
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Quadro</li>
+    <li class="list-group-item">Decoração</li>
+    <li class="list-group-item">Novo</li>
+    <li class="list-group-item">Para</li>
+    <li class="list-group-item">Todo</li>
+    <li class="list-group-item">País</li>
+  </ul>
+  <div class="card-body">
+    <a href="https://duckduckgo.com/?q=qudros+&t=newext&atb=v375-1&ia=images&iax=images" class="card-link" target="_blank">Quadros</a>
+    <a href="https://www.goquadros.com.br/" class="card-link" target="_blank">semelhantes</a>
+     </div>
+  </div>
 
 </div>
 
@@ -80,38 +108,86 @@ if(!isset($_SESSION['user']) && !isset($_SESSION['senha'])){
 
 <div class="container" id="folha">
 
- 
-
-
-
-
-</div>
+ <div class="card" style="width: 48rem; ">
+   <img class="card-img-top  img-thumbnail img-fluid  img-card-fixa" src="../images/download.png" alt="imagem de anime"  >
+  <div class="card-body">
+    <h5 class="card-title text-info">Item 1</h5>
+    <p class="card-text text-primary">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+  </div>
+    <ul class="list-group list-group-flush text-info">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+     </div>
+  </div>
 
 </div>
 
 <br> <br>
+  <div class="container" id="folha">
+    <div class="card" style="width: 48rem; ">
+   <img class="card-img-top  img-thumbnail img-fluid  img-card-fixa" src="../images/distdig02.jpg" alt="imagem de anime"  >
+  <div class="card-body">
+    <h5 class="card-title text-info">Item 1</h5>
+    <p class="card-text text-primary">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+  </div>
+    <ul class="list-group list-group-flush text-info">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+     </div>
+  </div>
 
-	   <div id="folha">
-		
-	   </div>
+   
+   </div>
 		  <br> <br>
 
-	   <div id="folha">
-	   </div>
+     <div class="container" id="folha">
+      <div class="card" style="width: 48rem; ">
+   <img class="card-img-top  img-thumbnail img-fluid  img-card-fixa" src="../images/Boleto_6.jpg" alt="imagem de anime"  >
+  <div class="card-body">
+    <h5 class="card-title text-info">Item 1</h5>
+    <p class="card-text text-primary">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+  </div>
+    <ul class="list-group list-group-flush text-info">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+    <li class="list-group-item">Item</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+     </div>
+  </div>
+
+        
+     </div>
 		
 
 <br><br><br>
 
 <?php
-
-
-
-include("footer.php");
-
-
-
-
-
+  include("footer.php");
 ?>
 
 

@@ -90,7 +90,7 @@ Praesent vulputate eros eget lacus convallis tristique. Donec vitae pretium sapi
 	 <div class="row">
 	  <div class="col-lg-3 col-md-6 col-12">
 	 	<div class="card">
-	 	   <img src="../images/images.jpg" alt="rede">
+	 	   <img src="../images/10325.jpg" alt="rede">
       <div class="card-body">
       	<h5 class="card-title">
       		Mundo conectado 
@@ -105,14 +105,14 @@ Praesent vulputate eros eget lacus convallis tristique. Donec vitae pretium sapi
    </div>
     <div class="col-lg-3 col-md-6 col-12">
       <div class="card ">
-	 	   <img src="../images/images.jpg" alt="rede">
+	 	   <img src="../images/10325.jpg" alt="rede">
       <div class="card-body">
       	<h5 class="card-title">
       		Hoje e sempre
       	</h5>
            <p class="card-text">
-      		Um novo método de entretenimento
-      		o mundo em mudança constantemente
+      		Um dos quadros de exemplo
+      		Veja em nosso mural 
       	  </p>
       	    <a href="#" class="btn btn-primary">Saiba mais</a>
       </div>
@@ -120,15 +120,16 @@ Praesent vulputate eros eget lacus convallis tristique. Donec vitae pretium sapi
 </div>
 <div class="col-lg-3 col-md-6 col-12">
       <div class="card ">
-	 	   <img src="../images/images.jpg" alt="rede">
+	 	   <img src="../images/10325.jpg" alt="rede">
       <div class="card-body">
       	<h5 class="card-title">
       		Novas perspectivas
       	</h5>
 
       		<p class="card-text">
-      		Um novo método de entretenimento
-      		o mundo em mudança constantemente
+      		Um cenário de arte
+      		No mundo inteiro 
+
       	  </p>
       	    <a href="#" class="btn btn-primary">Saiba mais</a>
       </div>
@@ -136,15 +137,15 @@ Praesent vulputate eros eget lacus convallis tristique. Donec vitae pretium sapi
 </div>
 <div class="col-lg-3 col-md-6 col-12">
       <div class="card ">
-	 	   <img src="../images/images.jpg" alt="rede">
+	 	   <img src="../images/10325.jpg" alt="rede">
       <div class="card-body">
       	<h5 class="card-title">
       		Novo mundo
       	</h5>
 
       		<p class="card-text">
-      		Um novo método de entretenimento
-      		o mundo em mudança constantemente
+      		Um novo método
+      	    mundo em equilibrio
       	  </p>
       	    <a href="#" class="btn btn-primary">Saiba mais</a>
       </div>

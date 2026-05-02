@@ -6,7 +6,7 @@
 		
 		       include('../templates/conteudo.php');
 			}
-         else{
+         else {
 			 
 			print_r("<script> var res = alert( 'Faça login para  acessar esse conteúdo !')
                  document.location.href = '../templates/login_h.php';</script>"); 
