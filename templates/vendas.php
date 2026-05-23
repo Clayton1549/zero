@@ -4,7 +4,7 @@
  ?>
    <h2 id="textoAcima" class='text-center  text-info'> Produtos ilustrativos enviados por  Internautas</h2>
    <table id="semItens" class="table" border="1">
-     <tr>
+     <tr class="bg-info" >
 		<td align="center">
 			Código
 	    </td>
