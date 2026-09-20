@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Clayton   site</title>
-<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+<title>Clayton site</title>
   <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
   <link rel="stylesheet" href="../css/img.css">
   <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
@@ -40,7 +39,7 @@
 
 		 <ul class="navbar-nav ml-auto">
 	        <li class="nav-item ">
-	        	<form class="form-inline">
+	        	<form class="form-inline" method="post" action="buscar.php">
 			     <div class="input-group">
 			     	<input type="text" name="buscar" placeholder="Buscar" class="form-control">
 			     	<input type="submit" class="btn btn-primary input-group-append">
@@ -73,16 +72,16 @@ if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true))
        $d = preg_replace('/[-]/' , '/' , $x);
      
        print_r("  <p style ='margin:10px ; color:#0F0A0A'>$d</p>");
-	   echo "  <p   style ='margin:10px ; color:blue'; >      Olá    .$logado;</p>";
+	   echo "  <p   style ='margin:10px ; color:blue'; > Olá    .$logado;</p>";
 
 
 	   echo "<script language='javascript' type='text/javascript'>
 	   setTimeout(function(){
-	    window.location.href='../logica/logout.php';},900000);
+	    window.location.href='../logica/logout.php';},172800000);
 	      </script>";
             	
 
-      } else{
+      } else {
 
        header("Location: index.php");	
 

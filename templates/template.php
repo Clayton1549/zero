@@ -17,7 +17,7 @@
 				  <img src="../images/image.jpeg" alt="1" width="1100" height="500">
 				 <div class="carousel-caption">
 					<h3>Seu Portal</h3>
-					 <p>Bem vindo ao Mundo do   entreterimento</p>
+					 <p>Bem vindo ao Mundo do entreterimento</p>
 				</div>   
 			</div>
 			   <div class="carousel-item">

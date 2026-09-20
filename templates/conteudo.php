@@ -45,7 +45,7 @@
  </ul>
  <ul class="navbar-nav ml-auto">
     <li class="nav-item ">
-	  <form class="form-inline">
+	  <form class="form-inline" method="post" action="buscar.php">
 			     <div class="input-group">
 			     	<input type="text" name="buscar" placeholder="Buscar" class="form-control">
 			     	<input type="submit" class="btn btn-primary input-group-append">
