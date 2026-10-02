@@ -1,45 +1,41 @@
 <!-- topo do site -->
 <!DOCTYPE html>
-
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clayton site</title>
   <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
   <link rel="stylesheet" href="../css/img.css">
   <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
+</head>
+<body>
 
-    </head>
-
-   <body>
-
-<nav  class="navbar  bg-dark navbar-dark  navbar-expand-lg ">
-<a class="navbar-brand"   href="../templates/index.php"><img src="../images/logo_b.jpg" alt="clayton"></a>
+ <nav  class="navbar  bg-dark navbar-dark  navbar-expand-lg ">
+  <a class="navbar-brand" href="../templates/index.php"><img src="../images/logo_b.jpg" alt="logo clayton"></a>
 	   <!-- menu sanduich -->
-	   <button class="navbar-toggler" data-toggle="collapse" data-target="#menu" >
+	   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu">
 	   	<span class="navbar-toggler-icon"></span>
 	   </button>
-           <div id="menu" class="collapse navbar-collapse">
-
-		 <ul class="navbar-nav ml-4 ">
-	       
-	        <li class="nav-item">
+          <div id="menu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ">
+	       <li class="nav-item">
 			  <a class="nav-link active" href="../templates/template.php">Inicio</a>
 		  </li>
 		  <li class="nav-item"> 
 			  <a class="nav-link" href="../templates/in_conteudo.php">Conteúdo</a>
 		  </li>
 		  <li class="nav-item">
-			  <a class="nav-link" href="../templates/produtos.php">Enviar foto </a>
+			  <a class="nav-link" href="../templates/produtos.php">Enviar foto</a>
 		   </li>
 		    <li class="nav-item">
-			  <a class="nav-link " href="../templates/vendas.php"> Vendas </a>
+			  <a class="nav-link" href="../templates/vendas.php">Vendas</a>
 		   </li>
 		 </ul>
 
 		 <ul class="navbar-nav ml-auto">
 	        <li class="nav-item ">
-	        	<form class="form-inline" method="post" action="buscar.php">
+	        	<form class="form-inline" method="get" action="buscar.php">
 			     <div class="input-group">
 			     	<input type="text" name="buscar" placeholder="Buscar" class="form-control">
 			     	<input type="submit" class="btn btn-primary input-group-append">
@@ -49,29 +45,24 @@
 			 <li class="nav-item">
 				 <a class="nav-link " href="../logica/logout.php" onclick="if(!confirm(' Tem certeza que quer  fazer   logout   no sistema  ?   ')) return false;" >Sair</a>
 			 </li>
-
-			 
-		  </ul>     
+		 </ul>     
      </div>
 </nav>
 
 
 
 <?php
-
-//  validar
-
  session_start();
- require('../logica/include_bd.php');
+  require('../logica/include_bd.php');
 
-if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
+  if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
       
 	   $logado = $_SESSION['user'];
        date_default_timezone_set('America/Sao_Paulo');
 	   $x =  $_SESSION["inicio"]  = date(" d-m-Y H:i");
        $d = preg_replace('/[-]/' , '/' , $x);
      
-       print_r("  <p style ='margin:10px ; color:#0F0A0A'>$d</p>");
+       print_r(" <p style ='margin:10px ; color:#0F0A0A'>$d</p>");
 	   echo "  <p   style ='margin:10px ; color:blue'; > Olá    .$logado;</p>";
 
 

@@ -1,4 +1,4 @@
-<?php    include('../logica/autentica_login.php');     ?>
+<?php  include('../logica/autentica_login.php');     ?>
       <title>Imicio</title>
 
 		<div class="container-fluid text-info display-4">

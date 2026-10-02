@@ -1,9 +1,7 @@
- <?php include('../logica/autentica_login.php'); 
-        require('../logica/include_bd.php');
-
- ?>
-   <h2 id="textoAcima" class='text-center  text-info'> Produtos ilustrativos enviados por  Internautas</h2>
-   <table id="semItens" class="table" border="1">
+ 
+ <?php  include('../logica/autentica_login.php'); ?>
+   <h2 class='text-center  text-info'> Produtos ilustrativos enviados por  Internautas</h2>
+   <table class="table" border="1">
      <tr class="bg-info" >
 		<td align="center">
 			Código
@@ -27,8 +25,7 @@
     $sql = 'SELECT preco FROM adminpreco';
 	$result = $conexao->query($sql);
 	if ($result->num_rows > 0) {
-	    // output data of each row
-	    while($row = $result->fetch_row()) {
+	   while($row = $result->fetch_row()) {
 			$preco =  $row[0] ;
 		    $_SESSION["preco"]  = $preco;
 
@@ -38,12 +35,12 @@
 	    echo "0 results";
 	}
 
-    $sql = 'SELECT codigo FROM imagens ';
+    $sql = 'SELECT codigo FROM imagens';
 	$result = $conexao->query($sql);
 	if ($result->num_rows > 0) {
 	     while($row = $result->fetch_row()) {
-			 $codigo =  $row[0] ;
-		     $_SESSION["codigo"]  = $codigo;
+			 $codigo =  $row[0];
+		     $_SESSION['codigo'] = $codigo;
 
 		 }
 
@@ -59,33 +56,27 @@
                </script>";  
 	  }
 
-	$sql = 'SELECT  codigo,imagem,descricao,nome_imagem FROM imagens LIMIT  14 ';
+	$sql = 'SELECT codigo,imagem,descricao,nome_imagem FROM imagens LIMIT 14';
     $resultado = mysqli_query($conexao,$sql);
 
-   
-      // echo "<h2  class='text-center  text-info'> Produtos ilustrativos enviados por   Internautas</h2>";
-    
-	
     while ($row = mysqli_fetch_array($resultado)) {?>   
    
-    <tr  style=>
+    <tr>
 	<td align="center">
 	<?php echo $row['codigo']; ?>
 	</td>
-
 	<td align="center">
-	<?php echo   $img_template = '<img src="data:image/jpg;base64,'. base64_encode($row[1]) . '" alt= "produtos" width="600" height="200" />';
+	<?php echo   $img_template = '<img src="data:image/jpg;base64,'. base64_encode($row['imagem']) . '" alt= "produtos" width="600" height="200">';
 
           ?>
-
-	</td>
+          
+      </td>
 
 	<td align="center">
 	
 	<?php 
-	      echo  '<div  class="card text-center container" style=" width: 38rem;" id="slideShow">';
-	      echo  '</a>';
-          echo  '<div class="card-body">';
+	      echo  '<div  class="card text-center container" style=" width: 38rem;">';
+	      echo  '<div class="card-body">';
           echo  '<h5 class="card-title text-info">Produto á venda preço único</h5>';
           echo  '<p class="text-success"> R$ :  '  . $preco . '</p>';
 		  echo  '<p class="card-text text-danger">Todos os produtos enviadas por nossos internautas são  ilustrativos .</p>';

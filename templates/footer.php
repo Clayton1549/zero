@@ -5,7 +5,8 @@
       <footer  id="contato" class="page-footer font-small  text-light bg-dark ">
 
       	 <!-- Footer Links -->
-			  <div class="container text-center text-md-left">
+			 <!-- <div class="container text-center text-md-left">-->
+			 	<div class="container-fluid text-center text-md-left">
 
 			    <!-- Grid row -->
 			    <div class="row">
@@ -49,15 +50,13 @@
 			            <a href="https://www.instagram.com/clayton.pereira.5688/"  target="_blank" class="text-light">Instagram</a>
 			              </li>
 			              <br>
-			              <li>
+			             <!-- <li> -->
 			          <li>
-			          	<img src="../images\icones\linkedin.png" width="30px" alt="linkedin">
+			          	<img src="../images/icones/linkedin.png" width="30px" alt="linkedin">
 			            <a href="https://www.linkedin.com/in/clayton-pereira-de-oliveira-9b3a14159" target = "_blank"  class="text-light">Likedin</a>
 			          </li>
 
-			          
-			           
-			      </ul>
+			           </ul>
 
 			      </div>
 			      <!-- Grid column -->
@@ -73,7 +72,7 @@
 			        <ul class="list-unstyled">
 			        
 			           <li>
-			          	<img src="../images\icones\github.png" width="30px" alt="github">
+			          	<img src="../images/icones/github.png" width="30px" alt="github">
 			            <a href="https://github.com/Clayton1549" target="_blank" class="text-light">Github</a>
 			          </li>
                         <br>
