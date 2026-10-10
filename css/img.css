@@ -1,24 +1,25 @@
 .bg-img{
-			padding: 120px 0;
-			background-image: url('../images/imagem2.jpg');
-			background-size: cover !important;
-			background-position: center right;
-			background-repeat: no-repeat;
-			background-attachment: fixed;
+    padding: 120px 0;
+	background-image: url('../images/imagem2.jpg');
+	background-size: cover !important;
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
 
+/* Make the image fully responsive */
+.carousel-inner img {
+	width: 100%;
+    height: 600px;
+   }
+   /*cards*/
+#couse {
+   padding: 80px 0;
+}
+.cardImagem {
+  height: 150px;
+}
 
-	     	}
-
-	     	
-             /* Make the image fully responsive */
-			  .carousel-inner img {
-				  width: 100%;
-				  height: 600px;
-			  }
-            
-              /* crds*/
-                
-              #couse{
-              	padding: 80px 0;
-
-              }
+.imagemIndex {
+  height: 600px;
+}
