@@ -1,6 +1,7 @@
  
- <?php  include('../logica/autentica_login.php'); ?>
+ <?php  include '../logica/autentica_login.php'; ?>
    <h2 class='text-center  text-info'> Produtos ilustrativos enviados por  Internautas</h2>
+   <div class="table-responsive">
    <table class="table" border="1">
      <tr class="bg-info" >
 		<td align="center">
@@ -103,24 +104,14 @@
     </tr>
 
      <?php } ?>
-</table>
-     
-
-  <!--  <button class='btn btn-outline-info' id="carregando">Carregar mais itens</button> -->
-        
-   <br><br><br><br>
-   <?php  include('../templates/footer_b.php');     ?>
-
-
-   <!-- boostrap javascript -->
-	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
-	<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
-	<script src="../jQuery/jquery.js"></script>
+ </table>
+</div>
+    
+    <br><br><br><br>
+    <?php  include('../templates/footer_b.php'); ?>
+    <script src="../jQuery/jquery.js"></script>
 	<script src="../jQuery/bootstrap.bundle.min.js"></script>
 
-	
-
-</body>
+	</body>
 </html>
 

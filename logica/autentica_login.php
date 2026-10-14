@@ -1,6 +1,7 @@
 <?php 
- session_start();
-
+ if(session_status() === PHP_SESSION_NONE) {
+ 	session_start();
+ }
  if( !isset($_SESSION["user"]) || !isset($_SESSION["senha"])) {
  	header("Location:../index.php");
  	exit;
@@ -15,6 +16,7 @@
   <title>Site clayton</title>
   <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
   <link rel="stylesheet" href="../css/img.css">
+  <link rel="stylesheet" href="../css/folha.css">
   <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
 </head>
 <body>
@@ -58,8 +60,7 @@
 </nav>
 
 <?php
-    //require_once __DIR__ . '/../logica/include_bd.php';
-    include "../logica/include_bd.php";
+    require_once __DIR__ . '/../logica/include_bd.php';
     $logado = $_SESSION['user'];
     date_default_timezone_set('America/Sao_Paulo');
 	$x =  $_SESSION["inicio"] = date(" d-m-Y H:i");
@@ -71,24 +72,6 @@
 	    window.location.href='../logica/logout.php';},172800000);
 	      </script>";
  
-  /*session_start();
-  include '../logica/include_bd.php';
-  
-  if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
-     $logado = $_SESSION['user'];
-     date_default_timezone_set('America/Sao_Paulo');
-	 $x =  $_SESSION["inicio"]  = date(" d-m-Y H:i");
-     $d = preg_replace('/[-]/' , '/' , $x);
-     echo "<p style ='margin:10px ; color:#0F0A0A'>$d</p>";
-	 echo "  <p style ='margin:10px ; color:blue'; > Olá .$logado;</p>";
-     echo "<script language='javascript' type='text/javascript'>
-	   setTimeout(function(){
-	    window.location.href='../logica/logout.php';},172800000);
-	      </script>";
-     } else {
-       header("Location: ../index.php");	
-
-     }*/
   ?>
 
       
