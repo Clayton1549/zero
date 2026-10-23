@@ -25,7 +25,7 @@
                     $resultado = $conexao;
                    
                     echo  "<script>;
-                                 alert('Compra  cadastrada !');
+                                 alert('Compra cadastrada !');
                               </script>";  
 
                      }

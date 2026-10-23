@@ -3,7 +3,6 @@ function TestaCPF(strCPF) {
     var Resto;
     Soma = 0;
   if (strCPF == "00000000000") return false;
-
   for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
   Resto = (Soma * 10) % 11;
 
@@ -19,21 +18,15 @@ function TestaCPF(strCPF) {
     return true;
 }
 
-
-
 function myFunction() {
   //var x = document.getElementById("demo");
-
-
-
-  var x = document.getElementById('cpf').value;
+ var x = document.getElementById('cpf').value;
      
-  if(TestaCPF(x)  ===   true ){
+  if(TestaCPF(x) === true ){
 
   // document.getElementById("erros1").innerHTML =   'cpf'; 
-  }else{
-
-   document.getElementById("erros1").innerHTML =   'Cpf   invalido '; 
+  } else {
+   document.getElementById("erros1").innerHTML = 'Cpf invalido '; 
   // alert(x +   'Cpf   invalido ');
  
   }

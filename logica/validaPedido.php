@@ -1,20 +1,29 @@
-<!DOCTYPE html>
+<?php
+  if(session_start() === PHP_SESSION_NONE) {
+    session_start();
+  } 
+  if(!isset($_SESSION["user"]) || !isset($_SESSION["senha"])) {
+    header("Location:../index.php");
+    exit;
+  }
 
+  require_once __DIR__.'/../logica/include_bd.php';
+?>
+
+<!DOCTYPE html>
 <html>
   <head>
    <meta charset="utf-8">
    
-    <title>Pagamento</title>
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+      <title>Pagamento</title>
+    
        <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
        <link rel="stylesheet" href="../css/img.css">
        <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
          </head>
      <body>
    <?php    
-
-       session_start();
-       require('include_bd.php');
+     
 			if((isset ($_SESSION['user']) == true) and (isset ($_SESSION['senha']) == true)){
 
            $logado = $_SESSION['user'];
@@ -50,19 +59,18 @@
       //validar email 
       if( $email !=  $confirma)
          {
-          echo "<script language='javascript' type='text/javascript'>alert('E-mails não conferem  - digite email e confirme !');window.location.href='../templates/vendas.php';</script>";
+         // echo "<script language='javascript' type='text/javascript'>alert('E-mails não conferem - digite email e confirme !');window.location.href='../templates/vendas.php';</script>";
          
          }
- 
-              // Inclui o arquivo com a função valida_cpf
-          include('../logica/valida-cpf.php');
+         // Inclui o arquivo com a função valida_cpf
+          //include('../logica/valida-cpf.php');
 
              // Verifica o CPF
-           if (valida_cpf( $cpf ) ) {
+          // if (valida_cpf( $cpf ) ) {
              //echo "CPF oK";
-            } else {
-               echo "<script language='javascript' type='text/javascript'>alert('CPF inválido !');window.location.href='../templates/vendas.php';</script>";
-             }
+            //} else {
+              // echo "<script language='javascript' type='text/javascript'>alert('CPF inválido !');window.location.href='../templates/vendas.php';</script>";
+            // }
                 
                       
              echo "<div style='font-size: 22px;' class='container-fluid text-info'>";
@@ -203,16 +211,9 @@
 
  <br><br><br> <br>
   
- <!-- <?php  //include('verificaPedidos.php'); ?>-->
-  <?php  include('verificaPedidos.php'); ?>
+  <?php  // include('verificaPedidos.php'); ?>
   <?php  include('../templates/footer_b.php');     ?>
 
-
-  <!-- Copyright -->
-  <!-- boostrap javascript -->
-  <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
-  <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
 
   <script src="../jQuery/jquery.js"></script>
   <script src="../javascript/valida.js"></script>

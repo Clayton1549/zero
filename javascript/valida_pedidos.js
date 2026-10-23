@@ -1,8 +1,6 @@
 //validação  de  pedidos  por javascript
-
-function validaCadastro(){
-	
-	var nome = document.getElementById('nome');
+function validaCadastro() {
+/*	var nome = document.getElementById('nome');
 	var email = document.getElementById('email');
 	var confirmar = document.getElementById('confirmar');
 	var cep = document.getElementById('cep');
@@ -13,18 +11,12 @@ function validaCadastro(){
 	var referencia =  document.getElementById('referencia');
 	var cidade = document.getElementById('cidade')
 	var  estado  = document.getElementById('estado');
-	//var  valorPg-b  = document.getElementById('valorPg-b');
-
-
-
-	var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	*/
+  /* var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 	//var result = email(filtro);
 	var confir =  document.getElementById('btconfirma');
 
-
-
-
-        confir.addEventListener("click", function() {
+      confir.addEventListener("click", function() {
 		// event.preventDefault();
 		
 		if(nome.value  ===  ''){
@@ -49,28 +41,20 @@ function validaCadastro(){
                 document.getElementById("errosN").innerHTML =   ' '; 
            }
 
-         
-
-          
-         
-            if(nome.value.length  <= 0){
+          if(nome.value.length  <= 0){
 
            	 document.getElementById("errosN").innerHTML =   ''; 
+          }
 
-
-
-
-           }
-
-          if (email.value  !=  confirmar.value   ){
+          if (email.value  !==  confirmar.value   ){
           
-           document.getElementById("errosM").innerHTML =   'Campos de  email   estão  diferenntes '; 
+           document.getElementById("errosM").innerHTML = 'Campos de  email  estão  diferenntes '; 
           }
            else{
             //  document.getElementById("errosM").innerHTML =   'confirme   email    ok '; 
           }
         
-          if  (email.value  ===  ''  &&   email.value  ===   confirmar.value){
+          if  (email.value  ===  ""  &&   email.value  ===   confirmar.value){
           
            document.getElementById("errosB").innerHTML =   'Campo  email não pode estar vazio  '; 
           }
@@ -81,7 +65,7 @@ function validaCadastro(){
 
          
           if  (confirmar.value  ===  ''){
-           document.getElementById("errosC").innerHTML =   'Campo  confirmar  email  não pode estar vazio  '; 
+           document.getElementById("errosC").innerHTML = 'Campo  confirmar  email  não pode estar vazio'; 
           }
            else{
           document.getElementById("errosC").innerHTML =   'cofirmar email  ok '; 
@@ -99,7 +83,7 @@ function validaCadastro(){
           	 document.getElementById("errosE").innerHTML =   'Campo  bairro não pode estar vazio  '; 
           }
            else{
-          document.getElementById("errosE").innerHTML =   'bairro  ok '; 
+           document.getElementById("errosE").innerHTML =   'bairro  ok '; 
            document.getElementById("errosE").style.color = "green";
           }
            if  (logradouro.value  ===  ''){
@@ -155,16 +139,26 @@ function validaCadastro(){
          // }
 
 
-          if(result !=  email.value ){
-
-          	alert("Digite   um email valido");
+          if(result !==  email.value ){
+            //alert("Digite   um email valido");
+            //document.getElementById("errosO").innerHTML = "E-mails estão diferenres";
+            //return false;
           }
 
         
-   });
+   });*/
+
+   let nome = document.forms["validaPedido"]["nome"].value; 
+
+   if(nome.trim() === "") {
+    document.getElementById("errosA").innerHTML = "Campo nome não pode estar vazio"; 
+    alert("campo vazio");
+    return false;
+   }
+   return true;
 }
 
- validaCadastro();
+ //validaCadastro();
 
 
 
