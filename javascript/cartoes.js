@@ -1,14 +1,9 @@
 $(function(){
 
-
- $("#selecionarItem").click(function(event){
+$("#selecionarItem").click(function(event){
    event.preventDefault();
-    
-
-   action =  $('#selecionarItem option:selected').text();
-   
-   
-   if(action === 'Credito'){
+    action =  $('#selecionarItem option:selected').text();
+ if(action === 'Credito'){
       
       $('#credito').css("display","block");
       $('#boleto').css("display","none");

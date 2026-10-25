@@ -1,36 +1,52 @@
 function TestaCPF(strCPF) {
-    var Soma;
-    var Resto;
-    Soma = 0;
-  if (strCPF == "00000000000") return false;
-  for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
-  Resto = (Soma * 10) % 11;
+   
+    strCPF = strCPF.replace(/\D/g, "");
 
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+    if (strCPF.length !== 11) return false;
 
-  Soma = 0;
-    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+    if (/^(\d)\1{10}$/.test(strCPF)) return false;
+    
+    let Soma = 0;
+    let Resto;
+
+    for (let i = 0; i < 9; i++) {
+        Soma += parseInt(strCPF.charAt(i)) * (10 - i);
+    }
+
     Resto = (Soma * 10) % 11;
+    if (Resto === 10) Resto = 0;
 
-    if ((Resto == 10) || (Resto == 11))  Resto = 0;
-    if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+    if (Resto !== parseInt(strCPF.charAt(9))) {
+        return false;
+    }
+
+   Soma = 0;
+
+    for (let i = 0; i < 10; i++) {
+        Soma += parseInt(strCPF.charAt(i)) * (11 - i);
+    }
+
+    Resto = (Soma * 10) % 11;
+    if (Resto === 10) Resto = 0;
+
+    if (Resto !== parseInt(strCPF.charAt(10))) {
+        return false;
+    }
+
     return true;
 }
 
 function myFunction() {
-  //var x = document.getElementById("demo");
- var x = document.getElementById('cpf').value;
-     
-  if(TestaCPF(x) === true ){
+    let cpf = document.getElementById("cpf").value;
+    let mensagem = document.getElementById("erros1");
 
-  // document.getElementById("erros1").innerHTML =   'cpf'; 
-  } else {
-   document.getElementById("erros1").innerHTML = 'Cpf invalido '; 
-  // alert(x +   'Cpf   invalido ');
- 
-  }
-  
+    if (TestaCPF(cpf)) {
+        mensagem.innerHTML = "CPF válido!";
+        mensagem.style.color = "green";
+    } else {
+        mensagem.innerHTML = "CPF inválido!";
+
+    }
 }
  
 

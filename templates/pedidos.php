@@ -166,9 +166,9 @@
 
 	    <div class="container border border-primary bg-light">
 		 <h1 class="text-info">Formulario pedido</h1>
-		<form id="val_pedidos" name="validaPedido" onsubmit="return validaCadastro()"  class="was-validated" method="post" action="../logica/validaPedido.php">
+		<form id="val_pedidos" name="validaPedido" class="was-validated" method="post" action="../logica/validaPedido.php">
         <div class="form-group">
-        <?php echo " <input  class='form-control' type='hidden' name='nome_produto' id='nome_produto' value=' $nomeImagem '> "; ?>
+        <?php echo " <input  class='form-control' type='hidden' name='nome_produto' id='nome_produto' value=' $nomeImagem'> "; ?>
        </div>
            <div class="form-group ">
 			 <label for="Nome">Nome completo</label>
@@ -187,7 +187,7 @@
 		 </div>
 		  <div class="form-group col-md-6">
 			<label for="confirmar">Confirme Email</label>
-			<input type="email" class="form-control" id="confirmar" name="confirmar" placeholder="confirmar email"   required>
+			<input type="email" class="form-control" id="confirmar" name="confirmar" placeholder="confirmar email" required>
 		</div>
 	</div>
 	
@@ -269,9 +269,8 @@
 		  </label>
 		</div>
 	</div>
-	   <!-- <button id="btconfirma" onclick="myFunction()" name="btconfirma" type="submit" class="btn btn-primary">Proximo</button>-->
-	    <button id="btconfirma" name="btconfirma" type="submit" class="btn btn-primary">Proximo</button>
-		<button style="background:rgba(340,340,340,0.1);color:salmon;" class="btn btn-primary"> <a href="vendas.php" > Cancelar</a></button>
+	    <button id="btconfirma" onclick="myFunction()" name="btconfirma" type="submit"  class="btn btn-primary">Proximo</button>
+	    <button style="background:rgba(340,340,340,0.1);color:salmon;" class="btn btn-primary"> <a href="vendas.php" > Cancelar</a></button>
 	</form>
         <br><br><br>
    </div>
