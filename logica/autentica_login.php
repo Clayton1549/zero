@@ -17,11 +17,11 @@
   <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
   <link rel="stylesheet" href="../css/img.css">
   <link rel="stylesheet" href="../css/folha.css">
-  <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
+  <link rel="shortcut icon" href="../images/favicon/favicon.png"> 
 </head>
 <body>
   <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
-  <a class="navbar-brand" href="../templates/index.php">
+    <a class="navbar-brand" href="../templates/template.php">
   	<img src="../images/logo_b.jpg" alt="logo">
    </a>
 	   <!-- menu sanduich -->

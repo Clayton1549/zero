@@ -47,19 +47,19 @@
         $cidade = $_POST["cidade"];
         $quantidade = $_POST["valorPg-b"];
         $preco = $_SESSION["preco"];
-        $nome_produto_selecionado =  $_POST["nome_produto"];
+        $nome_produto_selecionado = $_POST["nome_produto"];
        
-       if( $email !=  $confirma)
+       if( $email != $confirma)
          {
           echo "<script language='javascript' type='text/javascript'>alert('E-mails não conferem - digite email e confirme !');window.location.href='../templates/vendas.php';</script>";
           }
          
           include('../logica/valida-cpf.php');
 
-          if (valida_cpf( $cpf ) ) {
+          if (valida_cpf($cpf) ) {
             } else {
             echo "<script language='javascript' type='text/javascript'>alert('CPF inválido !');window.location.href='../templates/vendas.php';</script>";
-             }
+             } 
                 
             echo "<div style='font-size: 22px;' class='container-fluid text-info'>";
             echo "Produto Selecionado : " . $nome_produto_selecionado;
@@ -106,7 +106,7 @@
 
    <div id="credito" style="display: none;" class="container-fluid border border-info col-lg-6 col-xl-9" >
       <div class="mb-5 mt-5 mr-4 ml-4 pt-4">
-          <form class="was-validated"  method="post" >
+          <form class="was-validated" method="post" action="../templates/concluircartao.php">
             <div class="form-group">
                 <legend class="text-center text-info">Cartão de credito</legend>
                 <input class="form-control" type="text" id="carNome" name="carNome" placeholder="Nome no cartão" required>
@@ -130,17 +130,16 @@
      
      <div id="debito" style="display: none;" class="container-fluid border border-info col-lg-6 col-xl-9">
       <div class="mb-5 mt-5 mr-4 ml-4 pt-4">
-        <form class="was-validated">
+        <form class="was-validated" method="post" action="../templates/concluircartao.php">
           <div class="form-group">
              <legend class="text-center text-info">Cartão de debito</legend>
-             <input class="form-control" type="text" id="carNome-d" name="carNome-d" placeholder="Nome no cartão" required>
+             <input class="form-control" type="text" id="carNome-d" name="debito" placeholder="Nome no cartão ou banco" required>
              <div class="valid-feedback">Ok.</div>
              <div class="invalid-feedback">Preenha com o número do catão.</div>
-
-          </div>
+           </div>
 
          <div class="form-group">
-             <input class="form-control" type="text" id="debito" name="debito" placeholder="Digite o número de cartão " required>
+             <input class="form-control" type="text" id="bandeira" name="bandeira" placeholder="Digite o número de cartão" maxlength="16" required>
              <div class="valid-feedback">Ok.</div>
              <div class="invalid-feedback">Preenha com o número do catão.</div>
            </div>

@@ -175,9 +175,9 @@
 			 <input type="text" class="form-control" id="nome" name="nome" maxlength="100" placeholder="Digite seu nome" required>
 	    </div>
 			<div class="form-group">
-			<div class="form-group col-md-3 ">
+			<div class="form-group">
 			 <label for="">CPF</label>
-			 <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" maxlength="15" required>
+			 <input type="text" class="form-control col-md-3" id="cpf" name="cpf" placeholder="Digite seu CPF" maxlength="15" required>
 		</div>
 	</div>
 		 <div class="form-row">
@@ -192,9 +192,9 @@
 	</div>
 	
 	 <legend>Endereço:</legend>
-	   <div class="form-group col-md-3">
+	   <div class="form-group">
  	    <label for="cep">CEP</label>
-	    <input type="text" class="form-control" id="cep" name="cep" required>
+	    <input type="text" class="form-control col-md-3" id="cep" name="cep" required>
 	</div>
 	    <div class="form-group">
 		 <label for="inputAddress">Bairro</label>
@@ -204,9 +204,9 @@
 	  <label for="inputLogradouro">Rua</label>
         <input type="text" class="form-control" id="logradouro" name="logradouro" placeholder="Rua" required>
 	</div>
-	    <div class="form-group col-md-3">
+	    <div class="form-group">
 		<label for="inputNum">Número</label>
-		<input type="number" class="form-control" id="numero" name="numero" required>
+		<input type="number" class="form-control col-md-3" id="numero" name="numero" required>
 	</div>
         <div class="form-group">
 		 <label for="">Compelemento</label>
