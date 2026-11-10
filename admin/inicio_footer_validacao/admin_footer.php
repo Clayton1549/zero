@@ -1,16 +1,10 @@
-
-    <!-- Footer -->
-	<footer class="page-footer font-small blue">
-
-	  <!-- Copyright -->
-	  <div class="footer-copyright text-center py-3"> © 2020 Copyright: 
-	    <a href="#"> Clayton.com</a>
-	     <?php  print_r(date("d/m/Y"));  ?>
+<footer class="page-footer font-small blue">
+  <div class="footer-copyright text-center py-3"> © 2020 Copyright: 
+   <a href="https://github.com/Clayton1549" rel="noopener noreferrer" target="_blank">Github</a>
+	     <?php echo date("d/m/Y"); ?>
 	  </div>
 	  
-	  <!-- Copyright -->
-
-	</footer>
-	<!-- Footer -->
+   </footer>
+	
 
 

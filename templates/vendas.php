@@ -20,8 +20,8 @@
 			Nome 
 		</td>
      </tr>
-
-  <?php
+   
+   <?php
     
     $sql = 'SELECT preco FROM adminpreco';
 	$result = $conexao->query($sql);

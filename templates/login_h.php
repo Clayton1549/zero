@@ -5,13 +5,13 @@
 <title>Login</title>
   <link href="../bootstrap/bootstrap.min.css"  rel="stylesheet">
   <link rel="stylesheet" href="../css/img.css">
-  <link rel="shortcut icon" href="../images/favicon/favicon.png" /> 
+  <link rel="shortcut icon" href="../images/favicon/favicon.png"> 
 </head>
 <body>
- <nav class="navbar  bg-dark navbar-dark navbar-expand-lg">
+ <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
    <a class="navbar-brand" href="../index.php"><img src="../images/logo_b.jpg" alt="logo"></a>
 	   <!-- menu sanduich -->
-	<button class="navbar-toggler" data-toggle="collapse" data-target="#menu" >
+	<button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
 	  <span class="navbar-toggler-icon"></span>
 	</button>
     <div id="menu" class="collapse navbar-collapse">
@@ -38,7 +38,7 @@
 	   <label for="user">Seu E-mail:</label>
 	   <input type="email" class="form-control" id="user" placeholder="Enter email" name="user" required>
 	 <div class="valid-feedback">Ok.</div>
-	 <div class="invalid-feedback">Por favor preêncha esse campo.</div>
+	  <div class="invalid-feedback">Por favor preêncha esse campo.</div>
 	 </div>
 	 <div class="form-group">
 	  <label for="senha">Sua senha:</label>
@@ -59,7 +59,7 @@
 	</form>
   </div>
 
-   <script src="../jQuery/jquery.js"></script>
+  <script src="../jQuery/jquery.js"></script>
   <script src="../jQuery/bootstrap.bundle.min.js"></script>
 			   
   </body>

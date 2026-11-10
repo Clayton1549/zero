@@ -35,7 +35,7 @@
       <div  class="col-md-3">
        <h4 class="text-success">Vamos Cadastar seu pedido ? </h4>
        <br>
-       <p class="text-info ">Prencha a quantidade e os campos abaixo e clique proximo, forneça as informações de modo correto para que seu pedido seja aprovado o mais breve possível, assim que aprovado o prazo de entrega pode variar de uma semana ate  um mês dependendo da sua localidade.
+       <p class="text-info">Prencha a quantidade e os campos abaixo e clique proximo, forneça as informações de modo correto para que seu pedido seja aprovado o mais breve possível, assim que aprovado o prazo de entrega pode variar de uma semana ate  um mês dependendo da sua localidade.
        </p>
        <p class="text-info">Agradecemos por nos escolher !</p>
       </div>
@@ -98,7 +98,7 @@
     </div>
  </div>
 	  <div class="col-md-3">
-        <h4 class="text-success">Quantidade em estoque:<?php echo $quantidade; ?> </h4>  
+        <h4 class="text-success">Quantidade em estoque:<?php echo $quantidade; ?></h4>  
         <br><br><br>
 	<select class="form-control text-primary" id="selecionadoItem" name="selecionadoItem" style="width: 240px;" >
 	   <option class="select"><?php 
