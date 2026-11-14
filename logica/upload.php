@@ -1,6 +1,5 @@
 <?php
-      
-		require('include_bd.php');
+        require('include_bd.php');
 		
 		$nomeEvento = $_POST['nome_produto'];
 		$descricaoEvento = $_POST['descricao_produto'];
@@ -9,29 +8,22 @@
 		$tipo = $_FILES['imagem']['type'];
 		$nome = $_FILES['imagem']['name'];
 
-		if ( $imagem != "none" )
-		{
-			$fp = fopen($imagem, "rb");
-			$conteudo = fread($fp, $tamanho);
-			$conteudo = addslashes($conteudo);
-			fclose($fp);
-
-		$sql = "INSERT INTO imagens(evento, descricao, nome_imagem, tamanho_imagem, tipo_imagem, imagem) 
-		VALUES ('$nomeEvento', '$descricaoEvento','$nome','$tamanho', '$tipo','$conteudo')";
+		if($imagem != "none")
+		{   
+			$conteudo = file_get_contents($_FILES['imagem']['tmp_name']);
 			
-			if(!mysqli_query($conexao,$sql)){
-				die ("Error print ,Não foi possível salvar a imagem na base de dados" . mysqli_error($conexao));
-			}else{ 
-				echo   "<script>
+     if(!$stmt = $conexao->prepare("INSERT iNTO imagens(evento, descricao, nome_imagem, tamanho_imagem, tipo_imagem, imagem) VALUES(?, ?, ?, ?, ?, ?)")) {
+    	 die("erro prepare:".$conexao->error);}
+      if(!$stmt->bind_param("sssiss", $nomeEvento, $descricaoEvento, $nome, $tamanho, $tipo, $conteudo)) {
+         die("erro bind_param:".$conexao->error);}
+         if(!$stmt->execute()) {
+         	die("erro execute:".$stmt->error);
+         }
+         $stmt->close();
+
+         echo "<script>
 				alert('Registro inserido com sucesso !!!');
                 window.location.href='../templates/produtos.php';
 				    </script>";
-		       
-		       
-		    }
-			 
-		}
-			
-		 
-		
-?>
+			}
+		?>

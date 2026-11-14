@@ -5,7 +5,7 @@
 <title>Admin atualiza preco</title>
   <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="../css/img.css">
-  <link rel="shortcut icon" href="../images/favicon/favicon.png"> 
+  <link rel="shortcut icon" href="../../images/icones/engrenagem.png"> 
 </head>
 <body class="text-center">
 	<div class="container">

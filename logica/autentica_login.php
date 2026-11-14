@@ -22,7 +22,7 @@
 <body>
   <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
     <a class="navbar-brand" href="../templates/template.php">
-  	<img src="../images/logo_b.jpg" alt="logo">
+  	<img src="../images/icones/logo_b.jpg" alt="logo">
    </a>
 	   <!-- menu sanduich -->
 	   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu">

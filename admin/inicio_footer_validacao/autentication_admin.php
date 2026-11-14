@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pagina de inicio</title>
   <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="../css/img.css">
-  <link rel="shortcut icon" href="../images/favicon/favicon.png"> 
+  <link rel="shortcut icon" href="../../images/icones/engrenagem.png"> 
 </head>
  <body>
 	<nav class="navbar bg-info navbar-dark navbar-expand-lg">
-	  <a class="navbar-brand" href="../templates/admimTemplate.php"><img src="../../images/logo_b.jpg" alt="logo"></a>
+	  <a class="navbar-brand" href="../templates/admimTemplate.php"><img src="../../images/icones/logo_b.jpg" alt="logo"></a>
 		<!-- menu sanduich -->
 		<button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
 	      <span class="navbar-toggler-icon"></span>
@@ -29,6 +29,9 @@
 		</li>
           <li class="nav-item">
 			<a class="nav-link" href="pedidos.php">Pedidos</a>
+		 </li>
+		 <li class="nav-item">
+		 	<a class="nav-link" href="../templates/controleUsuario.php">Controle usuário</a>
 		 </li>
 		</ul>
 		 <ul class="navbar-nav ml-md-auto">

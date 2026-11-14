@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-	<meta charset="utf-8">
-</head>
-<body>
 <?php  include "../inicio_footer_validacao/autentication_admin.php"; ?>
  <br><br><br>
     <div class="container diplay-5 text-secondary">
@@ -11,8 +5,7 @@
      </div>
     <div class="container border border-primary bg-light ">
 	  <h1>Selecione uma foto do produto.</h1>
-	  
-	  <form enctype="multipart/form-data" action="../estoque/upload.php" method="post"  class="was-validated">
+	 <form enctype="multipart/form-data" action="../estoque/upload.php" method="post"  class="was-validated">
 	    <input type="hidden" name="MAX_FILE_SIZE" value="99999999"/>
 	
 		<div class="form-group">
@@ -27,9 +20,8 @@
 		  <div class="valid-feedback">Ok.</div>
 		  <div class="invalid-feedback">Por favor preëncha esse campo.</div>
 		</div>
-		
-		 <label>Selecione arquivo</label>
-		  <input type="file" class="form-control"   name="imagem" required>
+		   <label>Selecione arquivo</label>
+		   <input type="file" class="form-control" name="imagem" required>
 		  <div class="valid-feedback">OK.</div>
 		  <div class="invalid-feedback">Selecione uma foto.</div>
 		  <div class="form-group form-check">
@@ -43,8 +35,8 @@
 	  </form>
 	</div>
 <br>
-  <h1 style='color:red;text-align: center;'>Produtos cadastradas na  base  de dados</h1> 
-  <table class="table table table-bordered  border-primary container">
+  <h1 style='color:red;text-align: center;'>Produtos cadastradas na base de dados</h1> 
+  <table class="table table table-bordered border-primary container">
    <tr class="bg-primary">
 	 <td align="center">
 			Código
@@ -66,7 +58,7 @@
 	  </td>
 	</tr>
  <?php
-    $sql = "SELECT codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem  FROM  imagens";
+    $sql = "SELECT codigo,evento,descricao,nome_imagem,tamanho_imagem,imagem FROM  imagens";
     $resultado = mysqli_query($conexao,$sql);
     function formatTamanho($bytes) {
         if($bytes >=  1024 * 1024) {
@@ -95,14 +87,14 @@
 			 <?php echo formatTamanho($arquivos['tamanho_imagem']); ?>
 		    </td>
 		    <td align="center">
-		      <?php   echo '<a href="../estoque/excluir_imagem.php?id='.$arquivos['codigo'].
+		     <?php echo '<a href="../estoque/excluir_imagem.php?id='.$arquivos['codigo'].
 		'">Excluir </a>'; "<br/>" ?>
           </td>
      </tr>	
  
 <?php } ?>
 </table>
- <table class="table table-bordered  border-primary  container">
+ <table class="table table-bordered border-primary container">
 	<tr class="bg-danger">
 	 <td align="center">
 			codigo/id

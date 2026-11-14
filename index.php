@@ -10,7 +10,7 @@
         </head>
     <body>
      <nav class="navbar bg-dark navbar-dark navbar-expand-lg">
-		 <a class="navbar-brand" href="index.php"><img src="images/logo_b.jpg" alt="logo do site"></a>
+		 <a class="navbar-brand" href="index.php"><img src="images/icones/logo_b.jpg" alt="logo do site"></a>
 		   <!-- menu sanduiche -->
 		 <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
 		  <span class="navbar-toggler-icon"></span>

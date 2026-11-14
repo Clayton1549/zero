@@ -1,6 +1,6 @@
 <?php 
- include('../inicio_footer_validacao/autentication_admin.php'); 
- include('../login-logout/include_bd.php');
+ include "../inicio_footer_validacao/autentication_admin.php"; 
+ include "../login-logout/include_bd.php";
 ?>
 <table class="table table-bordered border-primary text-light">
    <tr class="bg-primary">
@@ -13,14 +13,13 @@
      <td align="center">Valor compra</td>
      <td align="center">Cp</td>
      <td align="center">Pendencias</td>
-     <td align="center">Comfirmar </td>
+     <td align="center">Comfirmar</td>
 </tr>
 <?php
+   $sql = "SELECT id_pedido, produto, numero_pedido, nome, email, cpf, valor, cep,status FROM pedido";
+     $resultado = mysqli_query($conexao,$sql);
 
-  $sql = "SELECT id_pedido, produto, numero_pedido, nome, email, cpf, valor, cep,status FROM  pedido ";
-        $resultado = mysqli_query($conexao,$sql);
-
- while($row = mysqli_fetch_array($resultado)) {?>   
+  while($row = mysqli_fetch_array($resultado)) {?>   
     <tr class="text-info">
       <td align="center">
       <?php echo $row['id_pedido']; ?>
@@ -72,10 +71,9 @@
                    <button type='submit' class='btn btn-outline-primary text-danger'>Excluir registro</button> 
                    </form>"; 
             
-            }else {
+            } else {
                   echo "Parece que algo está errado !???";
-
-                  }
+                }
        ?>
       </td>
    </tr>
@@ -83,8 +81,7 @@
   
 </table>
 
-
-<?php include('../inicio_footer_validacao/admin_footer.php');?>
+<?php include "../inicio_footer_validacao/admin_footer.php"; ?>
 
 
 		

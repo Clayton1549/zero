@@ -8,23 +8,21 @@
 	 $nome = $_FILES['imagem']['name'];
     
     if($imagem !== "none") {
-	   $fp = fopen($imagem, "rb");
-	   $conteudo = fread($fp, $tamanho);
-	   $conteudo = addslashes($conteudo);
-	   fclose($fp);
+	   $conteudo = file_get_contents($_FILES['imagem']['tmp_name']);
        
-       $sql = "INSERT INTO imagens(evento, descricao, nome_imagem, tamanho_imagem, tipo_imagem, imagem) 
-		VALUES ('$nomeEvento', '$descricaoEvento','$nome','$tamanho', '$tipo','$conteudo')";
-	   
-	   if(!mysqli_query($conexao,$sql)){
-		  die("Error print ,Não foi possível salvar a imagem na base de dados" . mysqli_error($conexao));
-		} else { 
-		  echo  "<script>
+        if(!$stmt = $conexao->prepare("INSERT INTO imagens(evento, descricao, nome_imagem, tamanho_imagem, tipo_imagem, imagem) VALUES(?, ?, ?, ?, ?, ?)")) {
+            die("erro prepare:".$conexao->error);}
+         if(!$stmt->bind_param("sssiss", $nomeEvento, $descricaoEvento, $nome,$tamanho, $tipo, $conteudo)) {
+            die("erro bind_param:".$conexao->error);}
+            if(!$stmt->execute()) {
+            	die("erro execute:".$stmt->error);
+            }
+
+            $stmt->close();
+	       
+	        echo "<script>
 				  alert('Registro inserido com sucesso !!!');
                   window.location.href='../templates/estoque.php';
 				</script>";
-		       
-		     }
-			 
-		}
+		 }
 	?>
