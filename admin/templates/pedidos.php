@@ -2,9 +2,10 @@
  include "../inicio_footer_validacao/autentication_admin.php"; 
  include "../login-logout/include_bd.php";
 ?>
+<div class="container">
 <table class="table table-bordered border-primary text-light">
    <tr class="bg-primary">
-     <td align="center">id</td>
+     <td align="center">Id</td>
      <td align="center">Produto</td>
      <td align="center">Numero do pedido</td>
      <td align="center">Nome</td>
@@ -78,8 +79,9 @@
       </td>
    </tr>
  <?php } ?>
-  
-</table>
+
+ </table>
+</div>
 
 <?php include "../inicio_footer_validacao/admin_footer.php"; ?>
 

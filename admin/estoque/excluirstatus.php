@@ -1,6 +1,6 @@
 <?php
   include "../../admin/login-logout/include_bd.php";
- empty($_POST["idmg"]) ? header("location:../templates/pedidos.php") : $id = $_POST["idmg"];
+ empty($_POST["idmg"]) ? header("Location:../templates/pedidos.php") : $id = $_POST["idmg"];
 
   echo $id;
 
@@ -11,7 +11,7 @@
     die("Error prepare: " . $conexao->error);
  }
 
-   $stmt->bind_param("i", $id);
+   $stmt->bind_param("i",  $id);
 
   if(!$stmt->execute()){
     die("Erro ao executar: " . $stmt->error);

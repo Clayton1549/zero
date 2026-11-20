@@ -14,8 +14,8 @@
 	<ul style="list-style: none">
 		<li><a class="badge badge-success" href="templates/adminLogin.php">Login</a></li>
 		<li><a class="badge badge-info" href="../templates/login_h.php">Login usuário</a></li>
-		<li><a class="badge badge-primary" href="#">Cadastro</a></li>
-    </ul>
+		<li><a class="badge badge-primary" href="login-logout/cadastro.php">Cadastrar</a></li>
+	</ul>
  </div>
 	<script src="../jQuery/jquery.js"></script>
 	<script src="../jQuery/bootstrap.bundle.min.js"></script>
