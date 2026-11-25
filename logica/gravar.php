@@ -1,65 +1,66 @@
 <?php
-   include 'include_bd.php';
-    session_start();
+   include "include_bd.php";
+   if(
+   	  !isset($_POST["email"]) || 
+      !isset($_POST["senha"]) ||
+      !isset($_POST["confirme"]) ||
+      !isset($_POST["city"])
+      ) {
+         header("Location:../templates/cadastro.php");
+         exit;
+      }
+
+     if(empty($_POST["email"]) || empty($_POST["senha"]) || empty($_POST["city"])) {
+     	die("Digite todos os campos !");
+     }
 	 
-     $usuario = $_POST["email"];
+     $usuario = trim($_POST["email"]);
      $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
-     $cidade = $_POST["City"];
+     $comfirma = $_POST["confirme"];
+     $cidade = $_POST["city"];
    
     if($_POST["senha"] !== $_POST["confirme"]) {
         echo "Senhas diferentes";
         exit;
 	   }
-   if(empty($cidade) || empty($usuario)){
-		die("Digite tosos os campos");
-	    }
-        echo "<br>";
-   if(!filter_var($usuario, FILTER_VALIDATE_EMAIL)) {
-       die("O usuario não é um email valído");
-       }
-     
-        
-     $sql = "SELECT email FROM user ";
-   if(!$stmt = $conexao->prepare($sql)){
-	 die("Error prepare".$conexao->error);}
-     $stmt->execute();
-	 $result = $stmt->get_result();
-     foreach($result as $row) {
-      foreach ($row as $key => $value) {
-		echo "<br>";		 
-                
-      }
-	}
-			
-	if($value === $usuario){
-		echo "<script>
-	           alert('Usuaro já cadastrado em mossa base de dados !!!');
-			   window.location.href='../templates/cadastro.php';
-			  </script>";
-				
-	} else {
-	if(!$stmt = $conexao->prepare("INSERT INTO user (email,senha,cidade) VALUES (?,?,?)")){
-	 die("erro prepare:".$conexao->error);}
-    if(!$stmt->bind_param("sss", $usuario, $senha,$cidade)){
-	 die("erro bind_param:".$conexao->error);}
-	 if(!$stmt->execute()){
-	  die("erro execute:".$conexao->error);
-	   }
-        
-      $resultado = $conexao;
-    if($resultado ){
-	   echo "<script>
-	           alert('Cadastro realizado com sucesso !!!');
-			   window.location.href='../templates/login_h.php';
-			   </script>";
-	   } else {
-	      echo "<script>
-	            alert('Erro ao tentar cadstro !');
-			    window.location.href='../templates/cadastro.php';
-			   </script>";
-	         } 
-	     }
+    if(!filter_var($usuario, FILTER_VALIDATE_EMAIL)) {
+       die("Isto não é um email valído");
+     }
+    
+   $sql = "SELECT email FROM user WHERE email = ?";
 
-      mysqli_close($conexao);
-	
-  ?>
+   if(!$stmt = $conexao->prepare($sql)) {
+   	  die("Erro prepare: " . $conexao->error);
+   }
+   $stmt->bind_param("s", $usuario);
+   $stmt->execute();
+
+   $resultado = $stmt->get_result();
+
+   if($resultado->num_rows > 0) {
+   	  echo "<script> 
+   	         alert('Usuario já cadastrado !');
+   	         window.location.href = '../templates/cadastro.php';
+   	        </script>";
+   	        exit;
+   }
+   
+   $sql = "INSERT INTO user (email, senha, cidade) VALUES(?, ?, ?)";
+   if(!$stmt = $conexao->prepare($sql)) {
+   	die("Erro prepare: " . $conexao->error);}
+   	$stmt->bind_param("sss", $usuario, $senha, $cidade);
+   	if($stmt->execute()) {
+   		echo "<script>
+   		        alert('Cadastro realizado com sucesso !');
+   		        window.location.href = '../templates/login_h.php';
+   		       </script>";
+   	} else {
+   		echo "<script>
+   		        alert('Erro ao tentar cadastro !');
+   		        window.location.href = '../templates/cadastro.php';
+   		        </script>";
+   		  }
+
+   	$stmt->close();
+   	$conexao->close();
+?>

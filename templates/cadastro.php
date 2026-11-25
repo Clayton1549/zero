@@ -35,7 +35,7 @@
   <form method="post" action="../logica/gravar.php" class="was-validated">
 	<div class="form-group">
 	 <label for="email">E-mail:</label>
-	 <input type="text" class="form-control" id="email" placeholder="email" name="email" required>
+	 <input type="text" class="form-control" id="email" placeholder="email" name="email" required >
     <div class="valid-feedback">Ok.</div>
     <div class="invalid-feedback">Preencha esse campo por favor.</div>
 	</div>
@@ -51,13 +51,13 @@
 	  <div class="invalid-feedback">Preencha esse campo por favor.</div>
 		<div class="form-group">
 		  <label for="City">Cidade</label>
-		  <input type="text" class="form-control" id="City" placeholder="cidade" name="City" required>
+		  <input type="text" class="form-control" id="City" placeholder="cidade" name="city" required>
 		  <div class="valid-feedback">Ok.</div>
 		  <div class="invalid-feedback">Preencha esse campo por favor.</div>
 		</div>
 	  <div class="form-group form-check">
 		  <label class="form-check-label">
-			<input class="form-check-input" type="checkbox" name="remember" required> Confime!.
+			<input class="form-check-input" type="checkbox" name="remember" required> Confime!
 			<div class="valid-feedback">Confirmado.</div>
 			<div class="invalid-feedback">Confirme</div>
 		  </label>

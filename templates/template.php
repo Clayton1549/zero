@@ -1,8 +1,8 @@
  <?php include '../logica/autentica_login.php'; ?>
   <div class="container-fluid text-info display-4">
-	 <p class="text-center">Sua Jornada pelo mundo da arte e do digital</p>
+	 <p class="text-center">Sua jornada pelo mundo da arte e do digital</p>
 	</div>
-	<div class="containe-fluid" style="border:solid black 3px; background-color: blue">
+	<div class="container-fluid">
 	 <div id="demo" class="carousel slide" data-ride="carousel">
 	   <ul class="carousel-indicators">
 	    <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -11,10 +11,10 @@
 	  </ul>
 	 <div class="carousel-inner">
 	  <div class="carousel-item active">
-	   <img src="../images/image.jpeg" alt="cidade e digital" width="1100" height="500">
+	   <img src="../images/image.jpeg" alt="cidade digital" width="1100" height="500">
 	  <div class="carousel-caption">
 		 <h3>Seu Portal</h3>
-		 <p>Bem-vindo ao Mundo do digital</p>
+		 <p>Bem-vindo ao mundo digital</p>
 	  </div>   
 	</div>
 	  <div class="carousel-item">
@@ -44,7 +44,7 @@
    <div class="container text-justify">
     <h1 class="text-info">Conteúdo para quem gosta de tecnologia e arte.</h1>
       <p>Este site é experimental e voltado para a arte e a tecnologia. Ele apresenta alguns produtos fictícios destinados aos usuários cadastrados. Vale ressaltar que não se trata de uma loja virtual real.</p>
-	  <p>Feito para testes em servidor, sem quaisquer fins comerciais ou prestação de serviços, ele se apresenta como uma solução experimental de contexto simples e experimental.</p> 
+	  <p>Feito para testes em servidor, sem quaisquer fins comerciais ou prestação de serviços, ele se apresenta como uma solução experimental de contexto simples.</p> 
 	  <p>Seu objetivo é demonstrar o funcionamento do sistema de login e de outras funcionalidades, buscando se aproximar, na medida do possível, de um site de comércio eletrônico real.</p>
    </div>
  <br>
